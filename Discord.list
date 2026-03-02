@@ -1,0 +1,78 @@
+# Discord 主要域名
+DOMAIN-SUFFIX,discord.com
+DOMAIN-SUFFIX,discordapp.com
+DOMAIN-SUFFIX,discordapp.net
+DOMAIN-SUFFIX,discordapp.io
+  
+# Discord 短網址和功能域名
+DOMAIN-SUFFIX,discord.gg
+DOMAIN-SUFFIX,dis.gd
+DOMAIN-SUFFIX,discord.new
+DOMAIN-SUFFIX,discord.media
+DOMAIN-SUFFIX,discord.gift
+DOMAIN-SUFFIX,discord.gifts
+  
+# Discord 開發者和工具域名
+DOMAIN-SUFFIX,discord.dev
+DOMAIN-SUFFIX,discord.tools
+DOMAIN-SUFFIX,discord.design
+DOMAIN-SUFFIX,discord-activities.com
+DOMAIN-SUFFIX,discordactivities.com
+DOMAIN-SUFFIX,discordsays.com
+  
+# Discord 商店和狀態頁面
+DOMAIN-SUFFIX,discord.store
+DOMAIN-SUFFIX,discordmerch.com
+DOMAIN-SUFFIX,discordpartygames.com
+DOMAIN-SUFFIX,discordstatus.com
+DOMAIN-SUFFIX,discord.co
+  
+# Discord CDN 相關
+DOMAIN-SUFFIX,discordcdn.com
+DOMAIN-SUFFIX,discordsez.com
+  
+# 愚人節特殊域名
+DOMAIN-SUFFIX,airhorn.solutions
+  
+# Discord 主要 IP 範圍 (66.22.x.x 段)
+IP-CIDR,66.22.192.0/18,no-resolve
+ 
+# Discord 區域性 IP 範圍
+IP-CIDR,66.22.196.0/22,no-resolve  # 荷蘭
+IP-CIDR,66.22.200.0/22,no-resolve  # 巴西
+IP-CIDR,66.22.204.0/22,no-resolve  # 美國芝加哥
+IP-CIDR,66.22.208.0/22,no-resolve  # 日本東京
+IP-CIDR,66.22.212.0/22,no-resolve  # 美國紐瓦克
+IP-CIDR,66.22.216.0/23,no-resolve  # 俄羅斯莫斯科
+IP-CIDR,66.22.218.0/23,no-resolve  # 香港
+IP-CIDR,66.22.220.0/23,no-resolve  # 新加坡
+IP-CIDR,66.22.222.0/23,no-resolve  # 美國亞特蘭大
+IP-CIDR,66.22.224.0/23,no-resolve  # 美國達拉斯
+IP-CIDR,66.22.226.0/23,no-resolve  # 美國洛杉磯
+IP-CIDR,66.22.228.0/23,no-resolve  # 韓國
+  
+# Discord 小型區域網絡 (/24 段)
+IP-CIDR,66.22.230.0/24,no-resolve  # 美國西雅圖
+IP-CIDR,66.22.231.0/24,no-resolve  # 美國Ashburn
+IP-CIDR,66.22.232.0/24,no-resolve  # 澳洲雪梨
+IP-CIDR,66.22.233.0/24,no-resolve  # 智利聖地亞哥
+IP-CIDR,66.22.234.0/24,no-resolve  # 美國聖荷西
+IP-CIDR,66.22.235.0/24,no-resolve  # 法國巴黎
+IP-CIDR,66.22.236.0/24,no-resolve  # 阿根廷布宜諾斯艾利斯
+IP-CIDR,66.22.237.0/24,no-resolve  # 瑞典斯德哥爾摩
+IP-CIDR,66.22.238.0/24,no-resolve  # 義大利米蘭
+IP-CIDR,66.22.239.0/24,no-resolve  # 印度孟買
+IP-CIDR,66.22.240.0/24,no-resolve  # 南非約翰尼斯堡
+IP-CIDR,66.22.241.0/24,no-resolve  # 西班牙馬德里
+IP-CIDR,66.22.242.0/24,no-resolve  # 阿聯酋杜拜
+IP-CIDR,66.22.243.0/24,no-resolve  # 德國法蘭克福
+IP-CIDR,66.22.244.0/24,no-resolve  # 羅馬尼亞布加勒斯特
+IP-CIDR,66.22.245.0/24,no-resolve  # 美國達拉斯2
+IP-CIDR,66.22.246.0/24,no-resolve  # 巴西2
+IP-CIDR,66.22.247.0/24,no-resolve  # 澳洲雪梨2
+IP-CIDR,66.22.248.0/24,no-resolve  # 日本東京2
+  
+# Discord 其他 IP 範圍
+IP-CIDR,195.62.89.0/24,no-resolve   # 荷蘭
+IP-CIDR,12.129.184.160/29,no-resolve # 美國
+IP-CIDR,64.71.8.96/29,no-resolve
