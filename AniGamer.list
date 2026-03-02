@@ -1,0 +1,33 @@
+DOMAIN,bahamut.akamaized.net
+DOMAIN-SUFFIX,bahamut.com.tw
+DOMAIN-SUFFIX,ani.gamer.com.tw
+DOMAIN-SUFFIX,api.gamer.com.tw
+DOMAIN-SUFFIX,vod.gamer.com.tw
+DOMAIN-SUFFIX,video.gamer.com.tw
+DOMAIN-SUFFIX,ani-vod.gamer.com.tw
+DOMAIN-SUFFIX,ani-video.gamer.com.tw
+DOMAIN-SUFFIX,ani-cdn.gamer.com.tw
+DOMAIN-SUFFIX,p.bahamut.com.tw
+DOMAIN-SUFFIX,s.gamer.com.tw
+IP-CIDR,104.16.181.30/32,no-resolve # AniGamer 具體IP
+IP-CIDR,104.16.182.30/32,no-resolve # AniGamer 具體IP
+
+# 圖片和檔案服務
+DOMAIN-SUFFIX,p1.bahamut.com.tw
+DOMAIN-SUFFIX,p2.bahamut.com.tw
+DOMAIN-SUFFIX,img.gamer.com.tw
+DOMAIN-SUFFIX,image.gamer.com.tw
+DOMAIN-SUFFIX,attachment.gamer.com.tw
+
+# 廣告和統計服務
+DOMAIN-SUFFIX,ads.gamer.com.tw
+DOMAIN-SUFFIX,stat.gamer.com.tw
+DOMAIN-SUFFIX,track.gamer.com.tw
+DOMAIN-SUFFIX,analytics.gamer.com.tw
+  
+# 支付和會員服務
+DOMAIN-SUFFIX,pay.gamer.com.tw
+DOMAIN-SUFFIX,payment.gamer.com.tw
+DOMAIN-SUFFIX,member.gamer.com.tw
+DOMAIN-SUFFIX,login.gamer.com.tw
+DOMAIN-SUFFIX,oauth.gamer.com.tw
