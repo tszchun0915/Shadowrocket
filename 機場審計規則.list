@@ -1,0 +1,84 @@
+# 應該普遍無法Proxy,可以Set死Reject/Direct.
+# BT 相關
+USER-AGENT,qbittorrent
+USER-AGENT,transmission
+USER-AGENT,utorrent
+USER-AGENT,bittorrent
+DOMAIN-KEYWORD,torrent
+DOMAIN-KEYWORD,announce
+DOMAIN-KEYWORD,tracker
+  
+# 法輪功相關網站
+DOMAIN-SUFFIX,dafahao.com
+DOMAIN-SUFFIX,mingjinglive.com
+DOMAIN-SUFFIX,botanwang.com
+DOMAIN-SUFFIX,minghui.org
+DOMAIN-SUFFIX,dongtaiwang.com
+DOMAIN-SUFFIX,falunaz.net
+DOMAIN-SUFFIX,epochtimes.com
+DOMAIN-SUFFIX,ntdtv.com
+DOMAIN-SUFFIX,falundafa.org
+DOMAIN-SUFFIX,falungong.org
+DOMAIN-SUFFIX,wujieliulan.com
+DOMAIN-SUFFIX,zhengjian.org
+DOMAIN-SUFFIX,rfa.org
+DOMAIN-SUFFIX,voachinese.com
+DOMAIN-SUFFIX,soundofhope.org
+DOMAIN-SUFFIX,renminbao.com
+DOMAIN-SUFFIX,aboluowang.com
+DOMAIN-SUFFIX,bannedbook.org
+DOMAIN-SUFFIX,secretchina.com
+DOMAIN-SUFFIX,dajiyuan.com
+DOMAIN-SUFFIX,boxun.com
+DOMAIN-SUFFIX,chinadigitaltimes.net
+DOMAIN-SUFFIX,dwnews.com
+DOMAIN-SUFFIX,creaders.net
+DOMAIN-SUFFIX,oneplusnews.com
+DOMAIN-SUFFIX,epochweekly.com
+DOMAIN-SUFFIX,cn.rfi.fr
+  
+# 政府網站
+DOMAIN-KEYWORD,gov
+DOMAIN-SUFFIX,12377.cn
+DOMAIN-SUFFIX,12315.com
+DOMAIN-SUFFIX,110.qq.com
+DOMAIN-SUFFIX,12321.cn
+DOMAIN-SUFFIX,cyberpolice.cn
+DOMAIN-SUFFIX,efcc.org
+DOMAIN-SUFFIX,zhuichaguoji.org
+DOMAIN-SUFFIX,tuidang.org
+  
+# 百度定位
+DOMAIN-KEYWORD,api.map.baidu
+DOMAIN-KEYWORD,ps.map.baidu
+DOMAIN-KEYWORD,sv.map.baidu
+DOMAIN-KEYWORD,offnavi.map.baidu
+DOMAIN-KEYWORD,newvector.map.baidu
+DOMAIN-KEYWORD,ulog.imap.baidu
+DOMAIN-KEYWORD,newloc.map.baidu
+  
+# 360 相關
+DOMAIN-SUFFIX,360.cn
+DOMAIN-SUFFIX,360.com
+DOMAIN-SUFFIX,so.com
+DOMAIN-SUFFIX,qihoo.com
+DOMAIN-SUFFIX,qhimg.com
+  
+# 迅雷相關
+PROCESS-NAME,thunder
+PROCESS-NAME,xunlei
+DOMAIN-KEYWORD,xunlei
+DOMAIN-KEYWORD,sandai
+DOMAIN-KEYWORD,thunder
+
+# 強制特定端口走代理
+DST-PORT,22      # SSH
+DST-PORT,23      # Telnet  
+DST-PORT,25      # SMTP
+DST-PORT,445     # SMB
+DST-PORT,465     # SMTPS
+DST-PORT,587     # SMTP
+DST-PORT,992     # Telnet over SSL
+DST-PORT,3389    # RDP
+DST-PORT,6881-6999  # BT 端口範圍
+DST-PORT,10000-65535 # 高端口範圍
