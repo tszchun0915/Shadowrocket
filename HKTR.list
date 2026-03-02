@@ -1,8 +1,10 @@
-IP-CIDR,198.18.0.0/24,no-resolve
-IP-CIDR,210.242.202.0/24,no-resolve
 DOMAIN-SUFFIX,talesrunner.com.hk
 DOMAIN-SUFFIX,funtown.com.hk
 # 港跑的藍熊 (好像需要與港跑同一個IP)
 DOMAIN-SUFFIX,datarouter.ol.epicgames.com
 DOMAIN-SUFFIX,modules-cdn.eac-prod.on.epicgames.com
 DOMAIN-SUFFIX,api.epicgames.dev
+DOMAIN-KEYWORD,funtown
+DOMAIN-KEYWORD,trchange
+IP-CIDR,198.18.0.0/24,no-resolve
+IP-CIDR,210.242.202.0/24,no-resolve
