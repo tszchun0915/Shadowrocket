@@ -1,0 +1,283 @@
+# === OpenAI / ChatGPT (香港地區限制) ===
+  
+# OpenAI 核心服務域名
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+  
+# OpenAI CDN 和靜態資源
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN,chat.openai.com.cdn.cloudflare.net
+DOMAIN,openai-api.arkoselabs.com
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+DOMAIN-SUFFIX,openaicom.imgix.net
+  
+# ChatGPT 語音和實時功能
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,turn.livekit.cloud
+  
+# OpenAI 重要域名
+DOMAIN-SUFFIX,openaiusercontent.com
+DOMAIN-SUFFIX,cdn.openai.com
+DOMAIN-SUFFIX,files.oaiusercontent.com
+DOMAIN-SUFFIX,platform.openai.com
+DOMAIN-SUFFIX,api.openai.com
+DOMAIN-SUFFIX,beta.openai.com
+DOMAIN-SUFFIX,labs.openai.com
+DOMAIN-SUFFIX,help.openai.com
+DOMAIN-SUFFIX,status.openai.com
+  
+# === Google Gemini (香港地區限制) ===
+  
+# Gemini 核心服務 (僅AI專用域名)
+DOMAIN,gemini.google.com
+DOMAIN,bard.google.com              # Gemini 前身
+DOMAIN,ai.google.dev                # Google AI Studio
+DOMAIN,makersuite.google.com        # MakerSuite (Gemini 開發)
+DOMAIN,aistudio.google.com          # AI Studio
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,ai.google.dev
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,aistudio.google.com
+  
+# Gemini API 和開發者服務
+DOMAIN,generativelanguage.googleapis.com  # Gemini API
+DOMAIN,ai.googleapis.com            # Google AI API
+DOMAIN,ml.googleapis.com            # 機器學習 API
+DOMAIN,aiplatform.googleapis.com    # AI Platform API
+  
+# DeepMind 相關 (Gemini 開發團隊)
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+  
+# === Google Notebook LM (香港地區限制) ===
+  
+# Notebook LM 專用域名
+DOMAIN,notebooklm.google.com
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,notebooklm.googleusercontent.com
+  
+# Notebook LM API 服務
+DOMAIN,notebooklm-api.googleapis.com
+DOMAIN,notebooklm.googleapis.com
+  
+# === Meta AI (香港地區限制) ===
+  
+# Meta AI 核心服務 (僅AI相關)
+DOMAIN,ai.meta.com
+DOMAIN,meta.ai
+DOMAIN,llama.meta.com
+DOMAIN,ai.facebook.com
+DOMAIN-SUFFIX,ai.meta.com
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,llama.meta.com
+  
+# Meta AI API 和 CDN
+DOMAIN,ai-api.meta.com
+DOMAIN,llama-api.meta.com
+DOMAIN,meta-ai.com
+DOMAIN,metaai.com
+DOMAIN-SUFFIX,ai-cdn.meta.com
+DOMAIN-SUFFIX,ai-static.meta.com
+DOMAIN-SUFFIX,llama-cdn.meta.com
+  
+# === Claude (Anthropic) ===
+  
+# Claude 主要服務
+DOMAIN,claude.ai
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,anthropic.ai
+  
+# Claude API 和服務
+DOMAIN,api.anthropic.com
+DOMAIN-SUFFIX,api.anthropic.com
+DOMAIN,console.anthropic.com
+DOMAIN-SUFFIX,console.anthropic.com
+DOMAIN,docs.anthropic.com
+DOMAIN-SUFFIX,docs.anthropic.com
+  
+# === AI 圖片生成工具 ===
+  
+# DALL-E (OpenAI 旗下，已包含在 OpenAI 規則中)
+DOMAIN,labs.openai.com              # DALL-E 實驗室
+DOMAIN,dalle.openai.com             # DALL-E 專用域名
+  
+# Midjourney
+DOMAIN-SUFFIX,midjourney.com
+DOMAIN-SUFFIX,midjourney.ai
+DOMAIN,www.midjourney.com
+DOMAIN,cdn.midjourney.com
+DOMAIN,api.midjourney.com
+DOMAIN-SUFFIX,mj-gallery.com        # Midjourney 作品廊
+  
+# Stable Diffusion / Stability AI
+DOMAIN-SUFFIX,stability.ai
+DOMAIN-SUFFIX,stabilityai.com
+DOMAIN-SUFFIX,dreamstudio.ai
+DOMAIN,api.stability.ai
+DOMAIN,beta.dreamstudio.ai
+  
+# Adobe Firefly (地區限制)
+DOMAIN-SUFFIX,firefly.adobe.com
+DOMAIN,beta.firefly.adobe.com
+DOMAIN,firefly-api.adobe.com
+  
+# Ideogram
+DOMAIN-SUFFIX,ideogram.ai
+DOMAIN,api.ideogram.ai
+  
+# Leonardo AI
+DOMAIN-SUFFIX,leonardo.ai
+DOMAIN,app.leonardo.ai
+DOMAIN,api.leonardo.ai
+  
+# === AI 影片生成工具 ===
+  
+# Runway ML
+DOMAIN-SUFFIX,runwayml.com
+DOMAIN,app.runwayml.com
+DOMAIN,api.runwayml.com
+DOMAIN,research.runwayml.com
+  
+# Pika Labs
+DOMAIN-SUFFIX,pika.art
+DOMAIN-SUFFIX,pikalabs.ai
+DOMAIN,app.pika.art
+
+# Luma AI (Dream Machine)
+DOMAIN-SUFFIX,lumalabs.ai
+DOMAIN,lumalabs.ai
+DOMAIN,api.lumalabs.ai
+  
+# Gen-2 (Runway)
+DOMAIN,gen2.runwayml.com
+DOMAIN-SUFFIX,gen2.runwayml.com
+  
+# Synthesia (AI 影片)
+DOMAIN-SUFFIX,synthesia.io
+DOMAIN,app.synthesia.io
+DOMAIN,api.synthesia.io
+  
+# HeyGen
+DOMAIN-SUFFIX,heygen.com
+DOMAIN,app.heygen.com
+DOMAIN,api.heygen.com
+  
+# === AI 音樂生成工具 ===
+  
+# Suno AI
+DOMAIN-SUFFIX,suno.ai
+DOMAIN,app.suno.ai
+DOMAIN,api.suno.ai
+  
+# Udio
+DOMAIN-SUFFIX,udio.com
+DOMAIN,app.udio.com
+DOMAIN,api.udio.com
+  
+# === 其他受限制的 AI 服務 ===
+  
+# Perplexity AI
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN,www.perplexity.ai
+DOMAIN,api.perplexity.ai
+  
+# Character.AI
+DOMAIN-SUFFIX,character.ai
+DOMAIN,beta.character.ai
+DOMAIN,plus.character.ai
+  
+# Replika
+DOMAIN-SUFFIX,replika.ai
+DOMAIN,replika.com
+DOMAIN,api.replika.ai
+  
+# Jasper AI
+DOMAIN-SUFFIX,jasper.ai
+DOMAIN,app.jasper.ai
+DOMAIN,api.jasper.ai
+  
+# Copy.ai
+DOMAIN-SUFFIX,copy.ai
+DOMAIN,app.copy.ai
+DOMAIN,api.copy.ai
+  
+# === Siri 增強功能 (僅限制部分) ===
+  
+# Apple Intelligence (地區限制功能)
+DOMAIN,guzzoni.apple.com            # Siri 服務器
+DOMAIN,apple-relay.apple.com        # Apple 中繼服務
+DOMAIN,smoot.apple.com              # Siri 改進服務
+DOMAIN,siri-suggestions.apple.com   # Siri 建議
+  
+# === 關鍵字匹配 (僅AI相關) ===
+DOMAIN-KEYWORD,chatgpt
+DOMAIN-KEYWORD,openai
+DOMAIN-KEYWORD,gemini
+DOMAIN-KEYWORD,claude
+DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,midjourney
+DOMAIN-KEYWORD,stability
+DOMAIN-KEYWORD,runway
+DOMAIN-KEYWORD,notebooklm
+  
+# === 精選 IP 範圍 (僅核心 AI 服務) ===
+  
+# OpenAI 公網IP地址
+IP-CIDR,24.199.123.28/32,no-resolve
+IP-CIDR,64.23.132.171/32,no-resolve
+IP-CIDR,172.64.148.171/32,no-resolve
+IP-CIDR,47.129.140.148/32,no-resolve
+IP-CIDR,18.140.25.214/32,no-resolve
+IP-CIDR,104.18.32.47/32,no-resolve
+IP-CIDR,104.18.39.85/32,no-resolve
+IP-CIDR,199.232.47.6/32,no-resolve
+IP-CIDR,20.42.10.176/32,no-resolve
+IP-CIDR,172.203.190.128/32,no-resolve
+IP-CIDR,51.8.102.0/32,no-resolve
+  
+# Anthropic 官方 IP 範圍
+IP-CIDR,160.79.104.0/23,no-resolve  # Claude 入站IP
+  
+# Google AI 服務專用IP (小範圍，避免影響其他Google服務)
+IP-CIDR,34.102.136.0/24,no-resolve  # Google AI Studio 可能IP
+IP-CIDR,34.117.65.0/24,no-resolve   # Google AI Platform
+  
+# Meta AI 專用IP (小範圍，避免影響 Facebook/Instagram)
+IP-CIDR,31.13.24.0/24,no-resolve    # Meta AI 可能專用段
+IP-CIDR,157.240.1.0/24,no-resolve   # Meta AI 服務段
+  
+# Apple Intelligence IP (僅限制功能)
+IP-CIDR,17.57.144.0/22,no-resolve   # Apple AI 服務
+IP-CIDR,17.248.128.0/18,no-resolve  # Siri 增強功能
+
+# 重要說明：
+# 1. 本規則專門針對香港地區受限制的 AI 服務
+# 2. 不包含可正常使用的 Google 搜尋、Facebook、Instagram 等
+# 3. 僅包含純 AI 功能域名，避免影響其他服務
+# 4. IP 範圍經過精簡，避免過度匹配
+
+# 涵蓋的受限制 AI 服務：
+# ✅ ChatGPT / OpenAI (需要 VPN)
+# ✅ Google Gemini (需要 VPN) 
+# ✅ Google Notebook LM (需要 VPN)
+# ✅ Meta AI (需要 VPN)
+# ✅ Claude (部分功能需要 VPN)
+# ✅ Midjourney (註冊需要 VPN)
+# ✅ Stable Diffusion Web UI
+# ✅ Runway ML (影片生成)
+# ✅ 其他 AI 圖片/影片/音樂生成工具
+# ✅ Apple Intelligence 增強功能
+
+# 不影響的正常服務：
+# ❌ Google 搜尋、Gmail、YouTube (正常使用)
+# ❌ Facebook、Instagram、WhatsApp (正常使用) 
+# ❌ Apple 基礎服務、App Store (正常使用)
+# ❌ 其他非 AI 的日常網路服務
