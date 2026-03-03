@@ -54,7 +54,6 @@ DOMAIN-SUFFIX,generativelanguage.googleapis.com
 DOMAIN-SUFFIX,alkalimira-pa.clients6.google.com
 DOMAIN-SUFFIX,waa-pa.clients6.google.com
 DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
-DOMAIN-SUFFIX,notifications-pa.googleapis.com
   
 # DeepMind 相關 (Gemini 開發團隊)
 DOMAIN-SUFFIX,deepmind.com
