@@ -40,7 +40,6 @@ DOMAIN,bard.google.com              # Gemini 前身
 DOMAIN,ai.google.dev                # Google AI Studio
 DOMAIN,makersuite.google.com        # MakerSuite (Gemini 開發)
 DOMAIN,aistudio.google.com          # AI Studio
-DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,gemini.google.com
 DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,ai.google.dev
