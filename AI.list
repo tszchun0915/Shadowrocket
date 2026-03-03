@@ -50,9 +50,13 @@ DOMAIN-SUFFIX,aistudio.google.com
 DOMAIN,ai.googleapis.com            # Google AI API
 DOMAIN,ml.googleapis.com            # 機器學習 API
 DOMAIN,aiplatform.googleapis.com    # AI Platform API
-DOMAIN-SUFFIX, generativelanguage.googleapis.com
-DOMAIN-SUFFIX, alkalimira-pa.clients6.google.com
-DOMAIN-SUFFIX, waa-pa.clients6.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,alkalimira-pa.clients6.google.com
+DOMAIN-SUFFIX,waa-pa.clients6.google.com
+DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-SUFFIX,notifications-pa.googleapis.com
+DOMAIN-SUFFIX,oauth2.googleapis.com
   
 # DeepMind 相關 (Gemini 開發團隊)
 DOMAIN-SUFFIX,deepmind.com
