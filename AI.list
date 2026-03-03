@@ -46,12 +46,14 @@ DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,ai.google.dev
 DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN-SUFFIX,aistudio.google.com
-  
+
 # Gemini API 和開發者服務
-DOMAIN,generativelanguage.googleapis.com  # Gemini API
 DOMAIN,ai.googleapis.com            # Google AI API
 DOMAIN,ml.googleapis.com            # 機器學習 API
 DOMAIN,aiplatform.googleapis.com    # AI Platform API
+DOMAIN-SUFFIX, generativelanguage.googleapis.com
+DOMAIN-SUFFIX, alkalimira-pa.clients6.google.com
+DOMAIN-SUFFIX, waa-pa.clients6.google.com
   
 # DeepMind 相關 (Gemini 開發團隊)
 DOMAIN-SUFFIX,deepmind.com
@@ -243,6 +245,10 @@ IP-CIDR,199.232.47.6/32,no-resolve
 IP-CIDR,20.42.10.176/32,no-resolve
 IP-CIDR,172.203.190.128/32,no-resolve
 IP-CIDR,51.8.102.0/32,no-resolve
+IP-CIDR,23.102.140.112/28,no-resolve
+IP-CIDR,13.66.11.96/28,no-resolve
+IP-CIDR,23.98.142.176/28,no-resolve
+IP-CIDR,40.84.180.224/28,no-resolve
   
 # Anthropic 官方 IP 範圍
 IP-CIDR,160.79.104.0/23,no-resolve  # Claude 入站IP
