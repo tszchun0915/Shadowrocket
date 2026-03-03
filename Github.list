@@ -1,7 +1,4 @@
 # GitHub 下載核心網域
 DOMAIN-SUFFIX, objects.githubusercontent.com
 DOMAIN-SUFFIX, codeload.github.com
-DOMAIN-SUFFIX, raw.githubusercontent.com
-
-
 # 其他 GitHub 相關（例如 github.com 網頁）如果你無特別要求，可以由佢行 Final
