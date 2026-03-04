@@ -16,3 +16,11 @@ DOMAIN-SUFFIX,myreadingmanga.info
 DOMAIN-SUFFIX,mangadex.org
 DOMAIN-SUFFIX,wto.to
 DOMAIN-SUFFIX,lens.l.google.com
+IP-CIDR,17.248.216.0/24,no-resolve
+IP-CIDR,104.21.16.1,no-resolve
+IP-CIDR,104.21.96.1,no-resolve
+IP-CIDR,104.21.80.1,no-resolve
+IP-CIDR,104.21.112.1,no-resolve
+IP-CIDR,104.21.32.1,no-resolve
+IP-CIDR,104.21.48.1,no-resolve
+IP-CIDR,104.21.64.1,no-resolve
