@@ -15,5 +15,3 @@ DOMAIN-SUFFIX,tvpass.org
 DOMAIN-SUFFIX,myreadingmanga.info
 DOMAIN-SUFFIX,mangadex.org
 DOMAIN-SUFFIX,wto.to
-IP-CIDR,17.248.216.0/24,no-resolve
-IP-CIDR,104.21.0.0/16,no-resolve
