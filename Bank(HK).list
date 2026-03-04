@@ -1,36 +1,36 @@
 # === 香港實體銀行 ===
 
 # 滙豐銀行 HSBC
-  - DOMAIN-SUFFIX,hsbc.com.hk
-  - DOMAIN-SUFFIX,hsbc.com
-  - DOMAIN-SUFFIX,hsbcnet.com
-  - DOMAIN-SUFFIX,about-hsbc.com.hk
-  - DOMAIN-SUFFIX,hsbcprivatebank.com
-  - DOMAIN-SUFFIX,hsbc-am.com
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.com
+DOMAIN-SUFFIX,hsbcnet.com
+DOMAIN-SUFFIX,about-hsbc.com.hk
+DOMAIN-SUFFIX,hsbcprivatebank.com
+DOMAIN-SUFFIX,hsbc-am.com
 
 # 中國銀行香港 BOCHK
-  - DOMAIN-SUFFIX,bochk.com
-  - DOMAIN-SUFFIX,bocgroup.com
-  - DOMAIN-SUFFIX,boc.cn
-  - DOMAIN-SUFFIX,bochk.com.hk
-  - DOMAIN-SUFFIX,bocnet.com.hk
+DOMAIN-SUFFIX,bochk.com
+DOMAIN-SUFFIX,bocgroup.com
+DOMAIN-SUFFIX,boc.cn
+DOMAIN-SUFFIX,bochk.com.hk
+DOMAIN-SUFFIX,bocnet.com.hk
 
 # 恒生銀行 Hang Seng
-  - DOMAIN-SUFFIX,hangseng.com
-  - DOMAIN-SUFFIX,hangseng.com.hk
-  - DOMAIN-SUFFIX,hangsengbank.com
-  - DOMAIN-SUFFIX,e-banking.hangseng.com
+DOMAIN-SUFFIX,hangseng.com
+DOMAIN-SUFFIX,hangseng.com.hk
+DOMAIN-SUFFIX,hangsengbank.com
+DOMAIN-SUFFIX,e-banking.hangseng.com
 
 # 渣打銀行 Standard Chartered
-  - DOMAIN-SUFFIX,sc.com
-  - DOMAIN-SUFFIX,standardchartered.com.hk
-  - DOMAIN-SUFFIX,standardchartered.com
-  - DOMAIN-SUFFIX,scb.com.hk
-  - DOMAIN-SUFFIX,ebanking.standardchartered.com.hk
+DOMAIN-SUFFIX,sc.com
+DOMAIN-SUFFIX,standardchartered.com.hk
+DOMAIN-SUFFIX,standardchartered.com
+DOMAIN-SUFFIX,scb.com.hk
+DOMAIN-SUFFIX,ebanking.standardchartered.com.hk
 
 # 花旗銀行 Citibank
-  - DOMAIN-SUFFIX,citibank.com.hk
-  - DOMAIN-SUFFIX,citi.com
+DOMAIN-SUFFIX,citibank.com.hk
+DOMAIN-SUFFIX,citi.com
   - DOMAIN-SUFFIX,citigroup.com
   - DOMAIN-SUFFIX,citicorporate.com
   - DOMAIN-SUFFIX,online.citibank.com.hk
