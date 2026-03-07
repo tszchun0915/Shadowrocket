@@ -31,20 +31,21 @@ DOMAIN-SUFFIX,beta.openai.com
 DOMAIN-SUFFIX,labs.openai.com
 DOMAIN-SUFFIX,help.openai.com
 DOMAIN-SUFFIX,status.openai.com
-  
+ 
 # === Google Gemini (香港地區限制) ===
   
 # Gemini 核心服務 (僅AI專用域名)
-DOMAIN,gemini.google.com
-DOMAIN,bard.google.com              # Gemini 前身
-DOMAIN,ai.google.dev                # Google AI Studio
-DOMAIN,makersuite.google.com        # MakerSuite (Gemini 開發)
-DOMAIN,aistudio.google.com          # AI Studio
 DOMAIN-SUFFIX,gemini.google.com
 DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,ai.google.dev
 DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,apis.google.com
+DOMAIN-KEYWORD,colab
+DOMAIN-KEYWORD,developerprofiles
+DOMAIN-KEYWORD,generativelanguage
 
 # Gemini API 和開發者服務
 DOMAIN,ai.googleapis.com            # Google AI API
@@ -58,7 +59,7 @@ DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
 # DeepMind 相關 (Gemini 開發團隊)
 DOMAIN-SUFFIX,deepmind.com
 DOMAIN-SUFFIX,deepmind.google
-  
+
 # === Google Notebook LM (香港地區限制) ===
   
 # Notebook LM 專用域名
