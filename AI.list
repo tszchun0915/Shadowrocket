@@ -54,6 +54,7 @@ DOMAIN,aiplatform.googleapis.com    # AI Platform API
 DOMAIN-SUFFIX,generativelanguage.googleapis.com
 DOMAIN-SUFFIX,alkalimira-pa.clients6.google.com
 DOMAIN-SUFFIX,waa-pa.clients6.google.com
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
 DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
   
 # DeepMind 相關 (Gemini 開發團隊)
