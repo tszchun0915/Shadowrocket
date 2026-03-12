@@ -12,7 +12,12 @@ B. 配置
 -----------------------------------------------------------
   1. 本地檔案:
    - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
-  2. 模組:
+     - 旁路系統。如果停用此選項，可能會導致一些系統問題，例如推播通知延遲。
+       - 必須打開HTTPS解密獲得證書, 3步步驟如下:
+       - 1 點擊配置文件ⓘ - HTTPS解密 - 證書 - 生成新的CA證書 - 安裝證書
+       - 2 手機設定 - 已下載描述文件 - 安裝
+       - 3 手機設定 - 通用 - 關於手機 - 證書信任設定 - 開啟對應Shadowrocket證書信任
+  2. 模組/模塊:
    - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.Module
    - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
    - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/ModuleCompilation.module
