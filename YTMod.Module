@@ -1,0 +1,61 @@
+#!name=YT(Music)Enhance M
+#!desc=PiP+Ambient Mode enabled(Updating)
+# 此版本由 https://github.com/eslco 維護並更新 (updating as in 2025.01.17)
+# Credit : Maasea 
+# Original_Repo: https://github.com/Maasea/sgmodule/blob/master/YouTube.Enhance.sgmodule
+#!arguments=請求處理服務:https://stream.maasea.workers.dev, 屏蔽上傳按鈕:true, 屏蔽選段按鈕:true, 屏蔽Shorts按鈕:true, 字幕翻譯語言:zh-Hant, 歌詞翻譯語言:zh-Hant, 啟用調試模式:false, 腳本執行引擎:jsc
+#!arguments-desc=- 屏蔽參數：[true, false] \n- 翻譯參數：[語言代碼, off] 繁體為zh-Hant 簡體為zh-Hans \n\n1. 語言代碼遵循 Google Translate Languages Codes, 當填入 off 時關閉翻譯\n2. 啟用調試模式用於輸出更多日誌\n\n3. 腳本執行引擎:[jsc, webview]
+
+# > Note
+# Youtube 畫中畫和後台播放分別在客戶端內關閉
+# - 設定 -> 一般 -> 畫中畫
+# - 設定 -> 背景播放與下載 -> 背景播放
+
+#!more Shadowrocket modules at homepage=https://whatshub.top
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+
+[Rule]
+AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT-200
+# URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$),REJECT-200
+[URL Rewrite]
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
+
+# 投屏播放AD
+(https?:\/\/[\w-]+\.googlevideo\.com\/.+?)(&ctier=L|\/ctier\/L)((&|\/).+?)(,ctier|%2Cctier)((,|%2C).+) $1$3$6 302
+
+# 首頁初始化AD 適用非Surge用戶
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback(\?.*oad=.*)?$ _ reject-200
+
+# 覆蓋更多廣告請求
+^https?:\/\/[\w-]+\.googlevideo\.com\/.*&pltype=ad&.*$ _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/.*ad_break.* _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/.*ad_.+?\.js _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/adsense.* _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/gfp_.* _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/get_midroll _ reject-200
+
+# 新增針對 doubleclick, ytimg 和 googletagmanager 的攔截規則
+^https?:\/\/ad\.doubleclick\.net\/.* _ reject-200
+^https?:\/\/[\w-]+\.doubleclick\.net\/.* _ reject-200
+^https?:\/\/[\w-]+\.ytimg\.com\/.*ad.* _ reject-200
+## googletag 個性化標籤 按需開啟
+# ^https?:\/\/www\.googletagmanager\.com\/.* _ reject-img
+
+[Script]
+# 驗證並更新腳本路徑
+# youtube.request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine=jsc,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.request.preview.js
+# youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine={{{腳本執行引擎}}},script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js,argument="{"lyricLang":"{{{歌詞翻譯語言}}}","captionLang":"{{{字幕翻譯語言}}}","blockUpload":{{{屏蔽上傳按鈕}}},"blockImmersive":{{{屏蔽選段按鈕}}},"debug":{{{啟用調試模式}}}}"
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine={{{腳本執行引擎}}},script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, argument='{"lyricLang":"{{{歌詞翻譯語言}}}","captionLang":"{{{字幕翻譯語言}}}","blockUpload":{{{屏蔽上傳按鈕}}},"blockImmersive":{{{屏蔽選段按鈕}}},"debug":{{{啟用調試模式}}}}'
+
+[URL Rewrite]
+^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event))(\?(.*))?$ {{{請求處理服務}}}/$1?blockUpload={{{屏蔽上傳按鈕}}}&blockImmersive={{{屏蔽選段按鈕}}}&blockShorts={{{屏蔽Shorts按鈕}}}&captionLang={{{字幕翻譯語言}}}&lyricLang={{{歌詞翻譯語言}}}&$4 307
+(^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.*) "https://init-stream.maasea.workers.dev/?url=$1" header
+
+[MITM]
+# 確保MITM設定的完整性和準確性
+hostname = %APPEND% www.youtube.com, s.youtube.com, tv.youtube.com, music.youtube.com, youtubei.googleapis.com, -redirector*.googlevideo.com, *.googlevideo.com, *.doubleclick.net, *.ytimg.com
