@@ -27,7 +27,7 @@ AND,((URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+
 ^https?:\/\/[^\/]*\.doubleclick\.net\/ _ reject-200
 
 # API 轉發（去廣告核心）
-^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(next|player|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ {{{請求處理服務}}}/$1?blockUpload={{{屏蔽上傳按鈕}}}&blockImmersive={{{屏蔽選段按鈕}}}&blockShorts={{{屏蔽Shorts按鈕}}}&engine={{{腳本執行引擎}}}&captionLang={{{字幕翻譯語言}}}&lyricLang={{{歌詞翻譯語言}}}&$4 307
+^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ {{{請求處理服務}}}/$1?blockUpload={{{屏蔽上傳按鈕}}}&blockImmersive={{{屏蔽選段按鈕}}}&blockShorts={{{屏蔽Shorts按鈕}}}&engine={{{腳本執行引擎}}}&captionLang={{{字幕翻譯語言}}}&lyricLang={{{歌詞翻譯語言}}}&$4 307
 
 [MITM]
 hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, *.googlevideo.com, -gemini.google.com, -generativelanguage.googleapis.com
