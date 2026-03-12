@@ -59,7 +59,7 @@ D. 設定
   14. GeoLite2 資料庫
        - 自動背景更新: 開啓
        - 間隔: 3
-       - MaxMind: 似乎無關痛癢. 如有需要,請自行到http://www.maxmind.com註冊處理!
+       - MaxMind: 似乎無關痛癢. 如有需要,請自行到 http://www.maxmind.com 註冊處理!
        - 國家: https://raw.githubusercontent.com/Hackl0us/GeoIP2-CN/release/Country.mmdb
        - ASN: https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-ASN.mmdb
   15. VPN提醒: 關閉
