@@ -88,7 +88,7 @@ APTV=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscrib
 youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine={{{腳本執行引擎}}},script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js, argument='{"lyricLang":"{{{歌詞翻譯語言}}}","blockShorts":{{{屏蔽Shorts按鈕}}},"captionLang":"{{{字幕翻譯語言}}}","blockUpload":{{{屏蔽上傳按鈕}}},"blockImmersive":{{{屏蔽選段按鈕}}},"debug":{{{啟用調試模式}}}}'
 
 # 🔓 > bilibili地區解鎖 
-bili自動地區=type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key ,script-path=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/Bili_Auto_Regions.jsBili_Auto_Regions.js, requires-body=true
+bili自動地區=type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key ,script-path=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/Bili_Auto_Regions.js, requires-body=true
 
 [Body Rewrite]
 # bilibili國際版
