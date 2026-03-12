@@ -92,7 +92,7 @@ bili自動地區=type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.
 
 [Body Rewrite]
 # bilibili國際版
-http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("联系客服", "稿件管理", "我的钱包", "我的NFT")) | not))'
+http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("我的钱包", "我的NFT")) | not))'
 # iKeLee香港抖音
 http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_apps"]])'
 http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_users"]])'
