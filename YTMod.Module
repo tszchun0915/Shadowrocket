@@ -4,7 +4,7 @@
 # Credit : Maasea 
 # Original_Repo: https://github.com/Maasea/sgmodule/blob/master/YouTube.Enhance.sgmodule
 #!arguments=請求處理服務:https://stream.maasea.workers.dev, 屏蔽上傳按鈕:true, 屏蔽選段按鈕:true, 屏蔽Shorts按鈕:true, 字幕翻譯語言:zh-Hant, 歌詞翻譯語言:zh-Hant, 啟用調試模式:false, 腳本執行引擎:jsc
-#!arguments-desc=- 屏蔽參數：[true, false] \n- 翻譯參數：[語言代碼, off] 繁體為zh-Hant 簡體為zh-Hans \n\n1. 語言代碼遵循 Google Translate Languages Codes, 當填入 off 時關閉翻譯\n2. 啟用調試模式用於輸出更多日誌\n\n3. 腳本執行引擎:[jsc, webview]
+#!arguments-desc=- 屏蔽參數：[true, false] \n- 翻譯參數：[語言代碼, off] \n- 啟用調試模式用於輸出更多日誌\n\n 1. 語言代碼遵循 Google Translate Languages Codes \n（繁體為zh-Hant, 簡體為zh-Hans, off為關閉翻譯）\n2. 腳本執行引擎:[jsc, webview]
 
 # > Note
 # Youtube 畫中畫和後台播放分別在客戶端內關閉
