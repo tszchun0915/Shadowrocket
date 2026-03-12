@@ -107,7 +107,7 @@ APTV=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscrib
 微信外部链接解锁 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://kelee.one/Resource/JavaScript/Weixin/Weixin_external_links_unlock.js, requires-body=true
 
 # 🔓 > Youtube解鎖 @iab0x00 @Maasea
-youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine={{{脚本执行引擎}}},script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js, argument='{"lyricLang":"{{{歌詞翻譯語言}}}","captionLang":"{{{字幕翻譯語言}}}","blockUpload":{{{屏蔽上傳按鈕}}},"blockImmersive":{{{屏蔽選段按鈕}}},"debug":{{{啟用調試模式}}}}'
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine={{{脚本执行引擎}}},script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js, argument='{"lyricLang":"{{{歌詞翻譯語言}}}","captionLang":"{{{字幕翻譯語言}}}","blockUpload":{{{屏蔽上傳按鈕}}},"blockImmersive":{{{屏蔽選段按鈕}}},"debug":{{{啟用調試模式}}}}'
 
 [Body Rewrite]
 # bilibili國際版
@@ -120,43 +120,11 @@ http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/awem
 http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_two_session_tab_skin_2025")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_two_session_tab_skin_2025"]; false)) else . end'
 http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_tab_skin_enable")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_tab_skin_enable"]; false)) else . end'
 
-[URL Rewrite]
-# iKeLee QQ外部連結
-(^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/middlect\.html\?pfuin=.*&pfurl=)(http.*)(&gjsublevel=.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/middlect\.html\?iscontinue=.*pfurl=)(http.*)(&pfuin=.*) $2 307
-(^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/middlem\.html\?pfurl%3d)(http.*)(%26pfuin%3d.*%26pfuin%3d.*) $2 307
-(^https:\/\/cgi\.connect\.qq\.com\/qqconnectopen\/get_urlinfoForQQV2\?url=)(http.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) $2 307
-(^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) $2 307
-# iKeLee香港抖音
-^https:\/\/api5-normal-lq\.amemv\.com\/api\/ad\/ - reject
-^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/api\/ad\/ - reject
-^https:\/\/zlink\.ugsdk\.cn\/ad\/ - reject
-# Maasea Youtube
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
-^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break url reject-200
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
-(https?:\/\/[\w-]+\.googlevideo\.com\/.+?)(&ctier=L|\/ctier\/L)((&|\/).+?)(,ctier|%2Cctier)((,|%2C).+) $1$3$6 302
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback(\?.*oad=.*)?$ _ reject-200
-^https?:\/\/[\w-]+\.googlevideo\.com\/.*&pltype=ad&.*$ _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/.*ad_break.* _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/.*ad_.+?\.js _ reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/adsense.* _ reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/gfp_.* _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/get_midroll _ reject-200
-^https?:\/\/ad\.doubleclick\.net\/.* _ reject-200
-^https?:\/\/[\w-]+\.doubleclick\.net\/.* _ reject-200
-^https?:\/\/[\w-]+\.ytimg\.com\/.*ad.* _ reject-200
-^https?:\/\/www\.googletagmanager\.com\/.* _ reject-img
-
 [Map Local]
 # bilibili國際版
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square\?(.+)$ data-type=text data="{}" status-code=200
+# Maasea Youtube
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
 
 [MITM]
 hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, mobile.flightradar24.com, api.github.com, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, api.revenuecat.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, aweme.snssdk.com, api5-normal-m.amemv.com, -redirector*.googlevideo.com,*.googlevideo.com,youtubei.googleapis.com, www.youtube.com, s.youtube.com, tv.youtube.com, music.youtube.com, *.doubleclick.net, *.ytimg.com
