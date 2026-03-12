@@ -1,20 +1,20 @@
 # 香港人全球適用 Shadowrocket 設定參考 
 
 A. 首頁
-    1. 全域路由: 配置(局部)
-    2. 呢度唔提供任何機場/節點 純個人記錄使用 btw.唔係個個小火箭機場喺香港都用得 請自行研究/自行搭建
+  1. 全域路由: 配置(局部)
+  2. 呢度唔提供任何機場/節點 純個人記錄使用 btw.唔係個個小火箭機場喺香港都用得 請自行研究/自行搭建
 
 ==============================================
 
 B. 配置
-     1. 模組: 
-      - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
-      - http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx/_end_/Block_HTTPDNS.sgmodule?type=loon-plugin&target=shadowrocket-module&del=true&jqEnabled=true
-      - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
-      - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.Module
-      - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/ModuleCompilation.module
-    2. 本地檔案:
-      - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
+  1. 模組: 
+    - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
+    - http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx/_end_/Block_HTTPDNS.sgmodule?type=loon-plugin&target=shadowrocket-module&del=true&jqEnabled=true
+    - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
+    - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.Module
+    - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/ModuleCompilation.module
+  2. 本地檔案:
+    - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
 
 ==============================================
 
