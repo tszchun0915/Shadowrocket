@@ -86,7 +86,7 @@ E. BoxJS 使用設定教學
 1. 前往 https://boxjs.com
 2. 點擊底部[訂閱]
 3. 點擊[添加訂閱]
-4. 輸入[https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json]並保存
+4. 輸入 https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json 並保存
 5. 這樣已經設定完成基礎了, 請點擊底部[應用]根據需求自行設定.
    - 在網址右手邊可以點擊[...],後按分享, 可以[加入主畫面], 桌面就會有個快捷鍵小程式了
    - [應用]>[內置應用]>[靜默運行]: 開啓
