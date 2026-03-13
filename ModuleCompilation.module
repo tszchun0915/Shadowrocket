@@ -1,7 +1,13 @@
 #!name=Module合集
 #!desc=https://streaming.test
 
+[General]
+force-http-engine-hosts = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net
+
 [Script]
+# BoxJs
+Rewrite: BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
+
 # 🔓 > 測連線地區
 Bahamut = type=http-request, pattern=^https:\/\/streaming\.test\/bahamut\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bahamuts.js, timeout=60
 Steam = type=http-request, pattern=^https:\/\/streaming\.test\/steam\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/steam.js, timeout=60
@@ -131,4 +137,4 @@ AND,((OR,((DOMAIN-SUFFIX,bytegecko.com),(DOMAIN-SUFFIX,byteeffecttos.com))),(DOM
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square\?(.+)$ data-type=text data="{}" status-code=200
 
 [MITM]
-hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, api.revenuecat.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net
+hostname = %INSERT% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net
