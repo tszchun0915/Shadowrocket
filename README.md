@@ -6,43 +6,21 @@ app store: https://apps.apple.com/hk/app/shadowrocket/id932747118
 A. 首頁
 -----------------------------------------------------------
   1. 全域路由: 配置(局部)
-   - 這裏不提供任何機場/節點!!僅提供簡單教學資訊 (純個人記錄使用)
-     - Shadowrocket(小火箭)機場不是每個都能在中國大陸以外使用 (但確定存在些Shadowrocket(小火箭)機場在非中國大陸地區能用)
-     - "非中國大陸"地區, 不存在"中國大陸節點", 只能借助有中國大陸居住地的家人或朋友,自行親身到他們居住地使用linux電腦搭建中國大陸節點/回國節點!
-     - 如考慮[僅中國大陸使用]翻牆到外面, 可留意[Telegram群組] [機場測試論壇] 或 [機場測試排名], 甚至可以直接詢問群友們
-     - 請謹記Shadowrocket群組/Module群組組皆不能提及機場
-     - 尤其中國大陸的平台, 機場/科學上網/Module/小火箭/梯子/Shadowrocket皆不能提及
-   
-   - 如有需求可google搜尋如下, 但還請自費尋找/研究/搭建使用, 無論結果如何都與本人無關.
-     - [小火箭機場]
-     - [小火箭節點]
-     - [Shadowrocket機場]
-     - [Shadowrocket節點]
-     - [科學上網機場]
-     - [科學上網節點]
-
-   - 自行搭建數據中心獨立IP節點
-     - [具行動力]之選擇: [google vps免費搭建]
-     - [極具行動力]選擇: [vps免費搭建]
-
-   - 自行搭建家庭獨立IP回家節點
-     - [極具行動力]選擇: 問AI[樹莓派5 4GB 搭建shadowrocket節點]
 
 B. 配置
 -----------------------------------------------------------
-  1. 本地檔案:
-   - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
-     - 旁路系統。如果停用此選項，可能會導致一些系統問題，例如推播通知延遲。
-       - 必須打開HTTPS解密獲得證書, 3步步驟如下:
+  1. 模組/模塊: (建議以下全部加入)
+     - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.Module
+     - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
+     - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/ModuleCompilation.module
+     - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
+     - http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx/_end_/Block_HTTPDNS.sgmodule?type=loon-plugin&target=shadowrocket-module&del=true&jqEnabled=true
+  2. 本地檔案:
+     - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
+  3. 配置必須打開HTTPS解密獲得證書, 3步步驟如下:
        - 1 點擊配置文件ⓘ - HTTPS解密 - 證書 - 生成新的CA證書 - 安裝證書
        - 2 手機設定 - 已下載描述文件 - 安裝
        - 3 手機設定 - 通用 - 關於手機 - 證書信任設定 - 開啟對應Shadowrocket證書信任
-  2. 模組/模塊:
-   - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.Module
-   - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
-   - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/ModuleCompilation.module
-   - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
-   - http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx/_end_/Block_HTTPDNS.sgmodule?type=loon-plugin&target=shadowrocket-module&del=true&jqEnabled=true
 
 C. 資料
 -----------------------------------------------------------
@@ -116,3 +94,27 @@ E. BoxJS 使用設定教學
      - [隱藏編碼按鈕]
    - 更多資源: https://docs.boxjs.app/awesome/subscriptions
    - 更多教學: https://docs.boxjs.app/awesome/videos
+
+F. 機場
+-----------------------------------------------------------
+  僅提供簡單教學資訊 (純個人記錄使用)
+       - Shadowrocket(小火箭)機場, 不是每個都能在[中國大陸以外]使用 (但確定存在些Shadowrocket(小火箭)機場在[非中國大陸地區]能用)
+       - [非中國大陸地區]中,沒有[中國大陸節點], 只能借助有中國大陸居住地的家人或朋友,自行親身到他們居住地使用linux電腦搭建中國大陸節點/回國節點!
+       - 如考慮[僅中國大陸使用]翻牆到外面, 可留意[Telegram群組] [機場測試論壇] 或 [機場測試排名], 甚至可以直接詢問群友們
+       - 請謹記Shadowrocket群組/Module群組組皆不能提及機場
+       - 尤其中國大陸的平台, Shadowrocket/機場/Module/小火箭/科學上網/梯子/模組/模塊皆不能提及
+   
+如有需求可google搜尋如下, 但還請自費尋找/研究/搭建使用, 無論結果如何都與本人無關.
+       - [小火箭機場]
+       - [小火箭節點]
+       - [Shadowrocket機場]
+       - [Shadowrocket節點]
+       - [科學上網機場]
+       - [科學上網節點]
+
+自行搭建數據中心獨立IP節點
+       - [具行動力]之選擇: [google vps免費搭建]
+       - [極具行動力]選擇: [vps免費搭建]
+
+自行搭建家庭獨立IP回家節點
+       - [極具行動力]選擇: 問AI[樹莓派5 4GB 搭建shadowrocket節點]
