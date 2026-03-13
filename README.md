@@ -79,3 +79,12 @@ D. 設定
   18. 允許第三方鍵盤: 開啓
   19. 排除路由 0.0.0.0/31: 關閉
   20. 觸覺反饋: 開啓
+
+E. BoxJS 使用設定教學
+-----------------------------------------------------------
+模塊 - [Module合集] 已包括BoxJS, 請下載後啓用模塊, 並開啓Shadowrocket連線
+1. 前往 https://boxjs.com
+2. 點擊底部[訂閱]
+3. 點擊[添加訂閱]
+4. 輸入[https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json]並保存
+ 這樣已經設定完成基礎了, 請點擊底部[應用]根據需求自行設定.
