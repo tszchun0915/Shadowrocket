@@ -1,0 +1,106 @@
+# === Apple 服務域名規則（完整整理版，2026年3月） ===
+# 目標：完整覆蓋 App Store、iCloud、更新、媒體等，移除重複，中國大陸/國際通用
+
+# App Store & iTunes
+DOMAIN,apps.apple.com
+DOMAIN,itunes.apple.com
+DOMAIN,buy.itunes.apple.com
+
+# TestFlight
+DOMAIN,beta.apple.com
+DOMAIN,testflight.apple.com
+DOMAIN-KEYWORD,testflight
+
+# iCloud Private Relay（重要，刪除會影響隱私或 Mail 圖片載入）
+DOMAIN,mask-api.fe.apple-dns.net
+DOMAIN,mask-api.icloud.com
+DOMAIN,mask-t.apple-dns.net
+DOMAIN,mask.apple-dns.net
+DOMAIN-SUFFIX,mask-h2.icloud.com
+DOMAIN-SUFFIX,mask.icloud.com
+
+# Apple Media / Streaming / News / Music / TV
+DOMAIN-SUFFIX,apple.news
+DOMAIN-SUFFIX,appletv.com
+DOMAIN-SUFFIX,tv.apple.com
+DOMAIN-SUFFIX,applemusic.com
+DOMAIN-SUFFIX,audio-ssl.itunes.apple.com
+DOMAIN-SUFFIX,audio.itunes.apple.com
+DOMAIN-SUFFIX,hls.itunes.apple.com
+DOMAIN-SUFFIX,mvod.itunes.apple.com
+DOMAIN-SUFFIX,news-assets.apple.com
+DOMAIN-SUFFIX,news-client.apple.com
+DOMAIN-SUFFIX,news-edge.apple.com
+DOMAIN-SUFFIX,play-edge.itunes.apple.com
+DOMAIN-SUFFIX,streamingaudio.itunes.apple.com
+
+# System OTA / Updates / CDN / Configuration（核心，刪除會導致更新失敗）
+DOMAIN,appldnld.apple.com
+DOMAIN,gdmf.apple.com
+DOMAIN,gg.apple.com
+DOMAIN,gs.apple.com
+DOMAIN,ig.apple.com
+DOMAIN,mesu.apple.com
+DOMAIN,ocsp.apple.com
+DOMAIN,osrecovery.apple.com
+DOMAIN,skl.apple.com
+DOMAIN,swcdn.apple.com
+DOMAIN,swdist.apple.com
+DOMAIN,swdownload.apple.com
+DOMAIN,swscan.apple.com
+DOMAIN,xp.apple.com
+DOMAIN,configuration.apple.com
+DOMAIN,gdmf.g.aaplimg.com
+DOMAIN,mesu.g.aaplimg.com
+DOMAIN,ocsp.g.aaplimg.com
+DOMAIN,xp.g.aaplimg.com
+DOMAIN,appldnld-cdn.apple.com.akadns.net
+DOMAIN,gdmf-cdn.apple.com.akadns.net
+DOMAIN,gg-cdn.apple.com.akadns.net
+DOMAIN,iphonesubmissions-cdn.apple.com.akadns.net
+DOMAIN,mesu-cdn.apple.com.akadns.net
+DOMAIN,ocsp-cdn.apple.com.akadns.net
+DOMAIN,radarsubmissions-cdn.apple.com.akadns.net
+DOMAIN,swscan-cdn.apple.com.akadns.net
+DOMAIN,xp-cdn.apple.com.akadns.net
+
+# 其他核心域名
+DOMAIN-SUFFIX,apple.comscoreresearch.com
+DOMAIN-KEYWORD,apple-support.akadns.net
+DOMAIN-KEYWORD,apple.com.akadns.net
+DOMAIN-KEYWORD,apple.com.edgekey.net
+DOMAIN-KEYWORD,icloud.com.akadns.net
+DOMAIN-KEYWORD,smp-device
+
+# User-Agent（常用於 bypass 或特定服務）
+USER-AGENT,*FindMyiPhone?
+USER-AGENT,*Music?
+USER-AGENT,*WeatherFoundation*
+USER-AGENT,*com.apple.Maps?
+USER-AGENT,FMDClient*
+USER-AGENT,FMFD*
+USER-AGENT,FindMyFriends*
+USER-AGENT,FindMyiPhone*
+USER-AGENT,Maps*
+USER-AGENT,Wallet*
+USER-AGENT,com.apple.Maps
+USER-AGENT,com.apple.appstored*
+USER-AGENT,geod*
+USER-AGENT,locationd*
+USER-AGENT,Music*
+USER-AGENT,AppleNews*
+USER-AGENT,AppleTV*
+USER-AGENT,com.apple.news*
+USER-AGENT,com.apple.tv*
+
+# IP-CIDR（Apple 相關 IP 段，常用於 DIRECT 或 PROXY）
+IP-CIDR,17.0.0.0/8,no-resolve
+IP-CIDR,139.178.128.0/18,no-resolve
+IP-CIDR,144.178.0.0/19,no-resolve
+IP-CIDR,63.92.224.0/19,no-resolve
+IP-CIDR,65.199.22.0/23,no-resolve
+IP-CIDR,192.35.50.0/24,no-resolve
+IP-CIDR,198.183.17.0/24,no-resolve
+IP-CIDR,205.180.175.0/24,no-resolve
+IP-CIDR,2403:300::/32,no-resolve
+IP-CIDR,2620:149::/32,no-resolve
