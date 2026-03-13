@@ -95,7 +95,7 @@ E. BoxJS 使用設定教學
    - 更多資源: https://docs.boxjs.app/awesome/subscriptions
    - 更多教學: https://docs.boxjs.app/awesome/videos
 
-F. 機場
+F. 機場/節點
 -----------------------------------------------------------
 1. 僅提供簡單教學資訊 (純個人記錄使用)
     - Shadowrocket(小火箭)機場, 不是每個都能在[中國大陸以外]使用 (但確定存在些Shadowrocket(小火箭)機場在[非中國大陸地區]能用)
@@ -117,3 +117,7 @@ F. 機場
      - [極具行動力]選擇: [vps免費搭建]
    - 自行搭建[家庭回家]獨立IP節點
      - [極具行動力]選擇: 問AI[樹莓派5 4GB 搭建shadowrocket節點]
+     - 由於昂貴的[deeper connect]系列, 它的[回家節點]不適用於Shadowrocket, 因此這裏是不推介購買!
+   - 機場節點轉換訂閱 (自行搭建節點需要)
+     - https://sub-zh.vercel.app/
+     - https://bianyuan.xyz/
