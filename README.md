@@ -1,4 +1,4 @@
-# Shadowrocket 設定參考建議
+# Shadowrocket 設定抄考建議
 
 下載地址
 app store: https://apps.apple.com/hk/app/shadowrocket/id932747118
