@@ -6,28 +6,32 @@
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 
 [Rule]
-AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
-AND,((URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$)),(PROTOCOL,UDP)),REJECT-200
+# 已移除影響流暢度嘅 UDP REJECT，現在廣告主要靠後端 + API 判斷
+# AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT   ← 註解或刪
+# AND,((URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$)),(PROTOCOL,UDP)),REJECT-200   ← 註解或刪
 
 [URL Rewrite]
-# 正常影片流量優先處理
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
-(https?:\/\/[\w-]+\.googlevideo\.com\/.+?)(&ctier=L|\/ctier\/L)((&|\/).+?)(,ctier|%2Cctier)((,|%2C).+) $1$3$6 302
+# 優化 ctier=L 移除（單一規則，更穩更少誤殺）
+^https?:\/\/[\w-]+\.googlevideo\.com\/.+?([,&/%2C]ctier *= *L|ctier\/L).* https://$& reject   # 或用 302 移除 ctier 參數： $1$2$3 302（視工具支援）
 
-# 攔截廣告影片流
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback(\?.*oad=.*)? _ reject-200
-^https?:\/\/[\w-]+\.googlevideo\.com\/.*&pltype=ad.* _ reject-200
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+# 或者更精準版（推薦，保留其他參數）
+^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier *= *L|ctier\/L)([^,]*)(,ctier=[^&]*)?(.*)$ $1$2$4 302
 
-# 攔截統計追蹤
-^https?:\/\/s\.youtube\.com\/api\/stats\/(ads|qoe\?adcontext|adsense.*|gfp_.*) _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|get_midroll|.*ad_break.*|.*ad_.+?\.js) _ reject-200
+# 攔截廣告影片流（加強版，加入 2026 新特徵）
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.*[?&]oad= reject-200
+^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&](oad=|pltype=ad|adformat=|ad_type=|adcompanion|segsrc=|pfa=) reject-200
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?|.*\/initplayback)).*(&|,)(oad=|segsrc=|expire=|pfa=|ad_|midroll) reject-200
+^https?:\/\/[\w-]+\.googlevideo\.com\/.*&pltype=ad.* reject-200
 
-# 攔截 DoubleClick
-^https?:\/\/[^\/]*\.doubleclick\.net\/ _ reject-200
+# 攔截統計追蹤 / API 廣告相關
+^https?:\/\/s\.youtube\.com\/api\/stats\/(ads|qoe\?adcontext|adsense.*|gfp_.*|ad_) reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|get_midroll|.*ad_break.*|.*ad_.+?\.js|api\/stats\/qoe) reject-200
 
-# API 轉發（去廣告核心）
+# 攔截 DoubleClick / 其他廣告域
+^https?:\/\/[^\/]*\.doubleclick\.net\/ reject-200
+
+# API 轉發（去廣告核心，保持你原本設定）
 ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(next|player|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event))(\?(.*))?$ {{{請求處理服務}}}/$1?blockUpload={{{屏蔽上傳按鈕}}}&blockImmersive={{{屏蔽選段按鈕}}}&blockShorts={{{屏蔽Shorts按鈕}}}&engine={{{腳本執行引擎}}}&captionLang={{{字幕翻譯語言}}}&lyricLang={{{歌詞翻譯語言}}}&$4 307
 
 [MITM]
-hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, rr*.googlevideo.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com*, -google.com*
+hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, rr*.googlevideo.com, manifest.googlevideo.com, jnn-pa.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com*, -google.com*
