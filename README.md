@@ -1,5 +1,8 @@
 # Shadowrocket 設定參考建議
 
+下載地址
+app store: https://apps.apple.com/hk/app/shadowrocket/id932747118
+
 A. 首頁
 -----------------------------------------------------------
   1. 全域路由: 配置(局部)
