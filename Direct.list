@@ -1,0 +1,73 @@
+# > Apple 基礎服務
+DOMAIN,init.ess.apple.com
+DOMAIN,itunes.apple.com
+DOMAIN,smp-device-content.apple.com
+DOMAIN,time.apple.com
+DOMAIN-SUFFIX,weather-analytics-events.apple.com
+DOMAIN-SUFFIX,weather-data.apple.com
+DOMAIN-SUFFIX,weather-map.apple.com
+DOMAIN-KEYWORD,icloud.com
+DOMAIN-KEYWORD,push.apple.com
+
+# > Google 直連服務 (下載、推送、對時)
+DOMAIN,mtalk.google.com
+DOMAIN,alt1-mtalk.google.com
+DOMAIN,alt2-mtalk.google.com
+DOMAIN,alt3-mtalk.google.com
+DOMAIN,alt4-mtalk.google.com
+DOMAIN,alt5-mtalk.google.com
+DOMAIN,alt6-mtalk.google.com
+DOMAIN,alt7-mtalk.google.com
+DOMAIN,alt8-mtalk.google.com
+DOMAIN,dl.google.com
+DOMAIN,dl.l.google.com
+DOMAIN,update.googleapis.com
+DOMAIN,clientservices.googleapis.com
+DOMAIN,redirector.gvt1.com
+DOMAIN-SUFFIX,blog.google
+
+# > PT 站點 (必須直連)
+DOMAIN-SUFFIX,m-team.cc
+DOMAIN-SUFFIX,hdsky.me
+DOMAIN-SUFFIX,ourbits.club
+DOMAIN-SUFFIX,pterclub.com
+DOMAIN-SUFFIX,keepfrds.com
+DOMAIN-SUFFIX,totheglory.im
+DOMAIN-SUFFIX,hdchina.org
+DOMAIN-SUFFIX,hdarea.co
+DOMAIN-SUFFIX,ptsbao.club
+DOMAIN-SUFFIX,pthome.net
+DOMAIN-SUFFIX,hdhome.org
+DOMAIN-SUFFIX,chdbits.co
+DOMAIN-SUFFIX,leaguehd.com
+
+# > 學術與資源站
+DOMAIN-SUFFIX,acm.org
+DOMAIN-SUFFIX,doi.org
+DOMAIN-SUFFIX,ieee.org
+DOMAIN-SUFFIX,jstor.org
+DOMAIN-SUFFIX,nature.com
+DOMAIN-SUFFIX,sciencemag.org
+DOMAIN-SUFFIX,springer.com
+DOMAIN-SUFFIX,wiley.com
+DOMAIN-KEYWORD,sciencedirect
+DOMAIN-KEYWORD,cnki.net
+
+# > 中國大陸常用服務
+DOMAIN,ad.10010.com
+DOMAIN,ad.12306.cn
+DOMAIN,analytics.95516.com
+DOMAIN-SUFFIX,xunlei.com
+DOMAIN-SUFFIX,upaiyun.com
+DOMAIN-SUFFIX,baomitu.com
+DOMAIN-SUFFIX,bootcss.com
+DOMAIN-SUFFIX,staticfile.org
+USER-AGENT,%E8%BF%85%E9%9B%B7
+
+# > 其他 (推送、追蹤與常用域名)
+DOMAIN,app.adjust.com
+DOMAIN,app.appsflyer.com
+DOMAIN-SUFFIX,jiasule.com
+DOMAIN-SUFFIX,koodomobile.com
+DOMAIN-SUFFIX,ol.epicgames.com
+DOMAIN-KEYWORD,wb_ad
