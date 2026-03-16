@@ -1,9 +1,9 @@
-#!url=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.Module
 #!name=YT(Music)Enhance M
 #!desc=PiP+Ambient Mode enabled - Optimized
-#!arguments=請求處理服務:https://stream.maasea.workers.dev, 屏蔽上傳按鈕:true, 屏蔽選段按鈕:true, 屏蔽Shorts按鈕:false, 字幕翻譯語言:zh-Hant, 歌詞翻譯語言:zh-Hant, 啟用調試模式:false, 腳本執行引擎:webview
+#!arguments=blockUpload:true,blockShorts:false,blockImmersive:false,captionLang:"zh-Hant",lyricLang:"zh-Hant",debug:false,engine:"webview",Type:"Official",AutoCC:true,ShowOnly:true,Position:"Forward"
 #!arguments-desc=- 屏蔽參數：[true, false]\n- 翻譯參數：[語言代碼, off]\n- 腳本執行引擎:[jsc, webview]
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+
 
 [Rule]
 # 已移除影響流暢度嘅 UDP REJECT，現在廣告主要靠後端 + API 判斷
@@ -30,8 +30,20 @@
 # 攔截 DoubleClick / 其他廣告域
 ^https?:\/\/[^\/]*\.doubleclick\.net\/ reject-200
 
-# API 轉發（去廣告核心，保持你原本設定）
-^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(next|player|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event))(\?(.*))?$ {{{請求處理服務}}}/$1?blockUpload={{{屏蔽上傳按鈕}}}&blockImmersive={{{屏蔽選段按鈕}}}&blockShorts={{{屏蔽Shorts按鈕}}}&engine={{{腳本執行引擎}}}&captionLang={{{字幕翻譯語言}}}&lyricLang={{{歌詞翻譯語言}}}&$4 307
+[Script]
+JSON·YouTube播放器請求 = type=http-request, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+JSON·YouTube播放器響應 = type=http-response, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+Proto·YouTube播放器請求 = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+Proto·YouTube播放器響應.proto = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+Proto·GetWatch響應 = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/get_watch\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+YouTube定時文本請求 = type=http-request, pattern=^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+YouTube合成定時文本響應 = type=http-response, pattern=^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*)subtype=(Official|External), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Composite_Subtitles_response.js, requires-body=true
+YouTube翻譯定時文本響應 = type=http-response, pattern=^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*)subtype=Translate, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true
+JSON·YouTube Music瀏覽請求 = type=http-request, pattern=^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+Proto·YouTube Music瀏覽請求 = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+JSON·YouTube Music翻譯歌詞響應 = type=http-response, pattern=^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true
+Proto·YouTube Music翻譯歌詞響應 = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true, binary-body-mode=true
+YouTube去廣告 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body=true, binary-body-mode=true, argument="[{{{blockUpload}}},{{{blockShorts}}},{{{blockImmersive}}},{{{captionLang}}},{{{lyricLang}}},{{{debug}}},{{{engine}}}]"
 
 [MITM]
 hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, rr*.googlevideo.com, manifest.googlevideo.com, jnn-pa.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com*, -google.com*
