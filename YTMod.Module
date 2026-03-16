@@ -1,5 +1,5 @@
-#!name=YT(Music)Enhance M
-#!desc=PiP+Ambient Mode enabled - Optimized
+#!name=YT(Music) One for All
+#!desc=YT Ambient Optimized
 #!arguments=blockUpload:true,blockShorts:false,blockImmersive:false,captionLang:"zh-Hant",lyricLang:"zh-Hant",debug:false,engine:"webview",Type:"Official",AutoCC:true,ShowOnly:true,Position:"Forward"
 #!arguments-desc=- 屏蔽參數：[true, false]\n- 翻譯參數：[語言代碼, off]\n- 腳本執行引擎:[jsc, webview]
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
@@ -46,4 +46,5 @@ Proto·YouTube Music翻譯歌詞響應 = type=http-response, pattern=^https?:\/\
 YouTube去廣告 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body=true, binary-body-mode=true, argument="[{{{blockUpload}}},{{{blockShorts}}},{{{blockImmersive}}},{{{captionLang}}},{{{lyricLang}}},{{{debug}}},{{{engine}}}]"
 
 [MITM]
-hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, rr*.googlevideo.com, manifest.googlevideo.com, jnn-pa.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com*, -google.com*
+hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, googlevideo.com, jnn-pa.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com*, -google.com*
+# , rr*.googlevideo.com, manifest.googlevideo.com
