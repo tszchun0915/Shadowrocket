@@ -1,36 +1,62 @@
 #!name=Module合集
 #!desc=https://streaming.test
+#!openUrl = http://boxjs.com/#/app/iRingo.TV
+
+[Rule]
+# iKeLee香港抖音
+AND,((IP-CIDR,101.126.58.201/32,no-resolve),(DEST-PORT,6443)),REJECT
+AND,((IP-CIDR,110.249.199.75/32,no-resolve),(DEST-PORT,6443)),REJECT
+AND,((IP-CIDR,111.225.147.191/32,no-resolve),(DEST-PORT,6443)),REJECT
+AND,((IP-CIDR,111.63.61.101/32,no-resolve),(DEST-PORT,6443)),REJECT
+AND,((IP-CIDR,220.243.141.0/32,no-resolve),(DEST-PORT,6443)),REJECT
+AND,((OR,((DOMAIN-SUFFIX,bytegecko.com),(DOMAIN-SUFFIX,byteeffecttos.com))),(DOMAIN-KEYWORD,ncdn)),REJECT
+# 抖音去廣告
+URL-REGEX,^https?:\/\/(api.*\.amemv|aweme\.snssdk)\.com\/api\/ad\/,REJECT
+# apple tv
+DOMAIN,known-issues.apple.com,REJECT
+
+[URL Rewrite]
+# ======= URL重寫 ======= #
+# iKeLee QQ外部連結
+(^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
+(^https:\/\/c\.pc\.qq\.com\/middlect\.html\?pfuin=.*&pfurl=)(http.*)(&gjsublevel=.*) $2 307
+(^https:\/\/c\.pc\.qq\.com\/middlect\.html\?iscontinue=.*pfurl=)(http.*)(&pfuin=.*) $2 307
+(^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/middlem\.html\?pfurl%3d)(http.*)(%26pfuin%3d.*%26pfuin%3d.*) $2 307
+(^https:\/\/cgi\.connect\.qq\.com\/qqconnectopen\/get_urlinfoForQQV2\?url=)(http.*) $2 307
+(^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
+(^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) $2 307
+(^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) $2 307
+# 抖音去廣告
+^https?:\/\/api.*\.amemv\.com\/aweme\/v\d\/ https://aweme.snssdk.com/aweme/v1/ header
+# iKeLee香港抖音
+^https:\/\/api5-normal-lq\.amemv\.com\/api\/ad\/ - reject
+^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/api\/ad\/ - reject
+^https:\/\/zlink\.ugsdk\.cn\/ad\/ - reject
+# apple tv
+^https?://play-cdn.itunes.apple.com https://play.itunes.apple.com/ header
+^https?://play-edge-cdn.itunes.apple.com https://play-edge.itunes.apple.com/ header
+
+[Header Rewrite]
+# 🔓 > Spotify
+if-none-match返回304狀態碼
+http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+
+[Body Rewrite]
+# bilibili國際版
+http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("我的钱包", "我的NFT")) | not))'
+# iKeLee香港抖音
+http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_apps"]])'
+http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_users"]])'
+http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? 'delpaths([["data","tab_config"]])'
+http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? '.data.tab_list[]? |= (if .extra.side_bar.modules != null then .extra.side_bar.modules[]?.items[]? |= (if .data.first_page_module?.module_title == "常用功能" then .data={} else . end) else . end) | .data.tab_list |= map(if .extra.tab_list != null then .extra.tab_list |= map(select(.tab_id | IN("homepage_tablive", "homepage_follow", "homepage_hot_container"))) else . end) | .data.tab_list |= map(select(.extra.tab_list != null and (.extra.tab_list | length > 0)))'
+http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_two_session_tab_skin_2025")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_two_session_tab_skin_2025"]; false)) else . end'
+http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_tab_skin_enable")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_tab_skin_enable"]; false)) else . end'
+
+[Map Local]
+# bilibili國際版
+^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square\?(.+)$ data-type=text data="{}" status-code=200
 
 [Script]
-# 🔓 > 測連線地區
-Bahamut = type=http-request, pattern=^https:\/\/streaming\.test\/bahamut\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bahamuts.js, timeout=60
-Steam = type=http-request, pattern=^https:\/\/streaming\.test\/steam\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/steam.js, timeout=60
-Bilibili = type=http-request, pattern=^https:\/\/streaming\.test\/bilibili\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bilibili.js, timeout=60
-Spotify = type=http-request, pattern=^https:\/\/streaming\.test\/spotify\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/spotify.js, timeout=60
-Scamalytics = type=http-request, pattern=^https:\/\/streaming\.test\/scamalytics\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/scamalytics.js, timeout=60
-Disney = type=http-request, pattern=^https:\/\/streaming\.test\/disney\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/disney.js, timeout=60
-Netflix = type=http-request, pattern=^https:\/\/streaming\.test\/netflix\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/netflix.js, timeout=60
-ChatGPT = type=http-request, pattern=^https:\/\/streaming\.test\/chatgpt\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/chatgpt.js, timeout=60
-Tiktok = type=http-request, pattern=^https:\/\/streaming\.test\/tiktok\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/tiktok.js, timeout=60
-YouTube = type=http-request, pattern=^https:\/\/streaming\.test\/youtube\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/youtube.js, timeout=60
-HBO Max = type=http-request, pattern=^https:\/\/streaming\.test\/max\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/max.js, timeout=60
-PrimeVideo = type=http-request, pattern=^https:\/\/streaming\.test\/primevideo\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/primevideo.js, timeout=60
-Bing = type=http-request, pattern=^https:\/\/streaming\.test\/bing\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bing.js, timeout=60
-ニコニコ = type=http-request, pattern=^https:\/\/streaming\.test\/nicovideo\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/niconico.js, timeout=60
-Google Play = type=http-request, pattern= ^https:\/\/streaming\.test\/googleplay\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/googleplay.js, timeout=60
-Wikipedia = type=http-request, pattern= ^https:\/\/streaming\.test\/wikipedia\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/wikipedia.js, timeout=60
-Starz = type=http-request, pattern= ^https:\/\/streaming\.test\/starz\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/starz.js, timeout=60
-iQIYI = type=http-request, pattern= ^https:\/\/streaming\.test\/iqiyi\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/iqiyi.js, timeout=60
-DAZN = type=http-request, pattern= ^https:\/\/streaming\.test\/dazn\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/dazn.js, timeout=60
-ParamountPlus = type=http-request, pattern= ^https:\/\/streaming\.test\/paramountplus\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/paramountplus.js, timeout=60
-ViuTV = type=http-request, pattern= ^https:\/\/streaming\.test\/viutv\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/viutv.js, timeout=60
-Now E = type=http-request, pattern= ^https:\/\/streaming\.test\/nowe\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/nowe.js, timeout=60
-KKTV = type=http-request, pattern= ^https:\/\/streaming\.test\/kktv\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/kktv.js, timeout=60
-LINE TV = type=http-request, pattern= ^https:\/\/streaming\.test\/linetv\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/linetv.js, timeout=60
-IPv6 = type=http-request, pattern= ^https:\/\/streaming\.test\/ip\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/ip.js, timeout=60
-Surfsharkdns = type=http-request, pattern= ^https:\/\/streaming\.test\/dns\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/surfsharkdns.js, timeout=60
-Front-end = type=http-request, pattern=^https:\/\/streaming\.test\/$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/front-end.js, timeout=60
-
 # 🔓 > VSCO 解鎖Pro @chxm1023
 # hostname = api.revenuecat.com
 VSCO = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/vsco.js, requires-body=true, max-size=-1, timeout=60
@@ -65,8 +91,8 @@ replaceHeader = type=http-request, pattern=\/Users\/\w{32}\/Items\/\d+\?, script
 # 🔓 > SpotifyVip @app2smile
 # hostname = spclient.wg.spotify.com, *spclient.spotify.com
 spotify-qx-header = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js, timeout=60
-spotify-proto = type=http-response, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, max-size=-1, timeout=60
-spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=60
+spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 
 # 🔓 > 地震預警ICL 解鎖SVIP @Yu9191
 # hostname = mobile-new.chinaeew.cn
@@ -86,46 +112,45 @@ APTV=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscrib
 
 # 🔓 > bilibili地區解鎖
 bili自動地區=type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key ,script-path=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/Bili_Auto_Regions.js, requires-body=true
+bili-json = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(v2\/(splash\/(list|show)|feed\/index\?)|resource\/show\/tab\/v2),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-json.js,script-update-interval=0
+bili-proto = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(viewunite\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js,script-update-interval=0
 
-[Body Rewrite]
-# bilibili國際版
-http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("我的钱包", "我的NFT")) | not))'
-# iKeLee香港抖音
-http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_apps"]])'
-http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_users"]])'
-http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? 'delpaths([["data","tab_config"]])'
-http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? '.data.tab_list[]? |= (if .extra.side_bar.modules != null then .extra.side_bar.modules[]?.items[]? |= (if .data.first_page_module?.module_title == "常用功能" then .data={} else . end) else . end) | .data.tab_list |= map(if .extra.tab_list != null then .extra.tab_list |= map(select(.tab_id | IN("homepage_tablive", "homepage_follow", "homepage_hot_container"))) else . end) | .data.tab_list |= map(select(.extra.tab_list != null and (.extra.tab_list | length > 0)))'
-http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_two_session_tab_skin_2025")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_two_session_tab_skin_2025"]; false)) else . end'
-http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_tab_skin_enable")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_tab_skin_enable"]; false)) else . end'
+# 🔓 > 抖音去廣告
+douyin = type=http-response,pattern=^https?:\/\/aweme\.snssdk\.com\/aweme\/v[12]\/((|follow\/|nearby\/)feed|aweme\/post|hot\/search\/video\/list|mix\/aweme|aweme\/detail)\/\?,requires-body=1,script-path=https://Choler.github.io/Surge/Script/douyin.js
 
-[Rule]
-# iKeLee香港抖音
-AND,((IP-CIDR,101.126.58.201/32,no-resolve),(DEST-PORT,6443)),REJECT
-AND,((IP-CIDR,110.249.199.75/32,no-resolve),(DEST-PORT,6443)),REJECT
-AND,((IP-CIDR,111.225.147.191/32,no-resolve),(DEST-PORT,6443)),REJECT
-AND,((IP-CIDR,111.63.61.101/32,no-resolve),(DEST-PORT,6443)),REJECT
-AND,((IP-CIDR,220.243.141.0/32,no-resolve),(DEST-PORT,6443)),REJECT
-AND,((OR,((DOMAIN-SUFFIX,bytegecko.com),(DOMAIN-SUFFIX,byteeffecttos.com))),(DOMAIN-KEYWORD,ncdn)),REJECT
+# apple tv
+📺 TV.uts.request = type=http-request, pattern=^https?://uts-api.itunes.apple.com/uts/(v1|v2|v3)/, requires-body=1, script-path=https://github.com/NSRingo/TV/releases/download/v3.4.4/request.bundle.js, argument=
+📺 TV.uts.response = type=http-response, pattern=^https?://uts-api.itunes.apple.com/uts/(v1|v2|v3)/, requires-body=1, script-path=https://github.com/NSRingo/TV/releases/download/v3.4.4/response.bundle.js, argument=
+📺 TV.umc.request = type=http-request, pattern=^https?://umc-tempo-api.apple.com/(v1|v2|v3)/, requires-body=1, script-path=https://github.com/NSRingo/TV/releases/download/v3.4.4/request.bundle.js, argument=
 
-[URL Rewrite]
-# ======= URL重寫 ======= #
-# iKeLee QQ外部連結
-(^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/middlect\.html\?pfuin=.*&pfurl=)(http.*)(&gjsublevel=.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/middlect\.html\?iscontinue=.*pfurl=)(http.*)(&pfuin=.*) $2 307
-(^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/middlem\.html\?pfurl%3d)(http.*)(%26pfuin%3d.*%26pfuin%3d.*) $2 307
-(^https:\/\/cgi\.connect\.qq\.com\/qqconnectopen\/get_urlinfoForQQV2\?url=)(http.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
-(^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) $2 307
-(^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) $2 307
-# iKeLee香港抖音
-^https:\/\/api5-normal-lq\.amemv\.com\/api\/ad\/ - reject
-^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/api\/ad\/ - reject
-^https:\/\/zlink\.ugsdk\.cn\/ad\/ - reject
-
-[Map Local]
-# bilibili國際版
-^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square\?(.+)$ data-type=text data="{}" status-code=200
+# 🔓 > 測連線地區
+Bahamut = type=http-request, pattern=^https:\/\/streaming\.test\/bahamut\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bahamuts.js, timeout=60
+Steam = type=http-request, pattern=^https:\/\/streaming\.test\/steam\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/steam.js, timeout=60
+Bilibili = type=http-request, pattern=^https:\/\/streaming\.test\/bilibili\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bilibili.js, timeout=60
+Spotify = type=http-request, pattern=^https:\/\/streaming\.test\/spotify\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/spotify.js, timeout=60
+Scamalytics = type=http-request, pattern=^https:\/\/streaming\.test\/scamalytics\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/scamalytics.js, timeout=60
+Disney = type=http-request, pattern=^https:\/\/streaming\.test\/disney\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/disney.js, timeout=60
+Netflix = type=http-request, pattern=^https:\/\/streaming\.test\/netflix\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/netflix.js, timeout=60
+ChatGPT = type=http-request, pattern=^https:\/\/streaming\.test\/chatgpt\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/chatgpt.js, timeout=60
+Tiktok = type=http-request, pattern=^https:\/\/streaming\.test\/tiktok\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/tiktok.js, timeout=60
+YouTube = type=http-request, pattern=^https:\/\/streaming\.test\/youtube\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/youtube.js, timeout=60
+HBO Max = type=http-request, pattern=^https:\/\/streaming\.test\/max\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/max.js, timeout=60
+PrimeVideo = type=http-request, pattern=^https:\/\/streaming\.test\/primevideo\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/primevideo.js, timeout=60
+Bing = type=http-request, pattern=^https:\/\/streaming\.test\/bing\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/bing.js, timeout=60
+ニコニコ = type=http-request, pattern=^https:\/\/streaming\.test\/nicovideo\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/niconico.js, timeout=60
+Google Play = type=http-request, pattern= ^https:\/\/streaming\.test\/googleplay\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/googleplay.js, timeout=60
+Wikipedia = type=http-request, pattern= ^https:\/\/streaming\.test\/wikipedia\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/wikipedia.js, timeout=60
+Starz = type=http-request, pattern= ^https:\/\/streaming\.test\/starz\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/starz.js, timeout=60
+iQIYI = type=http-request, pattern= ^https:\/\/streaming\.test\/iqiyi\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/iqiyi.js, timeout=60
+DAZN = type=http-request, pattern= ^https:\/\/streaming\.test\/dazn\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/dazn.js, timeout=60
+ParamountPlus = type=http-request, pattern= ^https:\/\/streaming\.test\/paramountplus\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/paramountplus.js, timeout=60
+ViuTV = type=http-request, pattern= ^https:\/\/streaming\.test\/viutv\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/viutv.js, timeout=60
+Now E = type=http-request, pattern= ^https:\/\/streaming\.test\/nowe\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/nowe.js, timeout=60
+KKTV = type=http-request, pattern= ^https:\/\/streaming\.test\/kktv\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/kktv.js, timeout=60
+LINE TV = type=http-request, pattern= ^https:\/\/streaming\.test\/linetv\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/linetv.js, timeout=60
+IPv6 = type=http-request, pattern= ^https:\/\/streaming\.test\/ip\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/ip.js, timeout=60
+Surfsharkdns = type=http-request, pattern= ^https:\/\/streaming\.test\/dns\/?$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/surfsharkdns.js, timeout=60
+Front-end = type=http-request, pattern=^https:\/\/streaming\.test\/$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/front-end.js, timeout=60
 
 [MITM]
-hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, api.revenuecat.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net
+hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, api.revenuecat.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com,api*.amemv.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net, app.bilibili.com, grpc.biliapi.net, uts-api.itunes.apple.com, umc-tempo-api.apple.com, play-cdn.itunes.apple.com, play-edge-cdn.itunes.apple.com
