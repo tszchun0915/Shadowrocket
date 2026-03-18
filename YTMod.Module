@@ -1,26 +1,30 @@
 #!name=YT(Music) One for All
 #!desc=YT Ambient Optimized
-#!arguments=blockUpload:true,blockShorts:false,blockImmersive:false,captionLang:"zh-Hant",lyricLang:"zh-Hant",debug:false,engine:"webview",Type:"Official",AutoCC:true,ShowOnly:true,Position:"Forward"
+#!arguments=Request:"https://stream.maasea.workers.dev",blockUpload:true,blockShorts:false,blockImmersive:false,captionLang:"zh-Hant",lyricLang:"zh-Hant",debug:false,engine:"webview",Type:"Official",AutoCC:true,ShowOnly:true,Position:"Forward"
 #!arguments-desc=- 屏蔽參數：[true, false]\n- 翻譯參數：[語言代碼, off]\n- 腳本執行引擎:[jsc, webview]
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 
 [Rule]
-# 封鎖廣告 UDP 流（Rule 層處理，不需 MITM 解密整條流）
-AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
-AND,((URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$)),(PROTOCOL,UDP)),REJECT-200
+# 已移除影響流暢度嘅 UDP REJECT，現在廣告主要靠後端 + API 判斷
+# AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT   ← 註解或刪
+# AND,((URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$)),(PROTOCOL,UDP)),REJECT-200   ← 註解或刪
 
 [URL Rewrite]
-# 移除 ctier=L 參數（保留其他參數）
-^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier=L)([^,&]*)(.*)$ https://$1$3 302
+# 移除 ctier=L 參數（保留其他參數，302 重定向）
+^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier *= *L|ctier\/L)([^,]*)(,ctier=[^&]*)?(.*)$ $1$2$4 302
 
-# 攔截廣告影片流（合併為一條，減少重複匹配）
-^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&](oad=|pltype=ad|adformat=|ad_type=|adcompanion|pfa=) reject-200
+# 攔截廣告影片流（合併精簡版）
+^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&](oad=|pltype=ad|adformat=|ad_type=|adcompanion|segsrc=|pfa=) reject-200
 
-# 攔截統計追蹤 / API 廣告相關（合併 s. 同 www. 規則）
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|get_midroll|api\/stats\/(ads|qoe|adsense|gfp_|ad_)|.*ad_break.*|.*ad_.+?\.js) reject-200
+# 攔截統計追蹤
+^https?:\/\/s\.youtube\.com\/api\/stats\/(ads|qoe\?adcontext|gfp_) reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|get_midroll) reject-200
 
-# 攔截 DoubleClick 廣告域
+# DoubleClick
 ^https?:\/\/[^\/]*\.doubleclick\.net\/ reject-200
+
+# API 轉發
+^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(next|player|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event))(\?(.*))?$ {{{Request}}}/$1?blockUpload={{{blockUpload}}}&blockImmersive={{{blockImmersive}}}&blockShorts={{{blockShorts}}}&engine={{{engine}}}&captionLang={{{captionLang}}}&lyricLang={{{lyricLang}}}&$4 307
 
 [Script]
 JSON·YouTube播放器請求 = type=http-request, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
