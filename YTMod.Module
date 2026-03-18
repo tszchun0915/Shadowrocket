@@ -5,41 +5,70 @@
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 
 [Rule]
-# 已移除影響流暢度嘅 UDP REJECT，現在廣告主要靠後端 + API 判斷
-# AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT   ← 註解或刪
-# AND,((URL-REGEX,(^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$)),(PROTOCOL,UDP)),REJECT-200   ← 註解或刪
+# UDP REJECT 已完全移除，避免影響串流流暢度
 
 [URL Rewrite]
-# 移除 ctier=L 參數（保留其他參數，302 重定向）
-^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier *= *L|ctier\/L)([^,]*)(,ctier=[^&]*)?(.*)$ $1$2$4 302
+# ────────────────────────────────────────────
+# [1] 移除 ctier=L 降速參數（302保留請求，只移除該參數）
+# 只保留精準版，原本第一條 reject 版會直接斷流，已刪除
+# ────────────────────────────────────────────
+^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier=L)([^,&]*)(.*)$ $1$2$3 302
 
-# 攔截廣告影片流（合併精簡版）
-^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&](oad=|pltype=ad|adformat=|ad_type=|adcompanion|segsrc=|pfa=) reject-200
+# ────────────────────────────────────────────
+# [2] 攔截 googlevideo 廣告串流
+# 已合併4條重複規則為1條，oad=/pltype=ad 等只需一條覆蓋
+# ────────────────────────────────────────────
+^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&,](oad=|pltype=ad|adformat=|ad_type=|adcompanion|segsrc=|pfa=) reject-200
 
-# 攔截統計追蹤
-^https?:\/\/s\.youtube\.com\/api\/stats\/(ads|qoe\?adcontext|gfp_) reject-200
+# ────────────────────────────────────────────
+# [3] 攔截廣告追蹤 / 統計請求
+# ────────────────────────────────────────────
+^https?:\/\/s\.youtube\.com\/api\/stats\/(ads|gfp_) reject-200
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|get_midroll) reject-200
-
-# DoubleClick
 ^https?:\/\/[^\/]*\.doubleclick\.net\/ reject-200
 
-# API 轉發
+# ────────────────────────────────────────────
+# [4] 核心去廣告：API 轉發至 Worker
+# 處理 player/next/guide/get_watch 等主要廣告注入端點
+# 注意：Worker 係呢幾個端點嘅唯一去廣告機制
+# ────────────────────────────────────────────
 ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(next|player|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event))(\?(.*))?$ {{{Request}}}/$1?blockUpload={{{blockUpload}}}&blockImmersive={{{blockImmersive}}}&blockShorts={{{blockShorts}}}&engine={{{engine}}}&captionLang={{{captionLang}}}&lyricLang={{{lyricLang}}}&$4 307
 
 [Script]
+# ════════════════════════════════════════════
+# 字幕翻譯 - JSON 模式 (www / m / tv.youtube.com)
+# ════════════════════════════════════════════
 JSON·YouTube播放器請求 = type=http-request, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
 JSON·YouTube播放器響應 = type=http-response, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+
+# ════════════════════════════════════════════
+# 字幕翻譯 - Proto 模式 (youtubei.googleapis.com)
+# ════════════════════════════════════════════
 Proto·YouTube播放器請求 = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
 Proto·YouTube播放器響應 = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
 Proto·GetWatch響應 = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/get_watch\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
+
+# ════════════════════════════════════════════
+# Timedtext 字幕（合成 + 翻譯）
+# ════════════════════════════════════════════
 YouTube定時文本請求 = type=http-request, pattern=^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
 YouTube合成定時文本響應 = type=http-response, pattern=^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*)subtype=(Official|External), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Composite_Subtitles_response.js, requires-body=true
 YouTube翻譯定時文本響應 = type=http-response, pattern=^https?:\/\/(www|m)\.youtube\.com\/api\/timedtext\?(.*)subtype=Translate, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true
+
+# ════════════════════════════════════════════
+# YouTube Music 歌詞翻譯
+# ════════════════════════════════════════════
 JSON·YouTube Music瀏覽請求 = type=http-request, pattern=^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
 Proto·YouTube Music瀏覽請求 = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*), script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js, requires-body=true, binary-body-mode=true, argument="[{{{Type}}},{{{AutoCC}}},{{{ShowOnly}}},{{{Position}}}]"
 JSON·YouTube Music翻譯歌詞響應 = type=http-response, pattern=^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true
 Proto·YouTube Music翻譯歌詞響應 = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js, requires-body=true, binary-body-mode=true
-# YouTube去廣告 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body=true, binary-body-mode=true, argument="[{{{blockUpload}}},{{{blockShorts}}},{{{blockImmersive}}},{{{captionLang}}},{{{lyricLang}}},{{{debug}}},{{{engine}}}]"
+
+# ════════════════════════════════════════════
+# 去廣告腳本（本地處理，只覆蓋不經 Worker 的端點）
+# browse / search 唔在 URL Rewrite 307 範圍內，所以本地 script 有效
+# next/player/guide 等已由 Worker 處理，呢度唔重複攔截避免衝突
+# ════════════════════════════════════════════
+YouTube去廣告 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|search))(\?(.*))?$, script-path=https://kelee.one/Resource/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js, requires-body=true, binary-body-mode=true, argument="[{{{blockUpload}}},{{{blockShorts}}},{{{blockImmersive}}},{{{captionLang}}},{{{lyricLang}}},{{{debug}}},{{{engine}}}]"
 
 [MITM]
 hostname = %APPEND% www.youtube.com, s.youtube.com, music.youtube.com, youtubei.googleapis.com, *.googlevideo.com, jnn-pa.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com, -google.com
