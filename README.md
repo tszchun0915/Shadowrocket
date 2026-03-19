@@ -93,38 +93,7 @@ D. 設定
   19. 排除路由 0.0.0.0/31: 關閉
   20. 觸覺反饋: 開啓
 
-E. BoxJS 使用設定教學
------------------------------------------------------------
-模塊 - [Module合集] 已包括BoxJS, 請務必下載並啓用Module, 然後開啓Shadowrocket連線,然後步驟如下:
-1. 前往 https://boxjs.com
-2. 點擊底部[訂閱]
-3. 點擊[添加訂閱]
-4. 輸入 https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json 並保存
-     - https://raw.githubusercontent.com/NobyDa/Script/master/NobyDa_BoxJs.json (樓上作舉例)
-     - https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/box.js.json
-     - https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.json
-     - https://raw.githubusercontent.com/chouchoui/QuanX/master/vei.boxjs.json
-     - https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/evilbutcher.boxjs.json
-     - https://raw.githubusercontent.com/lowking/Scripts/master/lowking.boxjs.json
-     - https://raw.githubusercontent.com/songyangzz/QuantumultX/master/syzzzf.box.json
-     - https://raw.githubusercontent.com/toulanboy/scripts/master/toulanboy.boxjs.json
-     - https://raw.githubusercontent.com/zZPiglet/Task/master/zZPiglet.boxjs.json
-     - https://raw.githubusercontent.com/id77/QuantumultX/master/box.json
-     - https://raw.githubusercontent.com/dompling/Script/master/dompling.boxjs.json
-5. 這樣已經設定完成基礎了, 請點擊底部[應用]根據需求自行設定.
-   - 在網址右手邊可以點擊[...],後按分享, 可以[加入主畫面], 桌面就會有個快捷鍵小程式了
-   - [應用]>[內置應用]>[靜默運行]: 開啓
-   - 弄好[應用]設定後, 右上角[≡]開啓, 認為界面會變得更簡化
-     - [勿擾模式]
-     - [不顯示查詢警告]
-     - [隱藏幫助按鈕]
-     - [隱藏懸浮按鈕]
-     - [隱藏我的標題]
-     - [隱藏編碼按鈕]
-   - 更多資源: https://docs.boxjs.app/awesome/subscriptions
-   - 更多教學: https://docs.boxjs.app/awesome/videos
-
-F. 機場/節點
+E. 機場/節點
 -----------------------------------------------------------
 1. 僅提供簡單教學資訊 (純個人記錄使用)
     - Shadowrocket(小火箭)機場, 不是每個都能在[中國大陸以外]使用 (但確定存在些Shadowrocket(小火箭)機場在[非中國大陸地區]能用)
