@@ -28,13 +28,36 @@ A. 首頁
 B. 配置
 -----------------------------------------------------------
   1. 模組/模塊: (建議以下全部加入)
-     - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/YTMod.sgmodule
-     - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
-     - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/sgmoduleCompilation.sgmodule
-     - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
-  2. 本地檔案:
+     1. https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20Apple%20News%20%E8%A7%A3%E9%94%81.official.sgmodule
+     2. https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20Apple%20TV%20%E5%A2%9E%E5%BC%BA.official.sgmodule
+     3. https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97.official.sgmodule
+     4. https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Line%E5%8E%BB%E5%B9%BF%E5%91%8A.sgmodule
+     - -
+     6. https://github.com/NSRingo/LocationService/releases/latest/download/iRingo.LocationService.sgmodule
+     7. https://github.com/NSRingo/Maps/releases/latest/download/iRingo.Maps.sgmodule
+     8. https://github.com/NSRingo/TV/releases/latest/download/iRingo.TV.sgmodule
+     9. https://github.com/NSRingo/News/releases/latest/download/iRingo.News.sgmodule
+     - -
+     9. https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/sgmoduleCompilation.sgmodule
+     10. https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.surge.sgmodule
+     11. https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
+     12. https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
+     - -
+     13. https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Lite.sgmodule
+     14. https://limbopro.com/Adblock4limbo.sgmodule
+     15. https://raw.githubusercontent.com/NobyDa/Script/refs/heads/master/Surge/Module/RewriteRules.sgmodule
+     16. https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.sgmodule
+       - 順帶一提
+          - 你可以到這裏找模組 超齊全 https://surge.qingr.moe/
+          - 另外這個是Youtube模組大神 https://github.com/Maasea/sgmodule
+          - Apple功能修正大神         https://nsringo.github.io/
+            - 方法一: 🆕點擊[訂閱](http://boxjs.com/#/sub/add/https://github.com/NSRingo/BoxJs/raw/main/iRingo.BoxJs.json)(推薦，安装BoxJs後點擊導入)
+            - 方法二: 複製貼上導入(傳統，安裝BoxJs後複製導入)
+              - 瀏覽器訪問BoxJs.com，在訂閱頁面點擊+複製貼上添加本項目訂閱鏈接
+              - https://github.com/NSRingo/BoxJs/raw/main/iRingo.BoxJs.json
+  3. 本地檔案:
      - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
-  3. 配置必須打開HTTPS解密獲得證書, 3步步驟如下:
+  4. 配置必須打開HTTPS解密獲得證書, 3步步驟如下:
        - 1 點擊配置文件ⓘ - HTTPS解密 - 證書 - 生成新的CA證書 - 安裝證書
        - 2 手機設定 - 已下載描述文件 - 安裝
        - 3 手機設定 - 通用 - 關於手機 - 證書信任設定 - 開啟對應Shadowrocket證書信任
