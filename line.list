@@ -1,0 +1,6 @@
+DOMAIN-SUFFIX,line-apps.com,force-remote-dns
+DOMAIN-SUFFIX,line.naver.jp,force-remote-dns
+DOMAIN-SUFFIX,line.me,force-remote-dns
+DOMAIN-SUFFIX,line-cdn.net,force-remote-dns
+DOMAIN-KEYWORD,line-apps,force-remote-dns
+DOMAIN-KEYWORD,line-cdn,force-remote-dns
