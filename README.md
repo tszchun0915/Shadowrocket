@@ -37,27 +37,27 @@ B. 配置
      01. [Apple New地區解鎖模塊]
          - https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20Apple%20News%20%E8%A7%A3%E9%94%81.official.sgmodule
      02. [Apple TV地區解鎖模塊]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20Apple%20TV%20%E5%A2%9E%E5%BC%BA.official.sgmodule
+         - https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20Apple%20TV%20%E5%A2%9E%E5%BC%BA.official.sgmodule
      03. [修正解鎖模塊]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97.official.sgmodule
+         - https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%F0%9F%8D%9F%20%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97.official.sgmodule
      04. [Line去廣告模塊]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Line%E5%8E%BB%E5%B9%BF%E5%91%8A.sgmodule
+         - https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Line%E5%8E%BB%E5%B9%BF%E5%91%8A.sgmodule
      05. [模組工具大合集]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/sgmoduleCompilation.sgmodule
+         - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/sgmoduleCompilation.sgmodule
      06. [可莉插件網]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
+         - https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule
      07. [廣告Block]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
+         - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
      08. [Youtube模塊]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Lite.sgmodule
+         - https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Lite.sgmodule
      09. [另類廣告Block]
-         - shadowrocket://install?module=https://limbopro.com/Adblock4limbo.sgmodule
+         - https://limbopro.com/Adblock4limbo.sgmodule
      10. [重寫規則模塊]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/NobyDa/Script/refs/heads/master/Surge/Module/RewriteRules.sgmodule
+         - https://raw.githubusercontent.com/NobyDa/Script/refs/heads/master/Surge/Module/RewriteRules.sgmodule
      11. [酷我音樂解鎖]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.sgmodule
+         - https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.sgmodule
      12. [DNS防洩漏模塊]
-         - shadowrocket://install?module=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/BlockHTTPDNS/BlockHTTPDNS.sgmodule
+         - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/BlockHTTPDNS/BlockHTTPDNS.sgmodule
        - 順帶一提
           - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/
           - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule
