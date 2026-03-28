@@ -53,7 +53,8 @@ B. 配置
        - 順帶一提
           - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/)
           - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule)
-          - Apple功能修整[iRingo大神](https://nsringo.github.io/)
+          - Apple功能修整[iRingo大神](https://nsringo.github.io/) (需要BoxJs 請自行研究)
+          - 雙字幕大神[Dualsubs](https://dualsubs.github.io) (需要BoxJs 請自行研究)
             
 C. 資料
 -----------------------------------------------------------
