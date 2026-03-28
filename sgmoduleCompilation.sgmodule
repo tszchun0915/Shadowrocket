@@ -3,8 +3,8 @@
 #!openUrl=http://boxjs.com/#/app/iRingo.TV
 #!homepage=https://DualSubs.github.io/guide/universal
 #!icon=https://github.com/DualSubs/Universal/raw/main/src/assets/icon_rounded.png
-#!arguments=Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false,ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN"
-#!arguments-desc=Types: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nLanguages[0]: 主語言（源語言）\nLanguages[1]: 副語言（目標語言）\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示翻譯字幕\nForceHost: 強制CDN主機名類型（推薦 1: HTTP）\nLocales: 自動識別地區（CHN/HKG/MAC/TWN）\nProxies.xxx: 對應地區策略組名稱\nLogLevel: 日誌等級
+#!arguments=Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false,ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN", 定时签到:20 8 * * *
+#!arguments-desc=Types: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nLanguages[0]: 主語言（源語言）\nLanguages[1]: 副語言（目標語言）\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示翻譯字幕\nForceHost: 強制CDN主機名類型（推薦 1: HTTP）\nLocales: 自動識別地區（CHN/HKG/MAC/TWN）\nProxies.xxx: 對應地區策略組名稱\nLogLevel: 日誌等級\n 定时签到：Cron表达式，默认每天早上 08:20 执行。（如需动画疯答题，不建议在凌晨0:00-0:30执行）
 
 [General]
 force-http-engine-hosts = %APPEND% *.hls.pv-cdn.net, *.hls.row.aiv-cdn.net, *avodhlss3ww-a.akamaihd.net, s3.amazonaws.com, cf-timedtext.aux.pv-cdn.net, d1v5ir2lpwr8os.cloudfront.net, d22qjgkvxw22r6.cloudfront.net, d25xi40x97liuc.cloudfront.net, d27xxe7juh1us6.cloudfront.net, dmqdd6hw24ucf.cloudfront.net, assets.huluim.com, vod-*.live.cf.md.bbci.co.uk, vod-*-live.akamaized.net
@@ -39,6 +39,12 @@ DOMAIN-SUFFIX,spotifycdn.com,🚀 DEFAULT,force-remote-dns
 (^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) $2 307
 (^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) $2 307
+
+# 抖音去台灣重寫
+(?<=_region=)CN(?=&) TW 307
+(?<=&mcc_mnc=)4 2 307
+^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
+(^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
 
 # 抖音去廣告相關重寫
 ^https?:\/\/api.*\.amemv\.com\/aweme\/v\d\/ https://aweme.snssdk.com/aweme/v1/ header
@@ -100,6 +106,9 @@ replaceHeader = type=http-request, pattern=\/Users\/\w{32}\/Items\/\d+\?, script
 spotify-qx-header = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js, timeout=60
 spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+
+# 巴哈簽到
+巴哈姆特[签到] = type=cron,cronexp="{{{定时签到}}}",wake-system=1,script-update-interval=0,timeout=300,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutDailyBonus.js
 
 # 🔓 > 地震預警ICL 解鎖SVIP @Yu9191
 # hostname = mobile-new.chinaeew.cn
