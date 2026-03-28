@@ -3,34 +3,31 @@
 #!openUrl=http://boxjs.com/#/app/iRingo.TV
 #!homepage=https://DualSubs.github.io/guide/universal
 #!icon=https://github.com/DualSubs/Universal/raw/main/src/assets/icon_rounded.png
-#!arguments=Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false,ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN", 定时签到:20 8 * * *
+#!arguments=Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false,ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN",脚本引擎:webview,调试模式:0, 定时签到:20 8 * * *
 #!arguments-desc=Types: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nLanguages[0]: 主語言（源語言）\nLanguages[1]: 副語言（目標語言）\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示翻譯字幕\nForceHost: 強制CDN主機名類型（推薦 1: HTTP）\nLocales: 自動識別地區（CHN/HKG/MAC/TWN）\nProxies.xxx: 對應地區策略組名稱\nLogLevel: 日誌等級\n 定时签到：Cron表达式，默认每天早上 08:20 执行。（如需动画疯答题，不建议在凌晨0:00-0:30执行）
 
 [General]
 force-http-engine-hosts = %APPEND% *.hls.pv-cdn.net, *.hls.row.aiv-cdn.net, *avodhlss3ww-a.akamaihd.net, s3.amazonaws.com, cf-timedtext.aux.pv-cdn.net, d1v5ir2lpwr8os.cloudfront.net, d22qjgkvxw22r6.cloudfront.net, d25xi40x97liuc.cloudfront.net, d27xxe7juh1us6.cloudfront.net, dmqdd6hw24ucf.cloudfront.net, assets.huluim.com, vod-*.live.cf.md.bbci.co.uk, vod-*-live.akamaized.net
 
 [Rule]
-# iKeLee 香港抖音相關阻擋
+# > iKeLee 香港抖音相關阻擋
 AND,((IP-CIDR,101.126.58.201/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,110.249.199.75/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,111.225.147.191/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,111.63.61.101/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,220.243.141.0/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((OR,((DOMAIN-SUFFIX,bytegecko.com),(DOMAIN-SUFFIX,byteeffecttos.com))),(DOMAIN-KEYWORD,ncdn)),REJECT
-
 # 抖音去廣告
 URL-REGEX,^https?:\/\/(api.*\.amemv|aweme\.snssdk)\.com\/api\/ad\/,REJECT
-
-# Apple TV 已知問題阻擋
+# > Apple TV 已知問題阻擋
 DOMAIN,known-issues.apple.com,REJECT
-
-# Spotify 強制走代理 + force-remote-dns（解決 log 走 DIRECT 問題）
+# > Spotify 強制走代理 + force-remote-dns（解決 log 走 DIRECT 問題）
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list,🚀 DEFAULT,force-remote-dns
 DOMAIN-SUFFIX,spotify.com,🚀 DEFAULT,force-remote-dns
 DOMAIN-SUFFIX,spotifycdn.com,🚀 DEFAULT,force-remote-dns
 
 [URL Rewrite]
-# iKeLee QQ 外部連結重寫
+# > iKeLee QQ 外部連結重寫
 (^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/middlect\.html\?pfuin=.*&pfurl=)(http.*)(&gjsublevel=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/middlect\.html\?iscontinue=.*pfurl=)(http.*)(&pfuin=.*) $2 307
@@ -39,32 +36,28 @@ DOMAIN-SUFFIX,spotifycdn.com,🚀 DEFAULT,force-remote-dns
 (^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) $2 307
 (^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) $2 307
-
-# 抖音去台灣重寫
+# > 抖音去台灣重寫
 (?<=_region=)CN(?=&) TW 307
 (?<=&mcc_mnc=)4 2 307
 ^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
 (^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
-
-# 抖音去廣告相關重寫
+# > 抖音去廣告相關重寫
 ^https?:\/\/api.*\.amemv\.com\/aweme\/v\d\/ https://aweme.snssdk.com/aweme/v1/ header
 ^https:\/\/api5-normal-lq\.amemv\.com\/api\/ad\/ - reject
 ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/api\/ad\/ - reject
 ^https:\/\/zlink\.ugsdk\.cn\/ad\/ - reject
-
-# Apple TV 相關重寫
+# > Apple TV 相關重寫
 ^https?://play-cdn.itunes.apple.com https://play.itunes.apple.com/ header
 ^https?://play-edge-cdn.itunes.apple.com https://play-edge.itunes.apple.com/ header
 
 [Header Rewrite]
-# Spotify 優化（避免 304 狀態碼問題）
+# > Spotify 優化（避免 304 狀態碼問題）
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Body Rewrite]
-# Bilibili 國際版優化
+# > Bilibili 國際版優化
 http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("我的錢包", "我的NFT")) | not))'
-
-# iKeLee 香港抖音去廣告與介面清理
+# > iKeLee 香港抖音去廣告與介面清理
 http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_apps"]])'
 http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_users"]])'
 http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? 'delpaths([["data","tab_config"]])'
@@ -73,12 +66,19 @@ http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\
 http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_tab_skin_enable")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_tab_skin_enable"]; false)) else . end'
 
 [Map Local]
-# Bilibili 國際版搜尋優化
+# > Bilibili 國際版搜尋優化
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square\?(.+)$ data-type=text data="{}" status-code=200
-# 網易音樂海外限制解除
+# > baidu淨化
+^https?:\/\/(?:www|m)\.baidu\.com(?:\/|\/\?(tn=&)?from=\w+)?$ data="https://raw.githubusercontent.com/Keywos/rule/master/script/baidu_index/html/index.html" header="Content-Type: text/html; charset=utf-8"
+# > 網易音樂海外限制解除
 ^https?:\/\/.*\.163\.com\/api\/ad data-type=text data=" " status-code=200
 ^https?:\/\/.*\.163\.com\/api\/v\d\/(android|ios|osx|pc)\/(upgrade|version) data-type=text data=" " status-code=200
 ^https?:\/\/clientlog.*\.music\.163\.com\/ data-type=text data=" " status-code=200
+# > 微博
+^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/fhy_dongtu\.gif$ data="https://hub.nan.ge/Mock/Weibo/hy_dongtu.gif"
+^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/bianjijiantou\.png$ data="https://hub.nan.ge/Mock/Weibo/jiantougaocheng.png"
+^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/Vip\.png$ data="https://hub.nan.ge/Mock/Weibo/avatar_vip_golden.png"
+^https?:\/\/h5\.sinaimg\.cn\/upload\/.+\/vip[0-9]_default\.png$ data="https://hub.nan.ge/Mock/Weibo/feed_icon_100vip_7_default.png"
 
 [Script]
 # === 各類解鎖腳本（全部保留）===
@@ -126,6 +126,14 @@ APTV=type=http-response,pattern=https://api.revenuecat.com/v1/(receipts|subscrib
 # hostname = weixin110.qq.com, security.wechat.com
 微信外部連結解鎖 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://kelee.one/Resource/JavaScript/Weixin/Weixin_external_links_unlock.js, requires-body=true
 
+#
+
+# 🔓 > bilibili自動簽到
+B站每日任务 = type=cron,cronexp=30 7 * * *,script-path=https://raw.githubusercontent.com/ClydeTime/Quantumult/main/Script/Task/BiliBili.js
+#以下cookie获取方式二选其一即可
+B站获取Cookie(APP) = type=http-request,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/domain\?,script-path=https://raw.githubusercontent.com/ClydeTime/Quantumult/main/Script/Task/BiliBili.js
+#B站获取Cookie(网页) = type=http-request,pattern=^https:\/\/m.bilibili.com/$,script-path=https://raw.githubusercontent.com/ClydeTime/Quantumult/main/Script/Task/BiliBili.js
+
 # 🔓 > bilibili地區解鎖
 bili自動地區=type=http-response,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/v\d\/search\/defaultwords)\?access_key ,script-path=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/Bili_Auto_Regions.js, requires-body=true
 bili-json = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(v2\/(splash\/(list|show)|feed\/index\?)|resource\/show\/tab\/v2),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-json.js,script-update-interval=0
@@ -152,6 +160,10 @@ bili-proto = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bili
 # 🔓 > 抖音去廣告
 douyin = type=http-response,pattern=^https?:\/\/aweme\.snssdk\.com\/aweme\/v[12]\/((|follow\/|nearby\/)feed|aweme\/post|hot\/search\/video\/list|mix\/aweme|aweme\/detail)\/\?,requires-body=1,script-path=https://Choler.github.io/Surge/Script/douyin.js
 
+# 京東比價
+http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path= https://raw.githubusercontent.com/zwf234/rules/master/js/jd_price.js
+京東淘寶比價 = type=http-response,requires-body=1,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price_lite.js
+
 # apple tv
 📺 TV.uts.request = type=http-request, pattern=^https?://uts-api.itunes.apple.com/uts/(v1|v2|v3)/, requires-body=1, script-path=https://github.com/NSRingo/TV/releases/download/v3.4.4/request.bundle.js, argument=
 📺 TV.uts.response = type=http-response, pattern=^https?://uts-api.itunes.apple.com/uts/(v1|v2|v3)/, requires-body=1, script-path=https://github.com/NSRingo/TV/releases/download/v3.4.4/response.bundle.js, argument=
@@ -160,6 +172,18 @@ douyin = type=http-response,pattern=^https?:\/\/aweme\.snssdk\.com\/aweme\/v[12]
 # 網易音樂海外限制解除
 unblock-netease = type=http-response, pattern=^https?:\/\/(interface\d?|music)\.163\.com\/(e?api)\/.*, script-path=https://raw.githubusercontent.com/QuellaMC/NeteaseUnlocker/main/js/unblock-netease.js, requires-body=true, max-size=-1, timeout=60
 unblock-netease-header = type=http-request, pattern=^https?:\/\/(interface\d?|music)\.163\.com\/(e?api)\/.*, script-path=https://raw.githubusercontent.com/QuellaMC/NeteaseUnlocker/main/js/unblock-netease-header.js, timeout=60
+
+# > 微博淨化
+主页 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/2\/profile\?gsid=,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Spec/Weibo/Moore/Profile.js
+个人信息 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/2\/users\/(show|relation),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Spec/Weibo/Moore/UserShow.js
+消息列表 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/2\/(direct_messages\/user_list|messageflow\/notice)\?gsid=,requires-body=1,max-size=0,script-path=https://hub.nan.ge/Script/Weibo/Message.js
+# > 微博去广告
+扩展 = type=http-response,pattern=^https?://m?api\.weibo\.c(n|om)/2/(profile/(me|statuses)|searchall|statuses/(unread_hot_timeline|extend|video_mixtimeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|container/get_item),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Rabbit-Spec/Surge/Master/Module/Spec/Weibo/Moore/Weibo.js
+开屏 = requires-body=1,script-path=https://hub.nan.ge/Script/Weibo/Launch.js,type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
+微博 = type=http-response,requires-body=1,max-size=-1,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist|wbox\/.+\/createrIndex|st_videos\/tiny\/effect\/shoot_display_config)|video/tiny_stream_video_list|photo/info|remind/unread_count),script-path=https://hub.nan.ge/Script/Weibo/Timeline.js
+微博钱包 = type=http-response,pattern=^https?:\/\/pay\.sc\.weibo\.com\/api\/client\/sdk\/app\/indexnew\/(index|person),requires-body=1,max-size=0,script-path=https://hub.nan.ge/Script/Weibo/Wallet.js
+# > 微博配置变量注入
+微博去广告配置 = type=cron,cronexp="0 0 1 1 * ? ",debug=1,script-path=https://hub.nan.ge/Script/Weibo/Config.js
 
 # 雙字幕 
 🍿️ DualSubs.TV.M3U8.Master.response = type=http-response, pattern=^https?:\/\/(play|play-edge|hls)\.itunes\.apple\.com\/WebObjects\/(MZPlay|MZPlayLocal)\.woa\/hls\/playlist\.m3u8, requires-body=1, script-path=https://github.com/DualSubs/Universal/releases/download/v1.7.5/Manifest.response.bundle.js, argument=Types="{{{Types}}}"&Languages[0]="{{{Languages[0]}}}"&Languages[1]="{{{Languages[1]}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
@@ -327,6 +351,9 @@ unblock-netease-header = type=http-request, pattern=^https?:\/\/(interface\d?|mu
 🍿️ DualSubs.Spotify.External.Lyrics.response.json = type=http-response, pattern=^https?:\/\/(.+-spclient|spclient\.wg).spotify\.com(:443)?\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=External, requires-body=1, script-path=https://github.com/DualSubs/Universal/releases/latest/download/External.Lyrics.response.bundle.js, argument=Types="{{{Types}}}"&Languages[0]="{{{Languages[0]}}}"&Languages[1]="{{{Languages[1]}}}"&Vendor="{{{Vendor}}}"&LrcVendor="{{{LrcVendor}}}"&LogLevel="{{{LogLevel}}}"
 🍿️ DualSubs.Spotify.External.Lyrics.response.proto = type=http-response, pattern=^https?:\/\/(.+-spclient|spclient\.wg).spotify\.com(:443)?\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=External, requires-body=1, binary-body-mode=1, script-path=https://github.com/DualSubs/Universal/releases/latest/download/External.Lyrics.response.bundle.js, argument=Types="{{{Types}}}"&Languages[0]="{{{Languages[0]}}}"&Languages[1]="{{{Languages[1]}}}"&Vendor="{{{Vendor}}}"&LrcVendor="{{{LrcVendor}}}"&LogLevel="{{{LogLevel}}}"
 
+# disney+評分
+DisneyRating = type=http-response,pattern=^https:\/\/disney\.api\.edge\.bamgrid\.com\/explore\/v\d\.\d+\/page\/entity-,requires-body=1,max-size=0,binary-body-mode=0,debug={{{调试模式}}},script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Disney/DisneyRating.js,engine={{{脚本引擎}}}
+
 # 愛奇藝 Cookie
 Remote_Cookies = type=http-request,pattern=^https?:\/\/passport\.iqiyi\.com\/apis\/user\/,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/CheckIn/iqiyi.js
 # 吾愛破解 Cookie
@@ -388,6 +415,6 @@ Surfsharkdns = type=http-request, pattern= ^https:\/\/streaming\.test\/dns\/?$, 
 Front-end = type=http-request, pattern=^https:\/\/streaming\.test\/$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/front-end.js, timeout=60
 
 [MITM]
-hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, api*.amemv.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net, grpc.biliapi.net, search.bilibili.com, api.biliapi.net, grpc.biliapi.net, uts-api.itunes.apple.com, umc-tempo-api.apple.com, play-cdn.itunes.apple.com, play-edge-cdn.itunes.apple.com, hls.itunes.apple.com, hls-svod.itunes.apple.com, vod-*.tv.apple.com, *.media.dssott.com, *.media.starott.com, *.prod.dssedge.com, atv-ps.amazon.com, atv-ps-fe.primevideo.com, *.hls.pv-cdn.net, *.hls.row.aiv-cdn.net, *avodhlss3ww-a.akamaihd.net, s3.amazonaws.com, cf-timedtext.aux.pv-cdn.net, d1v5ir2lpwr8os.cloudfront.net, d22qjgkvxw22r6.cloudfront.net, d25xi40x97liuc.cloudfront.net, d27xxe7juh1us6.cloudfront.net, dmqdd6hw24ucf.cloudfront.net, *.prod.media.max.com, *.prd.media.max.com, *.prod.media.h264.io, *.prd.media.h264.io, manifests.api.hbo.com, manifests.v2.api.hbo.com, *.hbomaxcdn.com, vodmanifest.hulustream.com, manifest-dp.hulustream.com, livemanifest-f.hulustream.com, live-sc.hulustream.com, assets.huluim.com, assetshuluimcom-a.akamaihd.net, link.theplatform.com, *.pplus.paramount.tech, *-pplus.cbs.com, vod-*.cbsaavideo.com, vod-*.cbsivideo.com, *.airspace-*.cbsivideo.com, content-discovery.uplynk.com, *-discovery1.uplynk.com, x-default-stgec.uplynk.com, dplus-ph-prod-vod.akamaized.net, dplus-ph-google-v2.prod-vod.h264.io, *.stream.peacocktv.com, *.cdn.peacocktv.com, *-vod.fubo.tv, hls.ted.com, pubads.g.doubleclick.net, vod-*.live.cf.md.bbci.co.uk, vod-*-live.akamaized.net, api.britbox.com, *.content.britbox.co.uk, manifest.googlevideo.com, mecdn?.starz.com, manifest.prod.boltdns.net, ssaimanifest.prod.boltdns.net, amcplus-?.akamaized.net, redirector.playback.*.prod.deploys.brightcove.com, ap-hls-vod.dynamic.showtime.com, ap-hls-live.cdn?.showtime.com, *.cssott.com, manifest-viki.viki.io, api.viki.io, v.vrv.co, epixhls.akamaized.net, *.live.epix.services, media-production.nebula.app, *.prd.pluto.tv, *.plutotv.net, *.mubicdn.net, passport.iqiyi.com, www.52pojie.cn, tiebac.baidu.com, c.tieba.baidu.com, app.bilibili.com, m.bilibili.com, xmc.ximalaya.com, vip.video.qq.com, pbaccess.video.qq.com, ngabbs.com, yunbusiness.ccb.com, *.amap.com, m.ctrip.com, hweb-personalcenter.huazhu.com, www.flyert.com.cn, *.oca.nflxvideo.net, spclient.wg.spotify.com, *.spclient.spotify.com, *.spotifycdn.com, gae2-spclient.spotify.com, pickasso.spotifycdn.com, audio-ak.spotifycdn.com, heads-fa-tls13.spotifycdn.com, image-cdn-ak.spotifycdn.com, canvaz.scdn.co, api.spotify.com, spclient.wg.spotify.com, *-spclient.spotify.com,*.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, *.music.163.com, *.126.net
+hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com, api*.amemv.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net, grpc.biliapi.net, search.bilibili.com, api.biliapi.net, grpc.biliapi.net, uts-api.itunes.apple.com, umc-tempo-api.apple.com, play-cdn.itunes.apple.com, play-edge-cdn.itunes.apple.com, hls.itunes.apple.com, hls-svod.itunes.apple.com, vod-*.tv.apple.com, *.media.dssott.com, *.media.starott.com, *.prod.dssedge.com, atv-ps.amazon.com, atv-ps-fe.primevideo.com, *.hls.pv-cdn.net, *.hls.row.aiv-cdn.net, *avodhlss3ww-a.akamaihd.net, s3.amazonaws.com, cf-timedtext.aux.pv-cdn.net, d1v5ir2lpwr8os.cloudfront.net, d22qjgkvxw22r6.cloudfront.net, d25xi40x97liuc.cloudfront.net, d27xxe7juh1us6.cloudfront.net, dmqdd6hw24ucf.cloudfront.net, *.prod.media.max.com, *.prd.media.max.com, *.prod.media.h264.io, *.prd.media.h264.io, manifests.api.hbo.com, manifests.v2.api.hbo.com, *.hbomaxcdn.com, vodmanifest.hulustream.com, manifest-dp.hulustream.com, livemanifest-f.hulustream.com, live-sc.hulustream.com, assets.huluim.com, assetshuluimcom-a.akamaihd.net, link.theplatform.com, *.pplus.paramount.tech, *-pplus.cbs.com, vod-*.cbsaavideo.com, vod-*.cbsivideo.com, *.airspace-*.cbsivideo.com, content-discovery.uplynk.com, *-discovery1.uplynk.com, x-default-stgec.uplynk.com, dplus-ph-prod-vod.akamaized.net, dplus-ph-google-v2.prod-vod.h264.io, *.stream.peacocktv.com, *.cdn.peacocktv.com, *-vod.fubo.tv, hls.ted.com, pubads.g.doubleclick.net, vod-*.live.cf.md.bbci.co.uk, vod-*-live.akamaized.net, api.britbox.com, *.content.britbox.co.uk, manifest.googlevideo.com, mecdn?.starz.com, manifest.prod.boltdns.net, ssaimanifest.prod.boltdns.net, amcplus-?.akamaized.net, redirector.playback.*.prod.deploys.brightcove.com, ap-hls-vod.dynamic.showtime.com, ap-hls-live.cdn?.showtime.com, *.cssott.com, manifest-viki.viki.io, api.viki.io, v.vrv.co, epixhls.akamaized.net, *.live.epix.services, media-production.nebula.app, *.prd.pluto.tv, *.plutotv.net, *.mubicdn.net, passport.iqiyi.com, www.52pojie.cn, tiebac.baidu.com, c.tieba.baidu.com, app.bilibili.com, m.bilibili.com, xmc.ximalaya.com, vip.video.qq.com, pbaccess.video.qq.com, ngabbs.com, yunbusiness.ccb.com, *.amap.com, m.ctrip.com, hweb-personalcenter.huazhu.com, www.flyert.com.cn, *.oca.nflxvideo.net, spclient.wg.spotify.com, *.spclient.spotify.com, *.spotifycdn.com, gae2-spclient.spotify.com, pickasso.spotifycdn.com, audio-ak.spotifycdn.com, heads-fa-tls13.spotifycdn.com, image-cdn-ak.spotifycdn.com, canvaz.scdn.co, api.spotify.com, spclient.wg.spotify.com, *-spclient.spotify.com,*.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, *.music.163.com, *.126.net, api.m.jd.com, m.baidu.com,www.baidu.com, *.uve.weibo.com, api.weibo.cn, api.weibo.com, mapi.weibo.com, mapi.weibo.cn, h5.sinaimg.cn, pay.sc.weibo.com,disney.api.edge.bamgrid.com
 tcp-connection = true
 h2 = true
