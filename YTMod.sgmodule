@@ -5,10 +5,10 @@
 #!arguments-desc=屏蔽參數：[true, false]\n翻譯參數：[語言代碼, off]\n腳本執行引擎：[jsc, webview]\nType: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nTypes: [歌詞] 啟用類型（Translate: 翻譯歌詞）\nAutoCC: 是否自動開啟字幕\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示自動翻譯字幕\nLogLevel: 日誌等級
 
 [URL Rewrite]
-# 移除 ctier=L 降速參數
+# 移除 ctier=L 降速
 ^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier=L)([^,&]*)(.*)$ $1$2$3 302
 
-# 阻擋 googlevideo 廣告串流（加強版）
+# 阻擋 googlevideo 廣告串流
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&,](oad=|pltype=ad|adformat=|ad_type=|adcompanion|segsrc=|pfa=) reject-200
 
 # 阻擋廣告追蹤
@@ -16,14 +16,14 @@
 ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking|get_midroll) reject-200
 ^https?:\/\/[^\/]*\.doubleclick\.net\/ reject-200
 
-# DualSubs initplayback 廣告阻擋
+# DualSubs initplayback 阻擋
 URL-REGEX,^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$,REJECT-TINYGIF
 
-# 核心去廣告：全部 youtubei API 轉發到 Maasea Worker（擴大範圍，解決 log 裡面未命中問題）
+# 核心去廣告：擴大範圍確保全部 youtubei API 命中 Worker
 ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(next|player|browse|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event)(\?(.*))?$ {{{Request}}}/$1?blockUpload={{{blockUpload}}}&blockImmersive={{{blockImmersive}}}&blockShorts={{{blockShorts}}}&engine={{{engine}}}&captionLang={{{captionLang}}}&lyricLang={{{lyricLang}}}&$3 307
 
 [Script]
-# DualSubs YouTube 雙語字幕 + 歌詞翻譯（完整保留，無刪減）
+# DualSubs YouTube 雙語字幕 + 歌詞翻譯（完整保留）
 DualSubs-YouTube-Player-request-json = type=http-request, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player(\?.+)?$, requires-body=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/request.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTube-Player-response-json = type=http-response, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player(\?.+)?$, requires-body=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/response.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTube-Player-request-proto = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player(\?.+)?$, requires-body=1, binary-body-mode=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/request.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
@@ -37,7 +37,7 @@ DualSubs-YouTube-Browse-request-proto = type=http-request, pattern=^https?:\/\/y
 DualSubs-YouTubeMusic-Translate-Lyrics-response-json = type=http-response, pattern=^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, requires-body=1, script-path=https://github.com/DualSubs/Universal/releases/latest/download/Translate.response.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTubeMusic-Translate-Lyrics-response-proto = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, requires-body=1, binary-body-mode=1, script-path=https://github.com/DualSubs/Universal/releases/latest/download/Translate.response.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 
-# Maasea Worker 核心去廣告腳本（解決 log 裡面未命中問題）
+# Maasea Worker 核心腳本
 youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument="{"lyricLang":"{{{lyricLang}}}","captionLang":"{{{captionLang}}}","blockUpload":{{{blockUpload}}},"blockImmersive":{{{blockImmersive}}},"blockShorts":{{{blockShorts}}},"debug":{{{debug}}}}"
 
 [MITM]
