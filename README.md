@@ -41,7 +41,7 @@ B. 配置
      03. [廣告Block]
          - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
      04. [Youtube模塊]
-         - https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Lite.sgmodule
+         - https://yfamilys.com/module/YouTubeAd.sgmodule
      05. [另類廣告Block]
          - https://limbopro.com/Adblock4limbo.sgmodule
      06. [酷我音樂解鎖]
