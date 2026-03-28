@@ -24,6 +24,9 @@ URL-REGEX,^https?:\/\/(api.*\.amemv|aweme\.snssdk)\.com\/api\/ad\/,REJECT
 # Apple TV 已知問題阻擋
 DOMAIN,known-issues.apple.com,REJECT
 
+# Spotify 解鎖專用規則（解決 log 裡面走 DIRECT 問題）
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list,🚀 DEFAULT,force-remote-dns
+
 [URL Rewrite]
 # iKeLee QQ 外部連結重寫
 (^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
@@ -356,6 +359,6 @@ Surfsharkdns = type=http-request, pattern= ^https:\/\/streaming\.test\/dns\/?$, 
 Front-end = type=http-request, pattern=^https:\/\/streaming\.test\/$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/front-end.js, timeout=60
 
 [MITM]
-hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, api*.amemv.com, aweme.snssdk.com, api5-normal-m.amemv.com, *.bili*.com, *.bili*.net, grpc.biliapi.net, search.bilibili.com, uts-api.itunes.apple.com, umc-tempo-api.apple.com, *.itunes.apple.com, *.tv.apple.com, *.media.dssott.com, *.media.starott.com, *.dssedge.com, *.primevideo.com, *.pv-cdn.net, *.aiv-cdn.net, *.akamaihd.net, s3.amazonaws.com, *.cloudfront.net, *.max.com, manifests.api.hbo.com, *.hbomaxcdn.com, *.hulustream.com, *.huluim.com, *.paramount.tech, *.cbs.com, content-discovery.uplynk.com, *.peacocktv.com, *.fubo.tv, hls.ted.com, pubads.g.doubleclick.net, *.bbci.co.uk, *.britbox.co.uk, *.starz.com, *.boltdns.net, *.akamaized.net, *.showtime.com, *.cssott.com, *.viki.io, *.mubicdn.net, *.oca.nflxvideo.net, passport.iqiyi.com, *.52pojie.cn, tieba.baidu.com, xmc.ximalaya.com, vip.video.qq.com, pbaccess.video.qq.com, ngabbs.com, yunbusiness.ccb.com, *.amap.com, m.ctrip.com, hweb-personalcenter.huazhu.com, www.flyert.com.cn
+hostname = %APPEND% streaming.test, spclient.wg.spotify.com, *.spclient.spotify.com, *.spotifycdn.com, gae2-spclient.spotify.com, pickasso.spotifycdn.com, audio-ak.spotifycdn.com, heads-fa-tls13.spotifycdn.com, image-cdn-ak.spotifycdn.com, canvaz.scdn.co, login5.spotify.com, apresolve.spotify.com
 tcp-connection = true
 h2 = true
