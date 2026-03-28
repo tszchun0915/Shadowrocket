@@ -51,13 +51,14 @@ B. 配置
        - 順帶一提
           - 你可以到這裏找模組 超齊全 https://surge.qingr.moe/
           - 另外這個是Youtube模組大神 https://github.com/Maasea/sgmodule
-          - Apple功能修正大神         https://nsringo.github.io/
+          - Apple功能修正模組BoxJs大神 https://nsringo.github.io/
             - 方法一: 🆕點擊[訂閱](http://boxjs.com/#/sub/add/https://github.com/NSRingo/BoxJs/raw/main/iRingo.BoxJs.json)(推薦，安装BoxJs後點擊導入)
             - 方法二: 複製貼上導入(傳統，安裝BoxJs後複製導入)
               - 瀏覽器訪問BoxJs.com，在訂閱頁面點擊+複製貼上添加本項目訂閱鏈接
               - https://github.com/NSRingo/BoxJs/raw/main/iRingo.BoxJs.json
   3. 本地檔案:
      - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
+       - 規則集Rule-set大神 超齊全 https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket
   4. 配置必須打開HTTPS解密獲得證書, 3步步驟如下:
        - 1 點擊配置文件ⓘ - HTTPS解密 - 證書 - 生成新的CA證書 - 安裝證書
        - 2 手機設定 - 已下載描述文件 - 安裝
