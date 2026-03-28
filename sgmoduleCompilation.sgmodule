@@ -24,8 +24,10 @@ URL-REGEX,^https?:\/\/(api.*\.amemv|aweme\.snssdk)\.com\/api\/ad\/,REJECT
 # Apple TV 已知問題阻擋
 DOMAIN,known-issues.apple.com,REJECT
 
-# Spotify 解鎖專用規則（解決 log 裡面走 DIRECT 問題）
+# Spotify 強制走代理 + force-remote-dns（解決走 DIRECT 問題）
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list,🚀 DEFAULT,force-remote-dns
+DOMAIN-SUFFIX,spotify.com,🚀 DEFAULT,force-remote-dns
+DOMAIN-SUFFIX,spotifycdn.com,🚀 DEFAULT,force-remote-dns
 
 [URL Rewrite]
 # iKeLee QQ 外部連結重寫
@@ -359,6 +361,6 @@ Surfsharkdns = type=http-request, pattern= ^https:\/\/streaming\.test\/dns\/?$, 
 Front-end = type=http-request, pattern=^https:\/\/streaming\.test\/$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/front-end.js, timeout=60
 
 [MITM]
-hostname = %APPEND% streaming.test, spclient.wg.spotify.com, *.spclient.spotify.com, *.spotifycdn.com, gae2-spclient.spotify.com, pickasso.spotifycdn.com, audio-ak.spotifycdn.com, heads-fa-tls13.spotifycdn.com, image-cdn-ak.spotifycdn.com, canvaz.scdn.co, login5.spotify.com, apresolve.spotify.com
+hostname = %APPEND% streaming.test, spclient.wg.spotify.com, *.spclient.spotify.com, *.spotifycdn.com, gae2-spclient.spotify.com, pickasso.spotifycdn.com, audio-ak.spotifycdn.com, heads-fa-tls13.spotifycdn.com, image-cdn-ak.spotifycdn.com, canvaz.scdn.co, *.apple.com, *.icloud.com, *.mzstatic.com, smoot.apple.com, itunes.apple.com, bag.itunes.apple.com, amp-api*.apple.com, gspe*.ls.apple.com
 tcp-connection = true
 h2 = true
