@@ -1,19 +1,17 @@
 #!name=YT(Music) One for All
-#!desc=YT Ambient Optimized
-#!arguments=Request:"https://stream.maasea.workers.dev",blockUpload:true,blockShorts:false,blockImmersive:false,captionLang:"zh-Hant",lyricLang:"zh-Hant",debug:false,engine:"webview",Type:"Official",Types:"Translate",AutoCC:true,Position:"Forward",Vendor:"Google",ShowOnly:false,LogLevel:"WARN"
-#!arguments-desc =- 屏蔽參數：[true, false]\n- 翻譯參數：[語言代碼, off]\n- 腳本執行引擎:[jsc, webview] \n Type: [字幕] 启用类型\n    ├ Official: 官方字幕（合成器）\n    └ Translate: 翻译字幕（翻译器）\n请选择要使用的字幕，双语字幕将使用您选择类型呈现。\n\nTypes: [歌词] 启用类型\n    └ Translate: 翻译歌词（翻译器）\n请选择要添加的歌词选项，如果为多选，则会自动决定提供的歌词类型。\n\nAutoCC: [字幕] 自动显示\n是否总是自动开启字幕显示。\n\nPosition: [字幕] 主语言（源语言）字幕位置\n    ├ Forward: 上面（第一行）\n    └ Reverse: 下面（第二行）\n主语言（源语言）字幕的显示位置。\n\nVendor: [翻译器] 服务商API\n    ├ Google: Google Translate\n    └ Microsoft: Microsoft Translator（需填写API）\n请选择翻译器所使用的服务商API，更多翻译选项请使用BoxJs。\n\nShowOnly: [翻译器] 只显示“自动翻译”字幕\n是否仅显示“自动翻译”字幕，不显示源语言字幕。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n
+#!desc=YouTube + YouTube Music 完整去廣告 + DualSubs 雙語字幕（正體中文優化版）
 #!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+#!arguments=Request:"https://stream.maasea.workers.dev",blockUpload:true,blockShorts:false,blockImmersive:false,captionLang:"zh-Hant",lyricLang:"zh-Hant",debug:false,engine:"webview",Type:"Official",Types:"Translate",AutoCC:true,Position:"Forward",Vendor:"Google",ShowOnly:false,LogLevel:"WARN"
+#!arguments-desc=屏蔽參數：[true, false]\n翻譯參數：[語言代碼, off]\n腳本執行引擎：[jsc, webview]\nType: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nTypes: [歌詞] 啟用類型（Translate: 翻譯歌詞）\nAutoCC: 是否自動開啟字幕\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示自動翻譯字幕\nLogLevel: 日誌等級
 
 [URL Rewrite]
 # ────────────────────────────────────────────
-# [1] 移除 ctier=L 降速參數（302保留請求，只移除該參數）
-# 只保留精準版，原本第一條 reject 版會直接斷流，已刪除
+# [1] 移除 ctier=L 降速參數（只移除參數，保留 302）
 # ────────────────────────────────────────────
 ^https?:\/\/([^/]+\.googlevideo\.com\/.+?)(?:[,&]ctier=L)([^,&]*)(.*)$ $1$2$3 302
 
 # ────────────────────────────────────────────
-# [2] 攔截 googlevideo 廣告串流
-# 已合併4條重複規則為1條，oad=/pltype=ad 等只需一條覆蓋
+# [2] 攔截 googlevideo 廣告串流（已合併多條規則）
 # ────────────────────────────────────────────
 ^https?:\/\/[\w-]+\.googlevideo\.com\/.*[?&,](oad=|pltype=ad|adformat=|ad_type=|adcompanion|segsrc=|pfa=) reject-200
 
@@ -25,13 +23,17 @@
 ^https?:\/\/[^\/]*\.doubleclick\.net\/ reject-200
 
 # ────────────────────────────────────────────
-# [4] 核心去廣告：API 轉發至 Worker
-# 處理 player/next/guide/get_watch 等主要廣告注入端點
-# 注意：Worker 係呢幾個端點嘅唯一去廣告機制
+# [4] DualSubs.YouTube 獨有規則：阻擋廣告 initplayback
+# ────────────────────────────────────────────
+URL-REGEX,^https?:\/\/([\w-]+)\.googlevideo\.com\/initplayback(\?.*oad=.+)$,REJECT-TINYGIF
+
+# ────────────────────────────────────────────
+# [5] 核心去廣告：API 轉發至 Maasea Worker（最重要）
 # ────────────────────────────────────────────
 ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(next|player|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event))(\?(.*))?$ {{{Request}}}/$1?blockUpload={{{blockUpload}}}&blockImmersive={{{blockImmersive}}}&blockShorts={{{blockShorts}}}&engine={{{engine}}}&captionLang={{{captionLang}}}&lyricLang={{{lyricLang}}}&$4 307
 
 [Script]
+# === DualSubs YouTube 雙語字幕 + 歌詞翻譯（已合併，無重複）===
 DualSubs-YouTube-Player-request-json = type=http-request, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player(\?.+)?$, requires-body=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/request.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTube-Player-response-json = type=http-response, pattern=^https?:\/\/(www|m|tv)\.youtube\.com\/youtubei\/v1\/player(\?.+)?$, requires-body=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/response.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTube-Player-request-proto = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/player(\?.+)?$, requires-body=1, binary-body-mode=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/request.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
@@ -44,7 +46,11 @@ DualSubs-YouTubeMusic-Browse-request-json = type=http-request, pattern=^https?:\
 DualSubs-YouTube-Browse-request-proto = type=http-request, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse(\?.+)?$, requires-body=1, binary-body-mode=1, engine=webview, script-path=https://github.com/DualSubs/YouTube/releases/download/v1.5.11/request.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTubeMusic-Translate-Lyrics-response-json = type=http-response, pattern=^https?:\/\/music\.youtube\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, requires-body=1, script-path=https://github.com/DualSubs/Universal/releases/latest/download/Translate.response.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
 DualSubs-YouTubeMusic-Translate-Lyrics-response-proto = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/browse\?(.*)subtype=Translate, requires-body=1, binary-body-mode=1, script-path=https://github.com/DualSubs/Universal/releases/latest/download/Translate.response.bundle.js, argument=Type="{{{Type}}}"&Types="{{{Types}}}"&AutoCC="{{{AutoCC}}}"&Position="{{{Position}}}"&Vendor="{{{Vendor}}}"&ShowOnly="{{{ShowOnly}}}"&LogLevel="{{{LogLevel}}}"
+
+# Maasea 核心去廣告回應腳本（Worker 配合）
 youtube-response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument="{"lyricLang":"{{{lyricLang}}}","captionLang":"{{{captionLang}}}","blockUpload":{{{blockUpload}}},"blockImmersive":{{{blockImmersive}}},"blockShorts":{{{blockShorts}}},"debug":{{{debug}}}}"
 
 [MITM]
-hostname = %APPEND% www.youtube.com, s.youtube.com, tv.youtube.com, music.youtube.com, youtubei.googleapis.com, *.doubleclick.net, *.ytimg.com, *.googlevideo.com, jnn-pa.googleapis.com, youtubei-att.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com, -google.com, -redirector*.googlevideo.com
+hostname = %APPEND% www.youtube.com, m.youtube.com, tv.youtube.com, music.youtube.com, youtubei.googleapis.com, s.youtube.com, *.googlevideo.com, *.doubleclick.net, *.ytimg.com, jnn-pa.googleapis.com, youtubei-att.googleapis.com, -gemini.google.com, -generativelanguage.googleapis.com, -www.google.com, -google.com, -redirector*.googlevideo.com
+tcp-connection = true
+h2 = true
