@@ -59,9 +59,9 @@ B. 配置
      12. [DNS防洩漏模塊]
          - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/BlockHTTPDNS/BlockHTTPDNS.sgmodule
        - 順帶一提
-          - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/
-          - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule
-          - Apple功能修整[iRingo大神](https://nsringo.github.io/
+          - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/)
+          - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule)
+          - Apple功能修整[iRingo大神](https://nsringo.github.io/)
             
 C. 資料
 -----------------------------------------------------------
