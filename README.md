@@ -47,6 +47,7 @@ B. 配置
      14. https://limbopro.com/Adblock4limbo.sgmodule
      15. https://raw.githubusercontent.com/NobyDa/Script/refs/heads/master/Surge/Module/RewriteRules.sgmodule
      16. https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.sgmodule
+     17. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/BlockHTTPDNS/BlockHTTPDNS.sgmodule
        - 順帶一提
           - 你可以到這裏找模組 超齊全 https://surge.qingr.moe/
           - 另外這個是Youtube模組大神 https://github.com/Maasea/sgmodule
