@@ -26,8 +26,8 @@ A. 首頁
 B. 配置
 -----------------------------------------------------------
   1. 本地檔案:
-     - [點此配置文件]
-       - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf)
+     - [配置文件]
+       - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/AssignLocation.conf
          - [blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)規則集Rule-set大神 超齊全
   2. 配置必須打開HTTPS解密獲得證書, 3步步驟如下:
        - 1 點擊配置文件ⓘ - HTTPS解密 - 證書 - 生成新的CA證書 - 安裝證書
