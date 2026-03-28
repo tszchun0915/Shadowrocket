@@ -1,30 +1,31 @@
-#!name=Module合集
-#!desc=https://streaming.test
-#!openUrl = http://boxjs.com/#/app/iRingo.TV
-#!homepage = https://DualSubs.github.io/guide/universal
-#!icon = https://github.com/DualSubs/Universal/raw/main/src/assets/icon_rounded.png
-#!arguments = Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false, ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN"
-#!arguments-desc =  Types: [字幕] 启用类型\n    ├ Official: 官方字幕（合成器）\n    └ Translate: 翻译字幕（翻译器）\n请选择要添加的字幕选项，如果为标准播放器，则会在字幕选项中新增勾选字幕选项。\n\nLanguages[0]: [字幕] 主语言（源语言）\n    ├ AUTO: 自动 - Automatic\n    ├ ZH: 中文（自动）\n    ├ ZH-HANS: 中文（简体）\n    ├ ZH-HK: 中文（香港）\n    ├ ZH-HANT: 中文（繁体）\n    ├ EN: English - 英语（自动）\n    ├ ES: Español - 西班牙语（自动）\n    ├ JA: 日本語 - 日语\n    ├ KO: 한국어 - 韩语\n    ├ DE: Deutsch - 德语\n    ├ FR: Français - 法语\n    ├ TR: Türkçe - 土耳其语\n    ├ KM: ភាសាខ្មែរ - 高棉语\n    ├ AR: العربية - 阿拉伯语\n    └ ID: Bahasa Indonesia - 印度尼西亚语\n当“主语言”字幕存在时，将生成“主语言/副语言（翻译）”与“主语言（外挂）”的字幕或字幕选项。\n\nLanguages[1]: [字幕] 副语言（目标语言）\n    ├ ZH: 中文（自动）\n    ├ ZH-HANS: 中文（简体）\n    ├ ZH-HK: 中文（香港）\n    ├ ZH-HANT: 中文（繁体）\n    ├ EN: English - 英语（自动）\n    ├ EN-US: 英语（美国）\n    ├ ES: Español - 西班牙语（自动）\n    ├ ES-ES: Español - 西班牙语\n    ├ ES-419: 西班牙语（拉丁美洲）\n    ├ JA: 日本語 - 日语\n    ├ KO: 한국어 - 韩语\n    ├ DE: Deutsch - 德语\n    ├ FR: Français - 法语\n    ├ TR: Türkçe - 土耳其语\n    ├ KM: ភាសាខ្មែរ - 高棉语\n    ├ AR: العربية - 阿拉伯语\n    └ ID: Bahasa Indonesia - 印度尼西亚语\n当“副语言”字幕存在时，将生成“副语言/主语言（官方）”的字幕或字幕选项。\n\nPosition: [字幕] 主语言（源语言）字幕位置\n    ├ Forward: 上面（第一行）\n    └ Reverse: 下面（第二行）\n主语言（源语言）字幕的显示位置。\n\nVendor: [翻译器] 服务商API\n    ├ Google: Google Translate\n    └ Microsoft: Microsoft Translator（需填写API）\n请选择翻译器所使用的服务商API，更多翻译选项请使用BoxJs。\n\nShowOnly: [翻译器] 只显示翻译字幕\n是否仅显示翻译后字幕，不显示源语言字幕。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 🔴 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n ForceHost: 强制CDN主机名类型\n    ├ 0: IP: 返回远端DNS解析地址（强烈不推荐！严重影响域名分流规则与CDN重定向）\n    ├ 1: HTTP: 返回HTTP域名（推荐，免去重定向时MitM操作）\n    └ 2: HTTPS: 返回HTTPS域名（不推荐，重定向时需对指定域名启用MitM）\n请设置强制返回的CDN主机名类型。\n\nLocales: 启用自动识别与分流功能的地区\n    ├ CHN: 🇨🇳中国大陆\n    ├ HKG: 🇭🇰中国香港\n    ├ MAC: 🇲🇴中国澳门\n    └ TWN: 🇹🇼中国台湾\n请选择启用自动识别与分流功能的地区。\n\nProxies.CHN: [🇨🇳中国大陆] 代理策略名称\n请填写此地区的代理或策略组名称。\n\nProxies.HKG: [🇭🇰中国香港] 代理策略名称\n请填写此地区的代理或策略组名称。\n\nProxies.MAC: [🇲🇴中国澳门] 代理策略名称\n请填写此地区的代理或策略组名称。\n\nProxies.TWN: [🇹🇼中国台湾] 代理策略名称\n请填写此地区的代理或策略组名称。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n
+#!name=sgmodule合集
+#!desc=流媒體雙字幕 + 多平台解鎖 + 去廣告合集
+#!openUrl=http://boxjs.com/#/app/iRingo.TV
+#!homepage=https://DualSubs.github.io/guide/universal
+#!icon=https://github.com/DualSubs/Universal/raw/main/src/assets/icon_rounded.png
+#!arguments=Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false,ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN"
+#!arguments-desc=Types: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nLanguages[0]: 主語言（源語言）\nLanguages[1]: 副語言（目標語言）\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示翻譯字幕\nForceHost: 強制CDN主機名類型（推薦 1: HTTP）\nLocales: 自動識別地區（CHN/HKG/MAC/TWN）\nProxies.xxx: 對應地區策略組名稱\nLogLevel: 日誌等級
 
 [General]
 force-http-engine-hosts = %APPEND% *.hls.pv-cdn.net, *.hls.row.aiv-cdn.net, *avodhlss3ww-a.akamaihd.net, s3.amazonaws.com, cf-timedtext.aux.pv-cdn.net, d1v5ir2lpwr8os.cloudfront.net, d22qjgkvxw22r6.cloudfront.net, d25xi40x97liuc.cloudfront.net, d27xxe7juh1us6.cloudfront.net, dmqdd6hw24ucf.cloudfront.net, assets.huluim.com, vod-*.live.cf.md.bbci.co.uk, vod-*-live.akamaized.net
 
 [Rule]
-# iKeLee香港抖音
+# iKeLee 香港抖音相關阻擋
 AND,((IP-CIDR,101.126.58.201/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,110.249.199.75/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,111.225.147.191/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,111.63.61.101/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((IP-CIDR,220.243.141.0/32,no-resolve),(DEST-PORT,6443)),REJECT
 AND,((OR,((DOMAIN-SUFFIX,bytegecko.com),(DOMAIN-SUFFIX,byteeffecttos.com))),(DOMAIN-KEYWORD,ncdn)),REJECT
+
 # 抖音去廣告
 URL-REGEX,^https?:\/\/(api.*\.amemv|aweme\.snssdk)\.com\/api\/ad\/,REJECT
-# apple tv
+
+# Apple TV 已知問題阻擋
 DOMAIN,known-issues.apple.com,REJECT
 
 [URL Rewrite]
-# ======= URL重寫 ======= #
-# iKeLee QQ外部連結
+# iKeLee QQ 外部連結重寫
 (^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/middlect\.html\?pfuin=.*&pfurl=)(http.*)(&gjsublevel=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/middlect\.html\?iscontinue=.*pfurl=)(http.*)(&pfuin=.*) $2 307
@@ -33,24 +34,26 @@ DOMAIN,known-issues.apple.com,REJECT
 (^https:\/\/c\.pc\.qq\.com\/index\.html\?pfurl=)(http.*)(&pfuin=.*) $2 307
 (^https:\/\/c\.pc\.qq\.com\/ios\.html\?url=)(http.*)(&level=.*) $2 307
 (^https:\/\/pingtas\.qq\.com\/webview\/pingd\?dm=c\.pc\.qq\.com&pvi=\d+&si=s\d+&url=\/ios\.html\?url%3d)(http.*)(%26level.*%26level.*) $2 307
-# 抖音去廣告
+
+# 抖音去廣告相關重寫
 ^https?:\/\/api.*\.amemv\.com\/aweme\/v\d\/ https://aweme.snssdk.com/aweme/v1/ header
-# iKeLee香港抖音
 ^https:\/\/api5-normal-lq\.amemv\.com\/api\/ad\/ - reject
 ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/api\/ad\/ - reject
 ^https:\/\/zlink\.ugsdk\.cn\/ad\/ - reject
-# apple tv
+
+# Apple TV 相關重寫
 ^https?://play-cdn.itunes.apple.com https://play.itunes.apple.com/ header
 ^https?://play-edge-cdn.itunes.apple.com https://play-edge.itunes.apple.com/ header
 
 [Header Rewrite]
-# 🔓 > Spotify (if-none-match返回304狀態碼)
+# Spotify 優化（避免 304 狀態碼問題）
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Body Rewrite]
-# bilibili國際版
-http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("我的钱包", "我的NFT")) | not))'
-# iKeLee香港抖音
+# Bilibili 國際版優化
+http-response-jq ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\?(.+) '.data.sections_v2[1].title |= null | .data.sections_v2[1].items |= map(select((.title | IN("我的錢包", "我的NFT")) | not))'
+
+# iKeLee 香港抖音去廣告與介面清理
 http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_apps"]])'
 http-response-jq ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? 'delpaths([["data_map","recently_users"]])'
 http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/aweme\/homepage\/render\/\? 'delpaths([["data","tab_config"]])'
@@ -59,43 +62,32 @@ http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\
 http-response-jq ^https:\/\/(aweme\.snssdk\.com|api5-normal-m\.amemv\.com)\/tfe\/api\/request_combine\/v1\/\?need_personal_recommend 'if (getpath(["data","/service/settings/v3/","body","data","settings"]) | has("homepage_tab_skin_enable")) then (setpath(["data","/service/settings/v3/","body","data","settings","homepage_tab_skin_enable"]; false)) else . end'
 
 [Map Local]
-# bilibili國際版
+# Bilibili 國際版搜尋優化
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square\?(.+)$ data-type=text data="{}" status-code=200
 
 [Script]
-# 🔓 > VSCO 解鎖Pro @chxm1023
-# hostname = api.revenuecat.com
+# === 各類解鎖腳本（全部保留）===
+# VSCO 解鎖 Pro
 VSCO = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/vsco.js, requires-body=true, max-size=-1, timeout=60
 
-# 🔓 > Night Sky 解鎖高級訂閱 @ios151
-# hostname = buy.itunes.apple.com
+# Night Sky 解鎖高級訂閱
 Night Sky = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt, script-path=https://raw.githubusercontent.com/Yu9191/Rewrite/main/itunes/Xk.js, requires-body=true, max-size=-1, timeout=60
 
-# 🔓 > Picsew 解鎖Pro @Guding88
-# hostname = buy.itunes.apple.com
+# Picsew 解鎖 Pro
 Picsew = type=http-response, pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/Guding88/Script/main/Picsew.js, timeout=60, script-update-interval=0
 
-# 🔓 > AdGuard 解鎖終身高級版 @chxm1023
-# hostname = mobile-api.adguard.org
+# AdGuard 解鎖終身高級版
 AdGuard = type=http-response, pattern=^https:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receipt\/(.*?), script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/AdGuard.js, requires-body=true, max-size=-1, timeout=60
 
-# 🔓 > Emby 解鎖 & 增強 @renzhipengBot原創 @AppleArcade魔改 @ddgksf2013整理
-# hostname = mb3admin.com, *.emby.wtf, *.plusmedia.site
-# > 播放解鎖
+# Emby 解鎖 & 增強（包含外部播放器等）
 unlock = type=http-response, pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice, script-path=https://raw.githubusercontent.com/rartv/EmbyPublic/test/quantumult-x/unlock.js, requires-body=true, max-size=-1, timeout=60
-# > 新增外部播放器連接
 emby-plugin = type=http-response, pattern=\/[Uu]sers\/\w{32}\/[Ii]tems\/\d+\??, script-path=https://raw.githubusercontent.com/rartv/EmbyPublic/refs/heads/test/surge/emby-plugin.js, requires-body=true, max-size=-1, timeout=60
-# > 打開外部播放器
 emby-plugin = type=http-request, pattern=\/plugin\/scheme, script-path=https://raw.githubusercontent.com/rartv/EmbyPublic/refs/heads/test/surge/emby-plugin.js, timeout=60
-# > 資源路徑偽靜態
 emby-plugin = type=http-request, pattern=(\/[Vv]ideos\/\d+\/stream\/.+\?.+&filename)|(\/[Vv]ideos\/\d+\/\w{32}\/[Ss]ubtitles\/\d+\/.+\?.+&filename), script-path=https://raw.githubusercontent.com/rartv/EmbyPublic/refs/heads/test/surge/emby-plugin.js, timeout=60
-# > 下載檔案重新命名
 download_file_rename = type=http-response, pattern=(\/[Vv]ideos\/\d+\/stream\?.+&filename)|(\/[Vv]ideos\/\d+\/\w{32}\/[Ss]ubtitles\/.+&filename), script-path=https://raw.githubusercontent.com/rartv/EmbyPublic/refs/heads/test/surge/download_file_rename.js, timeout=60
-# > 解決QX抓取某些公益服該請求亂碼問題
 replaceHeader = type=http-request, pattern=\/Users\/\w{32}\/Items\/\d+\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-header.js, timeout=30, argument=(%5Cr%5Cn)Accept-Encoding%3A.%2B-%3E%24Accept-Encoding%3A%20gzip%2C%20deflate%2C%20br
 
-# 🔓 > SpotifyVip @app2smile
-# hostname = spclient.wg.spotify.com, *spclient.spotify.com
+# Spotify VIP 解鎖
 spotify-qx-header = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js, timeout=60
 spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
@@ -364,6 +356,6 @@ Surfsharkdns = type=http-request, pattern= ^https:\/\/streaming\.test\/dns\/?$, 
 Front-end = type=http-request, pattern=^https:\/\/streaming\.test\/$, script-path=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Streaming/js/front-end.js, timeout=60
 
 [MITM]
-hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, api.revenuecat.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com,api*.amemv.com, aweme.snssdk.com, api5-normal-m.amemv.com, ap?.bili*i.com, ap?.bili*i.net, grpc.biliapi.net, search.bilibili.com, api.biliapi.net, grpc.biliapi.net, uts-api.itunes.apple.com, umc-tempo-api.apple.com, play-cdn.itunes.apple.com, play-edge-cdn.itunes.apple.com, hls.itunes.apple.com, hls-svod.itunes.apple.com, vod-*.tv.apple.com, *.media.dssott.com, *.media.starott.com, *.prod.dssedge.com, atv-ps.amazon.com, atv-ps-fe.primevideo.com, *.hls.pv-cdn.net, *.hls.row.aiv-cdn.net, *avodhlss3ww-a.akamaihd.net, s3.amazonaws.com, cf-timedtext.aux.pv-cdn.net, d1v5ir2lpwr8os.cloudfront.net, d22qjgkvxw22r6.cloudfront.net, d25xi40x97liuc.cloudfront.net, d27xxe7juh1us6.cloudfront.net, dmqdd6hw24ucf.cloudfront.net, *.prod.media.max.com, *.prd.media.max.com, *.prod.media.h264.io, *.prd.media.h264.io, manifests.api.hbo.com, manifests.v2.api.hbo.com,  *.hbomaxcdn.com, vodmanifest.hulustream.com, manifest-dp.hulustream.com, livemanifest-f.hulustream.com, live-sc.hulustream.com, assets.huluim.com, assetshuluimcom-a.akamaihd.net, link.theplatform.com, *.pplus.paramount.tech, *-pplus.cbs.com, vod-*.cbsaavideo.com, vod-*.cbsivideo.com, *.airspace-*.cbsivideo.com, content-discovery.uplynk.com, *-discovery1.uplynk.com, x-default-stgec.uplynk.com, dplus-ph-prod-vod.akamaized.net, dplus-ph-google-v2.prod-vod.h264.io, *.stream.peacocktv.com, *.cdn.peacocktv.com, *-vod.fubo.tv, hls.ted.com, pubads.g.doubleclick.net, vod-*.live.cf.md.bbci.co.uk, vod-*-live.akamaized.net, api.britbox.com, *.content.britbox.co.uk, manifest.googlevideo.com, mecdn?.starz.com, manifest.prod.boltdns.net, ssaimanifest.prod.boltdns.net, amcplus-?.akamaized.net, redirector.playback.*.prod.deploys.brightcove.com, ap-hls-vod.dynamic.showtime.com, ap-hls-live.cdn?.showtime.com, *.cssott.com, manifest-viki.viki.io, api.viki.io, v.vrv.co, epixhls.akamaized.net, *.live.epix.services, media-production.nebula.app, *.prd.pluto.tv, *.plutotv.net, *.mubicdn.net, passport.iqiyi.com, www.52pojie.cn, tiebac.baidu.com, c.tieba.baidu.com, app.bilibili.com, m.bilibili.com, xmc.ximalaya.com, vip.video.qq.com, pbaccess.video.qq.com, ngabbs.com, yunbusiness.ccb.com, *.amap.com, m.ctrip.com, hweb-personalcenter.huazhu.com, www.flyert.com.cn, *.oca.nflxvideo.net
+hostname = %APPEND% streaming.test, api.revenuecat.com, buy.itunes.apple.com, mobile-api.adguard.org, mb3admin.com, *.emby.wtf, *.plusmedia.site, spclient.wg.spotify.com, *spclient.spotify.com, mobile-new.chinaeew.cn, explorer.tratao.com, app.bilibili.com, weixin110.qq.com, security.wechat.com, api*.amemv.com, aweme.snssdk.com, api5-normal-m.amemv.com, *.bili*.com, *.bili*.net, grpc.biliapi.net, search.bilibili.com, uts-api.itunes.apple.com, umc-tempo-api.apple.com, *.itunes.apple.com, *.tv.apple.com, *.media.dssott.com, *.media.starott.com, *.dssedge.com, *.primevideo.com, *.pv-cdn.net, *.aiv-cdn.net, *.akamaihd.net, s3.amazonaws.com, *.cloudfront.net, *.max.com, manifests.api.hbo.com, *.hbomaxcdn.com, *.hulustream.com, *.huluim.com, *.paramount.tech, *.cbs.com, content-discovery.uplynk.com, *.peacocktv.com, *.fubo.tv, hls.ted.com, pubads.g.doubleclick.net, *.bbci.co.uk, *.britbox.co.uk, *.starz.com, *.boltdns.net, *.akamaized.net, *.showtime.com, *.cssott.com, *.viki.io, *.mubicdn.net, *.oca.nflxvideo.net, passport.iqiyi.com, *.52pojie.cn, tieba.baidu.com, xmc.ximalaya.com, vip.video.qq.com, pbaccess.video.qq.com, ngabbs.com, yunbusiness.ccb.com, *.amap.com, m.ctrip.com, hweb-personalcenter.huazhu.com, www.flyert.com.cn
 tcp-connection = true
 h2 = true
