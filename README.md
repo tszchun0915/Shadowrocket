@@ -44,12 +44,8 @@ B. 配置
          - https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Lite.sgmodule
      05. [另類廣告Block]
          - https://limbopro.com/Adblock4limbo.sgmodule
-     06. [重寫規則模塊]
-         - https://raw.githubusercontent.com/NobyDa/Script/refs/heads/master/Surge/Module/RewriteRules.sgmodule
-     07. [酷我音樂解鎖]
+     06. [酷我音樂解鎖]
          - https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.sgmodule
-     08. [DNS防洩漏模塊]
-         - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/BlockHTTPDNS/BlockHTTPDNS.sgmodule
        - 順帶一提
           - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/)
           - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule)
