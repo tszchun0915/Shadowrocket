@@ -40,8 +40,6 @@ B. 配置
          - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
      3. [Youtube模塊]
          - https://yfamilys.com/module/YouTubeAd.sgmodule
-     4. [TiktokTW]
-         - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/external/Shadowrocket/TikTokUnlock/TikTokTW/TikTokTW.sgmodule
        - 順帶一提
           - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/)
           - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule)
