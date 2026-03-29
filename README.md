@@ -34,14 +34,14 @@ B. 配置
        - 2 手機設定 - 已下載描述文件 - 安裝
        - 3 手機設定 - 通用 - 關於手機 - 證書信任設定 - 開啟對應Shadowrocket證書信任
   3. 模組/模塊: (建議以下全部加入)
-     01. [模組工具大合集]
+     1. [模組工具大合集]
          - https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/sgmoduleCompilation.sgmodule
-     02. [廣告Block]
+     2. [廣告Block]
          - https://raw.githubusercontent.com/zirawell/R-Store/refs/heads/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule
-     03. [Youtube模塊]
+     3. [Youtube模塊]
          - https://yfamilys.com/module/YouTubeAd.sgmodule
-     04. [酷我音樂解鎖]
-         - https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/Kuwo/kuwo.sgmodule
+     4. [TiktokTW]
+         - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/external/Shadowrocket/TikTokUnlock/TikTokTW/TikTokTW.sgmodule
        - 順帶一提
           - 你可以到這裏找[模組超齊全](https://surge.qingr.moe/)
           - Youtube模組大神[Maasea](https://github.com/Maasea/sgmodule)
