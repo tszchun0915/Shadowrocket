@@ -1,6 +1,6 @@
 #!url=https://raw.githubusercontent.com/tszchun0915/Shadowrocket/refs/heads/main/sgmoduleCompilation.sgmodule
 #!name=sgmodule合集
-#!desc=streaming.test,多平台解鎖 + 去廣告合集（已針對香港網絡優化）
+#!desc=https://streaming.test,多平台解鎖 + 去廣告合集（已針對香港網絡優化）
 #!arguments=Types:"Official,Translate",Languages[0]:"AUTO",Languages[1]:"ZH",Position:"Reverse",Vendor:"Google",ShowOnly:false,ForceHost:"1",Locales:"CHN,HKG,TWN",Proxies.CHN:"🇨🇳 China",Proxies.HKG:"🇭🇰 HongKong",Proxies.MAC:"🇲🇴 Macau",Proxies.TWN:"🇹🇼 Taiwan",LogLevel:"WARN",脚本引擎:webview,调试模式:0, 定时签到:20 8 * * *
 #!arguments-desc=Types: [字幕] 啟用類型（Official: 官方字幕 / Translate: 翻譯字幕）\nLanguages[0]: 主語言（源語言）\nLanguages[1]: 副語言（目標語言）\nPosition: 主語言字幕位置（Forward: 上方 / Reverse: 下方）\nVendor: 翻譯服務商（Google / Microsoft）\nShowOnly: 只顯示翻譯字幕\nForceHost: 強制CDN主機名類型（推薦 1: HTTP）\nLocales: 自動識別地區（CHN/HKG/MAC/TWN）\nProxies.xxx: 對應地區策略組名稱\nLogLevel: 日誌等級\n 定时签到：Cron表达式，默认每天早上 08:20 执行。（如需动画疯答题，不建议在凌晨0:00-0:30执行）
 
