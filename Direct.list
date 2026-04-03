@@ -380,3 +380,19 @@ IP-CIDR,125.88.0.0/16,no-resolve
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DOMAIN-SUFFIX,kugoucdn.com
 IP-CIDR,183.57.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 新增：更多大陸常見 App 直連（加速 + 防異常）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,ixigua.com
+DOMAIN-SUFFIX,toutiao.com
+DOMAIN-SUFFIX,bytedance.com
+DOMAIN-SUFFIX,feishu.cn
+DOMAIN-SUFFIX,larkoffice.com
+DOMAIN-SUFFIX,mihoyo.com
+DOMAIN-SUFFIX,hoyoverse.com
+DOMAIN-SUFFIX,genshinimpact.com
+DOMAIN-SUFFIX,starrail.com
+DOMAIN-SUFFIX,zenlesszonezero.com
+DOMAIN-SUFFIX,gamecenter.qq.com
+DOMAIN-SUFFIX,game.weixin.qq.com
