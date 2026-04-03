@@ -1,0 +1,226 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ToDeSk 遠端控制
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,todesk.com
+DOMAIN-SUFFIX,todesk.cn
+DOMAIN-SUFFIX,api.todesk.com
+IP-CIDR,47.96.0.0/16,no-resolve
+IP-CIDR,47.99.0.0/16,no-resolve
+IP-CIDR,120.76.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Raylink 遠端控制
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,raylink.live
+DOMAIN-SUFFIX,raylink.com
+DOMAIN-SUFFIX,raytray.com
+IP-CIDR,43.139.0.0/16,no-resolve
+IP-CIDR,43.143.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 向日葵遠端控制 Sunflower
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,oray.com
+DOMAIN-SUFFIX,orayimg.com
+DOMAIN-SUFFIX,sunlogin.net
+DOMAIN-SUFFIX,oraycache.com
+IP-CIDR,124.232.160.0/19,no-resolve
+IP-CIDR,124.232.128.0/18,no-resolve
+IP-CIDR,183.60.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 央視頻 / CCTV / 中央廣播
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,cctv.com
+DOMAIN-SUFFIX,cctv.cn
+DOMAIN-SUFFIX,yangshipin.cn
+DOMAIN-SUFFIX,cctv5.cn
+DOMAIN-SUFFIX,cvte.com
+DOMAIN-SUFFIX,cntv.cn
+DOMAIN-SUFFIX,cnr.cn
+DOMAIN-SUFFIX,radio.cn
+IP-CIDR,218.30.0.0/16,no-resolve
+IP-CIDR,124.115.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 小米 / 米家智能家居 IoT 後端
+# (僅CN IoT雲端 API，米家App控制家電)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,io.mi.com
+DOMAIN-SUFFIX,iot.mi.com
+DOMAIN-SUFFIX,i.mi.com
+DOMAIN-SUFFIX,api.io.mi.com
+DOMAIN-SUFFIX,ots.io.mi.com
+DOMAIN-SUFFIX,open.account.xiaomi.com
+DOMAIN-SUFFIX,mibu.io.mi.com
+IP-CIDR,120.92.0.0/15,no-resolve
+IP-CIDR,111.206.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 海爾智家 / 卡薩帝
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,smarthaier.com
+DOMAIN-SUFFIX,haier.net
+DOMAIN-SUFFIX,haieriot.net
+DOMAIN-SUFFIX,uplus.haier.net
+IP-CIDR,111.47.0.0/16,no-resolve
+IP-CIDR,117.71.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 美的美居 Midea IoT
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,midea.com
+DOMAIN-SUFFIX,mideacloud.com
+DOMAIN-SUFFIX,mideaapi.com
+DOMAIN-SUFFIX,meijucloud.com
+IP-CIDR,111.230.0.0/16,no-resolve
+IP-CIDR,118.24.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 格力+ / 格力空調
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,gree.com.cn
+DOMAIN-SUFFIX,gree.com
+DOMAIN-SUFFIX,greeplus.net
+IP-CIDR,119.84.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 海信 Hisense IoT
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,hisense.com.cn
+DOMAIN-SUFFIX,hismarttv.com
+DOMAIN-SUFFIX,hiview.cn
+IP-CIDR,112.124.0.0/14,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# TCL / 雷鳥電視
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,tcl.com
+DOMAIN-SUFFIX,tclcloudapp.com
+DOMAIN-SUFFIX,raysgo.com
+DOMAIN-SUFFIX,leiniao.com
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 百度網盤 - 帳號認證 / API (須大陸IP)
+# CDN下載請看框二
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,pan.baidu.com
+DOMAIN-SUFFIX,pcs.baidu.com
+DOMAIN-SUFFIX,passport.baidu.com
+DOMAIN-SUFFIX,openapi.baidu.com
+DOMAIN-SUFFIX,pan.cache.baidu.com
+IP-CIDR,220.181.0.0/16,no-resolve
+IP-CIDR,123.125.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 愛奇藝 iQIYI (版權認證)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,iqiyi.com
+DOMAIN-SUFFIX,qiyi.com
+DOMAIN-SUFFIX,iqiyipic.com
+DOMAIN-SUFFIX,71.am
+IP-CIDR,101.227.0.0/16,no-resolve
+IP-CIDR,183.61.0.0/16,no-resolve
+IP-CIDR,218.105.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 優酷 Youku (版權認證)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,youku.com
+DOMAIN-SUFFIX,ykimg.com
+DOMAIN-SUFFIX,soku.com
+IP-CIDR,140.205.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 芒果TV Mango TV
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,mgtv.com
+DOMAIN-SUFFIX,hunantv.com
+DOMAIN-SUFFIX,imgo.tv
+DOMAIN-SUFFIX,mango.tv
+IP-CIDR,117.136.0.0/14,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Bilibili - 帳號 / 大陸限定番劇解鎖
+# CDN下載請看框二
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,bilibili.com
+DOMAIN-SUFFIX,biliapi.net
+DOMAIN-SUFFIX,biliapi.com
+DOMAIN-SUFFIX,b23.tv
+DOMAIN-SUFFIX,manga.bilibili.com
+IP-CIDR,148.153.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# QQ 音樂 / 視頻 / 漫畫 (版權認證)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,y.qq.com
+DOMAIN-SUFFIX,c.y.qq.com
+DOMAIN-SUFFIX,c6.y.qq.com
+DOMAIN-SUFFIX,v.qq.com
+DOMAIN-SUFFIX,ac.qq.com
+DOMAIN-SUFFIX,manhua.qq.com
+DOMAIN-SUFFIX,mh.qq.com
+DOMAIN-SUFFIX,vcloudcos.qq.com
+IP-CIDR,101.32.0.0/12,no-resolve
+IP-CIDR,175.27.0.0/16,no-resolve
+IP-CIDR,203.205.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 網易雲音樂 (版權認證)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,music.163.com
+DOMAIN-SUFFIX,interface.music.163.com
+DOMAIN-SUFFIX,apm.music.163.com
+IP-CIDR,59.111.0.0/16,no-resolve
+IP-CIDR,180.97.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 酷狗 / 酷我 / 喜馬拉雅 (版權認證)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,kugou.com
+DOMAIN-SUFFIX,kugou.cn
+DOMAIN-SUFFIX,kuwo.cn
+DOMAIN-SUFFIX,kuwomusic.com
+DOMAIN-SUFFIX,ximalaya.com
+DOMAIN-SUFFIX,ximalaya.cn
+IP-CIDR,116.199.0.0/16,no-resolve
+IP-CIDR,183.57.0.0/16,no-resolve
+IP-CIDR,112.65.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 抖音大陸版 Douyin
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,douyin.com
+DOMAIN-SUFFIX,iesdouyin.com
+DOMAIN-SUFFIX,amemv.com
+DOMAIN-SUFFIX,douyinpic.com
+IP-CIDR,59.82.0.0/14,no-resolve
+IP-CIDR,121.22.0.0/14,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 虎牙 / 鬥魚直播
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,huya.com
+DOMAIN-SUFFIX,huyaimg.com
+DOMAIN-SUFFIX,huyacdn.com
+DOMAIN-SUFFIX,douyu.com
+DOMAIN-SUFFIX,douyucdn.cn
+IP-CIDR,117.85.0.0/16,no-resolve
+IP-CIDR,183.232.0.0/14,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 起點 / 掌閱 (版權書籍)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,qidian.com
+DOMAIN-SUFFIX,yuewen.com
+DOMAIN-SUFFIX,zhangyue.com
+DOMAIN-SUFFIX,ireader.com.cn
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 快手 Kuaishou
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,kuaishou.com
+DOMAIN-SUFFIX,ksadn.com
+DOMAIN-SUFFIX,kspkg.com
+IP-CIDR,115.182.0.0/16,no-resolve
