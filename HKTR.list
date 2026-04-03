@@ -1,5 +1,4 @@
 DOMAIN-SUFFIX,talesrunner.com.hk
 DOMAIN-SUFFIX,funtown.com.hk
 DOMAIN-SUFFIX,runonline.hk
-IP-CIDR,198.18.0.0/24,no-resolve
 IP-CIDR,210.242.202.0/24,no-resolve
