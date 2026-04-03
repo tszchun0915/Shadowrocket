@@ -340,6 +340,9 @@ DOMAIN-SUFFIX,vfiles.gtimg.cn
 DOMAIN-SUFFIX,music.qpic.cn
 DOMAIN-SUFFIX,imgcache.qq.com
 DOMAIN-SUFFIX,dl.stream.qqmusic.qq.com
+DOMAIN-SUFFIX,multimedia.nt.qq.com.cn
+DOMAIN-SUFFIX,qpic.cn
+DOMAIN-SUFFIX,qpic.com
 IP-CIDR,58.247.0.0/16,no-resolve
 IP-CIDR,58.250.0.0/16,no-resolve
 IP-CIDR,182.254.0.0/16,no-resolve
