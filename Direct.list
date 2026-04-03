@@ -1,4 +1,6 @@
-# > Apple 基礎服務
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Apple 基礎服務
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DOMAIN,init.ess.apple.com
 DOMAIN,itunes.apple.com
 DOMAIN,smp-device-content.apple.com
@@ -9,7 +11,9 @@ DOMAIN-SUFFIX,weather-map.apple.com
 DOMAIN-KEYWORD,icloud.com
 DOMAIN-KEYWORD,push.apple.com
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # > Google 直連服務 (下載、推送、對時)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DOMAIN,mtalk.google.com
 DOMAIN,alt1-mtalk.google.com
 DOMAIN,alt2-mtalk.google.com
@@ -26,7 +30,9 @@ DOMAIN,clientservices.googleapis.com
 DOMAIN,redirector.gvt1.com
 DOMAIN-SUFFIX,blog.google
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # > PT 站點 (必須直連)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DOMAIN-SUFFIX,m-team.cc
 DOMAIN-SUFFIX,hdsky.me
 DOMAIN-SUFFIX,ourbits.club
@@ -41,7 +47,9 @@ DOMAIN-SUFFIX,hdhome.org
 DOMAIN-SUFFIX,chdbits.co
 DOMAIN-SUFFIX,leaguehd.com
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # > 學術與資源站
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DOMAIN-SUFFIX,acm.org
 DOMAIN-SUFFIX,doi.org
 DOMAIN-SUFFIX,ieee.org
@@ -53,21 +61,172 @@ DOMAIN-SUFFIX,wiley.com
 DOMAIN-KEYWORD,sciencedirect
 DOMAIN-KEYWORD,cnki.net
 
-# > 中國大陸常用服務
-DOMAIN,ad.10010.com
-DOMAIN,ad.12306.cn
-DOMAIN,analytics.95516.com
-DOMAIN-SUFFIX,xunlei.com
-DOMAIN-SUFFIX,upaiyun.com
-DOMAIN-SUFFIX,baomitu.com
-DOMAIN-SUFFIX,bootcss.com
-DOMAIN-SUFFIX,staticfile.org
-USER-AGENT,%E8%BF%85%E9%9B%B7
-
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # > 其他 (推送、追蹤與常用域名)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DOMAIN,app.adjust.com
 DOMAIN,app.appsflyer.com
 DOMAIN-SUFFIX,jiasule.com
 DOMAIN-SUFFIX,koodomobile.com
 DOMAIN-SUFFIX,ol.epicgames.com
 DOMAIN-KEYWORD,wb_ad
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 支付寶 Alipay
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,alipay.com,DIRECT
+DOMAIN-SUFFIX,alipayobjects.com,DIRECT
+DOMAIN-SUFFIX,alipaydun.com,DIRECT
+DOMAIN-SUFFIX,mybank.cn,DIRECT
+DOMAIN-SUFFIX,alipay.hk,DIRECT
+DOMAIN-SUFFIX,alipayplus.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 微信 WeChat / 騰訊支付
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,wechat.com,DIRECT
+DOMAIN-SUFFIX,weixinbridge.com,DIRECT
+DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+DOMAIN-SUFFIX,wx.qq.com,DIRECT
+DOMAIN-SUFFIX,wx2.qq.com,DIRECT
+DOMAIN-SUFFIX,wx3.qq.com,DIRECT
+DOMAIN-SUFFIX,wx8.qq.com,DIRECT
+DOMAIN-SUFFIX,qpic.cn,DIRECT
+DOMAIN-SUFFIX,qlogo.cn,DIRECT
+DOMAIN-SUFFIX,mmstat.com,DIRECT
+DOMAIN-SUFFIX,wechatpay.com,DIRECT
+DOMAIN-SUFFIX,tenpay.com,DIRECT
+DOMAIN-SUFFIX,mmpay.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 淘寶 / 天貓
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,taobao.com,DIRECT
+DOMAIN-SUFFIX,tmall.com,DIRECT
+DOMAIN-SUFFIX,alicdn.com,DIRECT
+DOMAIN-SUFFIX,tbcdn.cn,DIRECT
+DOMAIN-SUFFIX,taobaocdn.com,DIRECT
+DOMAIN-SUFFIX,etao.com,DIRECT
+DOMAIN-SUFFIX,ju.taobao.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 京東 JD.com
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,jd.com,DIRECT
+DOMAIN-SUFFIX,jdcdn.com,DIRECT
+DOMAIN-SUFFIX,jdpay.com,DIRECT
+DOMAIN-SUFFIX,jd.hk,DIRECT
+DOMAIN-SUFFIX,jdimg.com,DIRECT
+DOMAIN-SUFFIX,360buy.com,DIRECT
+DOMAIN-SUFFIX,360buyimg.com,DIRECT
+DOMAIN-SUFFIX,jdcloud.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 拼多多 Pinduoduo
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,pinduoduo.com,DIRECT
+DOMAIN-SUFFIX,yangkeduo.com,DIRECT
+DOMAIN-SUFFIX,pddugc.com,DIRECT
+DOMAIN-SUFFIX,pdd.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 12306 中國鐵路
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,12306.cn,DIRECT
+DOMAIN-SUFFIX,rails.com.cn,DIRECT
+DOMAIN-SUFFIX,95306.cn,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 四大國有銀行
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,icbc.com.cn,DIRECT
+DOMAIN-SUFFIX,ccb.com,DIRECT
+DOMAIN-SUFFIX,abchina.com,DIRECT
+DOMAIN-SUFFIX,boc.cn,DIRECT
+DOMAIN-SUFFIX,bankcomm.com,DIRECT
+DOMAIN-SUFFIX,psbc.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 股份制商業銀行
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,cmbchina.com,DIRECT
+DOMAIN-SUFFIX,cib.com.cn,DIRECT
+DOMAIN-SUFFIX,spdb.com.cn,DIRECT
+DOMAIN-SUFFIX,cgbchina.com.cn,DIRECT
+DOMAIN-SUFFIX,pingan.com,DIRECT
+DOMAIN-SUFFIX,hxb.com.cn,DIRECT
+DOMAIN-SUFFIX,cmbc.com.cn,DIRECT
+DOMAIN-SUFFIX,citicbank.com.cn,DIRECT
+DOMAIN-SUFFIX,bankofbeijing.com.cn,DIRECT
+DOMAIN-SUFFIX,shrcb.com,DIRECT
+DOMAIN-SUFFIX,nbcb.com.cn,DIRECT
+DOMAIN-SUFFIX,gdb.com.cn,DIRECT
+DOMAIN-SUFFIX,hcb.com.cn,DIRECT
+DOMAIN-SUFFIX,hsbank.com.cn,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 券商 / 投資
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,eastmoney.com,DIRECT
+DOMAIN-SUFFIX,em.com.cn,DIRECT
+DOMAIN-SUFFIX,htsec.com,DIRECT
+DOMAIN-SUFFIX,gtja.com,DIRECT
+DOMAIN-SUFFIX,csc108.com,DIRECT
+DOMAIN-SUFFIX,ebscn.com,DIRECT
+DOMAIN-SUFFIX,gjzq.com.cn,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 政務 / 社保 / 公積金
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,gov.cn,DIRECT
+DOMAIN-SUFFIX,12333.gov.cn,DIRECT
+DOMAIN-SUFFIX,gjj.gov.cn,DIRECT
+DOMAIN-SUFFIX,nia.gov.cn,DIRECT
+DOMAIN-SUFFIX,chinatax.gov.cn,DIRECT
+DOMAIN-SUFFIX,mca.gov.cn,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 美團 / 大眾點評
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,meituan.com,DIRECT
+DOMAIN-SUFFIX,meituan.net,DIRECT
+DOMAIN-SUFFIX,dianping.com,DIRECT
+DOMAIN-SUFFIX,meituancdn.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 滴滴出行
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,didi.com,DIRECT
+DOMAIN-SUFFIX,didichuxing.com,DIRECT
+DOMAIN-SUFFIX,didiglobal.com,DIRECT
+DOMAIN-SUFFIX,xiaojukeji.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 攜程 / 飛豬 / 去哪兒
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,ctrip.com,DIRECT
+DOMAIN-SUFFIX,trip.com,DIRECT
+DOMAIN-SUFFIX,fliggy.com,DIRECT
+DOMAIN-SUFFIX,elong.com,DIRECT
+DOMAIN-SUFFIX,qunar.com,DIRECT
+DOMAIN-SUFFIX,ly.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 高德地圖 / 百度地圖
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,amap.com,DIRECT
+DOMAIN-SUFFIX,gaode.com,DIRECT
+DOMAIN-SUFFIX,amapv4.amap.com,DIRECT
+DOMAIN-SUFFIX,map.baidu.com,DIRECT
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 順豐 / 菜鳥 / 快遞
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,sf-express.com,DIRECT
+DOMAIN-SUFFIX,sfexpress.com,DIRECT
+DOMAIN-SUFFIX,cainiao.com,DIRECT
+DOMAIN-SUFFIX,guoguo.cn,DIRECT
+
+# ============================================================
+# END 中國大陸 App 直連規則
+# ============================================================
