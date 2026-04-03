@@ -224,3 +224,15 @@ DOMAIN-SUFFIX,kuaishou.com
 DOMAIN-SUFFIX,ksadn.com
 DOMAIN-SUFFIX,kspkg.com
 IP-CIDR,115.182.0.0/16,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Wish-Runner
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - DOMAIN-SUFFIX,wish-runner.com
+  - DOMAIN-SUFFIX,wishrunner.com
+  - IP-CIDR,202.189.10.0/24,no-resolve
+  - PROCESS-NAME,start_protected_game.exe
+  - IP-CIDR,104.18.124.108/32,no-resolve
+  - IP-CIDR,104.18.125.108/32,no-resolve
+  - IP-CIDR,172.67.141.182/32,no-resolve
+  - IP-CIDR,52.20.32.214/32,no-resolve
