@@ -74,158 +74,155 @@ DOMAIN-KEYWORD,wb_ad
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 支付寶 Alipay
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,alipay.com,DIRECT
-DOMAIN-SUFFIX,alipayobjects.com,DIRECT
-DOMAIN-SUFFIX,alipaydun.com,DIRECT
-DOMAIN-SUFFIX,mybank.cn,DIRECT
-DOMAIN-SUFFIX,alipay.hk,DIRECT
-DOMAIN-SUFFIX,alipayplus.com,DIRECT
+DOMAIN-SUFFIX,alipay.com
+DOMAIN-SUFFIX,alipayobjects.com
+DOMAIN-SUFFIX,alipaydun.com
+DOMAIN-SUFFIX,mybank.cn
+DOMAIN-SUFFIX,alipay.hk
+DOMAIN-SUFFIX,alipayplus.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 微信 WeChat / 騰訊支付
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,wechat.com,DIRECT
-DOMAIN-SUFFIX,weixinbridge.com,DIRECT
-DOMAIN-SUFFIX,weixin.qq.com,DIRECT
-DOMAIN-SUFFIX,wx.qq.com,DIRECT
-DOMAIN-SUFFIX,wx2.qq.com,DIRECT
-DOMAIN-SUFFIX,wx3.qq.com,DIRECT
-DOMAIN-SUFFIX,wx8.qq.com,DIRECT
-DOMAIN-SUFFIX,qpic.cn,DIRECT
-DOMAIN-SUFFIX,qlogo.cn,DIRECT
-DOMAIN-SUFFIX,mmstat.com,DIRECT
-DOMAIN-SUFFIX,wechatpay.com,DIRECT
-DOMAIN-SUFFIX,tenpay.com,DIRECT
-DOMAIN-SUFFIX,mmpay.com,DIRECT
+DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,weixinbridge.com
+DOMAIN-SUFFIX,weixin.qq.com
+DOMAIN-SUFFIX,wx.qq.com
+DOMAIN-SUFFIX,wx2.qq.com
+DOMAIN-SUFFIX,wx3.qq.com
+DOMAIN-SUFFIX,wx8.qq.com
+DOMAIN-SUFFIX,qpic.cn
+DOMAIN-SUFFIX,qlogo.cn
+DOMAIN-SUFFIX,mmstat.com
+DOMAIN-SUFFIX,wechatpay.com
+DOMAIN-SUFFIX,tenpay.com
+DOMAIN-SUFFIX,mmpay.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 淘寶 / 天貓
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,taobao.com,DIRECT
-DOMAIN-SUFFIX,tmall.com,DIRECT
-DOMAIN-SUFFIX,alicdn.com,DIRECT
-DOMAIN-SUFFIX,tbcdn.cn,DIRECT
-DOMAIN-SUFFIX,taobaocdn.com,DIRECT
-DOMAIN-SUFFIX,etao.com,DIRECT
-DOMAIN-SUFFIX,ju.taobao.com,DIRECT
+DOMAIN-SUFFIX,taobao.com
+DOMAIN-SUFFIX,tmall.com
+DOMAIN-SUFFIX,alicdn.com
+DOMAIN-SUFFIX,tbcdn.cn
+DOMAIN-SUFFIX,taobaocdn.com
+DOMAIN-SUFFIX,etao.com
+DOMAIN-SUFFIX,ju.taobao.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 京東 JD.com
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,jd.com,DIRECT
-DOMAIN-SUFFIX,jdcdn.com,DIRECT
-DOMAIN-SUFFIX,jdpay.com,DIRECT
-DOMAIN-SUFFIX,jd.hk,DIRECT
-DOMAIN-SUFFIX,jdimg.com,DIRECT
-DOMAIN-SUFFIX,360buy.com,DIRECT
-DOMAIN-SUFFIX,360buyimg.com,DIRECT
-DOMAIN-SUFFIX,jdcloud.com,DIRECT
+DOMAIN-SUFFIX,jd.com
+DOMAIN-SUFFIX,jdcdn.com
+DOMAIN-SUFFIX,jdpay.com
+DOMAIN-SUFFIX,jd.hk
+DOMAIN-SUFFIX,jdimg.com
+DOMAIN-SUFFIX,360buy.com
+DOMAIN-SUFFIX,360buyimg.com
+DOMAIN-SUFFIX,jdcloud.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 拼多多 Pinduoduo
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,pinduoduo.com,DIRECT
-DOMAIN-SUFFIX,yangkeduo.com,DIRECT
-DOMAIN-SUFFIX,pddugc.com,DIRECT
-DOMAIN-SUFFIX,pdd.com,DIRECT
+DOMAIN-SUFFIX,pinduoduo.com
+DOMAIN-SUFFIX,yangkeduo.com
+DOMAIN-SUFFIX,pddugc.com
+DOMAIN-SUFFIX,pdd.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 12306 中國鐵路
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,12306.cn,DIRECT
-DOMAIN-SUFFIX,rails.com.cn,DIRECT
-DOMAIN-SUFFIX,95306.cn,DIRECT
+DOMAIN-SUFFIX,12306.cn
+DOMAIN-SUFFIX,rails.com.cn
+DOMAIN-SUFFIX,95306.cn
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 四大國有銀行
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,icbc.com.cn,DIRECT
-DOMAIN-SUFFIX,ccb.com,DIRECT
-DOMAIN-SUFFIX,abchina.com,DIRECT
-DOMAIN-SUFFIX,boc.cn,DIRECT
-DOMAIN-SUFFIX,bankcomm.com,DIRECT
-DOMAIN-SUFFIX,psbc.com,DIRECT
+DOMAIN-SUFFIX,icbc.com.cn
+DOMAIN-SUFFIX,ccb.com
+DOMAIN-SUFFIX,abchina.com
+DOMAIN-SUFFIX,boc.cn
+DOMAIN-SUFFIX,bankcomm.com
+DOMAIN-SUFFIX,psbc.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 股份制商業銀行
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,cmbchina.com,DIRECT
-DOMAIN-SUFFIX,cib.com.cn,DIRECT
-DOMAIN-SUFFIX,spdb.com.cn,DIRECT
-DOMAIN-SUFFIX,cgbchina.com.cn,DIRECT
-DOMAIN-SUFFIX,pingan.com,DIRECT
-DOMAIN-SUFFIX,hxb.com.cn,DIRECT
-DOMAIN-SUFFIX,cmbc.com.cn,DIRECT
-DOMAIN-SUFFIX,citicbank.com.cn,DIRECT
-DOMAIN-SUFFIX,bankofbeijing.com.cn,DIRECT
-DOMAIN-SUFFIX,shrcb.com,DIRECT
-DOMAIN-SUFFIX,nbcb.com.cn,DIRECT
-DOMAIN-SUFFIX,gdb.com.cn,DIRECT
-DOMAIN-SUFFIX,hcb.com.cn,DIRECT
-DOMAIN-SUFFIX,hsbank.com.cn,DIRECT
+DOMAIN-SUFFIX,cmbchina.com
+DOMAIN-SUFFIX,cib.com.cn
+DOMAIN-SUFFIX,spdb.com.cn
+DOMAIN-SUFFIX,cgbchina.com.cn
+DOMAIN-SUFFIX,pingan.com
+DOMAIN-SUFFIX,hxb.com.cn
+DOMAIN-SUFFIX,cmbc.com.cn
+DOMAIN-SUFFIX,citicbank.com.cn
+DOMAIN-SUFFIX,bankofbeijing.com.cn
+DOMAIN-SUFFIX,shrcb.com
+DOMAIN-SUFFIX,nbcb.com.cn
+DOMAIN-SUFFIX,gdb.com.cn
+DOMAIN-SUFFIX,hcb.com.cn
+DOMAIN-SUFFIX,hsbank.com.cn
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 券商 / 投資
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,eastmoney.com,DIRECT
-DOMAIN-SUFFIX,em.com.cn,DIRECT
-DOMAIN-SUFFIX,htsec.com,DIRECT
-DOMAIN-SUFFIX,gtja.com,DIRECT
-DOMAIN-SUFFIX,csc108.com,DIRECT
-DOMAIN-SUFFIX,ebscn.com,DIRECT
-DOMAIN-SUFFIX,gjzq.com.cn,DIRECT
+DOMAIN-SUFFIX,eastmoney.com
+DOMAIN-SUFFIX,em.com.cn
+DOMAIN-SUFFIX,htsec.com
+DOMAIN-SUFFIX,gtja.com
+DOMAIN-SUFFIX,csc108.com
+DOMAIN-SUFFIX,ebscn.com
+DOMAIN-SUFFIX,gjzq.com.cn
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 政務 / 社保 / 公積金
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,gov.cn,DIRECT
-DOMAIN-SUFFIX,12333.gov.cn,DIRECT
-DOMAIN-SUFFIX,gjj.gov.cn,DIRECT
-DOMAIN-SUFFIX,nia.gov.cn,DIRECT
-DOMAIN-SUFFIX,chinatax.gov.cn,DIRECT
-DOMAIN-SUFFIX,mca.gov.cn,DIRECT
+DOMAIN-SUFFIX,gov.cn
+DOMAIN-SUFFIX,php2.opentimeclock.com
+DOMAIN-SUFFIX,18u8qxgf9h.execute-api.us-east-1.amazonaws.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 美團 / 大眾點評
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,meituan.com,DIRECT
-DOMAIN-SUFFIX,meituan.net,DIRECT
-DOMAIN-SUFFIX,dianping.com,DIRECT
-DOMAIN-SUFFIX,meituancdn.com,DIRECT
+DOMAIN-SUFFIX,meituan.com
+DOMAIN-SUFFIX,meituan.net
+DOMAIN-SUFFIX,dianping.com
+DOMAIN-SUFFIX,meituancdn.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 滴滴出行
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,didi.com,DIRECT
-DOMAIN-SUFFIX,didichuxing.com,DIRECT
-DOMAIN-SUFFIX,didiglobal.com,DIRECT
-DOMAIN-SUFFIX,xiaojukeji.com,DIRECT
+DOMAIN-SUFFIX,didi.com
+DOMAIN-SUFFIX,didichuxing.com
+DOMAIN-SUFFIX,didiglobal.com
+DOMAIN-SUFFIX,xiaojukeji.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 攜程 / 飛豬 / 去哪兒
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,ctrip.com,DIRECT
-DOMAIN-SUFFIX,trip.com,DIRECT
-DOMAIN-SUFFIX,fliggy.com,DIRECT
-DOMAIN-SUFFIX,elong.com,DIRECT
-DOMAIN-SUFFIX,qunar.com,DIRECT
-DOMAIN-SUFFIX,ly.com,DIRECT
+DOMAIN-SUFFIX,ctrip.com
+DOMAIN-SUFFIX,trip.com
+DOMAIN-SUFFIX,fliggy.com
+DOMAIN-SUFFIX,elong.com
+DOMAIN-SUFFIX,qunar.com
+DOMAIN-SUFFIX,ly.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 高德地圖 / 百度地圖
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,amap.com,DIRECT
-DOMAIN-SUFFIX,gaode.com,DIRECT
-DOMAIN-SUFFIX,amapv4.amap.com,DIRECT
-DOMAIN-SUFFIX,map.baidu.com,DIRECT
+DOMAIN-SUFFIX,amap.com
+DOMAIN-SUFFIX,gaode.com
+DOMAIN-SUFFIX,amapv4.amap.com
+DOMAIN-SUFFIX,map.baidu.com
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 順豐 / 菜鳥 / 快遞
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DOMAIN-SUFFIX,sf-express.com,DIRECT
-DOMAIN-SUFFIX,sfexpress.com,DIRECT
-DOMAIN-SUFFIX,cainiao.com,DIRECT
-DOMAIN-SUFFIX,guoguo.cn,DIRECT
+DOMAIN-SUFFIX,sf-express.com
+DOMAIN-SUFFIX,sfexpress.com
+DOMAIN-SUFFIX,cainiao.com
+DOMAIN-SUFFIX,guoguo.cn
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Alibaba / Aliyun / 支付寶 / 淘寶 / 天貓
