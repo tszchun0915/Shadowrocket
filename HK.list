@@ -11,3 +11,72 @@ DOMAIN-SUFFIX,cdi.ofiii.com
 DOMAIN-SUFFIX,ofissaifreepc.akamaized.net
 DOMAIN-SUFFIX,php.jdshipin.com
 DOMAIN-SUFFIX,jxiptv.dpdns.org
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Bilibili CDN 視頻流 (HK有節點，直連快)
+# 帳號/解鎖已在框一走PROXY
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,bilivideo.com,DIRECT
+DOMAIN-SUFFIX,bilivideo.cn,DIRECT
+DOMAIN-SUFFIX,hdslb.com,DIRECT
+DOMAIN-SUFFIX,acgvideo.com,DIRECT
+DOMAIN-SUFFIX,biliimg.com,DIRECT
+IP-CIDR,119.3.0.0/16,DIRECT,no-resolve
+IP-CIDR,120.92.0.0/15,DIRECT,no-resolve
+IP-CIDR,61.148.0.0/16,DIRECT,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 網易雲音樂 CDN音樂串流 (HK直連快)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,music.126.net,DIRECT
+DOMAIN-SUFFIX,m10.music.126.net,DIRECT
+DOMAIN-SUFFIX,p1.music.126.net,DIRECT
+DOMAIN-SUFFIX,p4.music.126.net,DIRECT
+IP-CIDR,101.71.0.0/16,DIRECT,no-resolve
+IP-CIDR,112.13.0.0/16,DIRECT,no-resolve
+IP-CIDR,115.236.0.0/16,DIRECT,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# QQ音樂/視頻 CDN媒體串流 (HK直連快)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,vm.gtimg.cn,DIRECT
+DOMAIN-SUFFIX,vfiles.gtimg.cn,DIRECT
+DOMAIN-SUFFIX,music.qpic.cn,DIRECT
+DOMAIN-SUFFIX,imgcache.qq.com,DIRECT
+DOMAIN-SUFFIX,dl.stream.qqmusic.qq.com,DIRECT
+IP-CIDR,58.247.0.0/16,DIRECT,no-resolve
+IP-CIDR,58.250.0.0/16,DIRECT,no-resolve
+IP-CIDR,182.254.0.0/16,DIRECT,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 喜馬拉雅 CDN音頻 (HK直連快)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,xmcdn.com,DIRECT
+IP-CIDR,101.37.0.0/16,DIRECT,no-resolve
+IP-CIDR,116.62.0.0/16,DIRECT,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 小米 MIUI OTA / 靜態資源 (HK CDN直連)
+# IoT API已在框一走PROXY
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,mi.com,DIRECT
+DOMAIN-SUFFIX,miui.com,DIRECT
+DOMAIN-SUFFIX,xiaomi.com,DIRECT
+DOMAIN-SUFFIX,xiaomipush.com,DIRECT
+DOMAIN-SUFFIX,mi-img.com,DIRECT
+DOMAIN-SUFFIX,mifile.cn,DIRECT
+IP-CIDR,58.83.0.0/16,DIRECT,no-resolve
+IP-CIDR,117.144.0.0/14,DIRECT,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 愛奇藝 CDN視頻流 (HK有節點)
+# 版權認證已在框一走PROXY
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,pps.tv,DIRECT
+DOMAIN-SUFFIX,iqiyi.cn,DIRECT
+IP-CIDR,125.88.0.0/16,DIRECT,no-resolve
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 酷狗 CDN音頻串流 (HK直連)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DOMAIN-SUFFIX,kugoucdn.com,DIRECT
+IP-CIDR,183.57.0.0/16,DIRECT,no-resolve
