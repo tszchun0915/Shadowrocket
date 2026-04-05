@@ -1,23 +1,63 @@
-DOMAIN-SUFFIX,rhaon.co.kr
-DOMAIN-SUFFIX,hangame.com
+# === Tales Runner (테일즈런너) 韓服優化規則 ===
+# 包含 Rhaon / Onstove / Hangame 相關域名
+
+# === 核心遊戲伺服器（最重要） ===
+DOMAIN-SUFFIX,tr.game.onstove.com
+DOMAIN-SUFFIX,tr.rhaon.co.kr
+DOMAIN-SUFFIX,tr.game.rhaon.co.kr
+DOMAIN-SUFFIX,game.onstove.com
 DOMAIN-SUFFIX,onstove.com
+DOMAIN-SUFFIX,rhaon.co.kr
+
+# === 官方網站 & Launcher ===
+DOMAIN-SUFFIX,tr.rhaon.co.kr
+DOMAIN-SUFFIX,tr.hangame.com
+DOMAIN-SUFFIX,hangame.com
+DOMAIN-SUFFIX,www.hangame.com
+
+# === 帳號、登入、支付 ===
+DOMAIN-SUFFIX,account.onstove.com
+DOMAIN-SUFFIX,login.onstove.com
+DOMAIN-SUFFIX,member.onstove.com
+DOMAIN-SUFFIX,payco.com
 DOMAIN-SUFFIX,naver.com
+DOMAIN-SUFFIX,daum.net
+
+# === Patch / Download / 資源伺服器 ===
+DOMAIN-SUFFIX,download.onstove.com
+DOMAIN-SUFFIX,patch.onstove.com
+DOMAIN-SUFFIX,cdn.onstove.com
+DOMAIN-SUFFIX,static.onstove.com
+DOMAIN-SUFFIX,resource.rhaon.co.kr
+DOMAIN-SUFFIX,assets.rhaon.co.kr
+
+# === 其他韓國遊戲相關（常見共用） ===
 DOMAIN-SUFFIX,nexon.com
-DOMAIN-SUFFIX,mgame.com
-DOMAIN-SUFFIX,pmang.com
 DOMAIN-SUFFIX,netmarble.com
 DOMAIN-SUFFIX,netmarble.net
-DOMAIN-SUFFIX,daum.net
-DOMAIN-SUFFIX,pokipoki.kr
-DOMAIN-SUFFIX,pokipoki.co.kr
-DOMAIN-SUFFIX,payco.com
-DOMAIN-SUFFIX,kr.playblackdesert.com
+DOMAIN-SUFFIX,pmang.com
+DOMAIN-SUFFIX,mgame.com
 DOMAIN-SUFFIX,plaync.com
-DOMAIN-SUFFIX,mapleplanet.co.kr
-DOMAIN-SUFFIX,inven.co.kr
 DOMAIN-SUFFIX,krafton.com
 DOMAIN-SUFFIX,bugs.co.kr
-DOMAIN-SUFFIX,account.pearlabyss.com
-DOMAIN-SUFFIX,dflkorea.kr
-DOMAIN-SUFFIX,dfl.or.kr
-DOMAIN-SUFFIX,nida.or.kr
+DOMAIN-SUFFIX,inven.co.kr
+DOMAIN-SUFFIX,pokipoki.kr
+DOMAIN-SUFFIX,pokipoki.co.kr
+
+# === 額外推薦補充（提升穩定性） ===
+DOMAIN-SUFFIX,ssl.onstove.com
+DOMAIN-SUFFIX,api.onstove.com
+DOMAIN-SUFFIX,log.onstove.com
+DOMAIN-SUFFIX,edge.onstove.com
+DOMAIN-SUFFIX,cloudfront.net              # 常見遊戲 CDN
+DOMAIN-SUFFIX,akamai.net                 # Akamai CDN
+DOMAIN-SUFFIX,akamaized.net
+DOMAIN-KEYWORD,talesrunner
+DOMAIN-KEYWORD,테일즈런너
+
+# === PROCESS-NAME（如果想走代理 launcher 同遊戲本體） ===
+PROCESS-NAME,TRGame.exe
+PROCESS-NAME,TalesRunner.exe
+PROCESS-NAME,TRLauncher.exe
+PROCESS-NAME,OnstoveLauncher.exe
+PROCESS-NAME,HangameLauncher.exe
