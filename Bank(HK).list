@@ -1,215 +1,171 @@
-# === 香港金融相關域名規則（完整整理版，2026年3月適用） ===
-# 目標：完整覆蓋香港銀行、支付、證券、投資、加密等金融服務
-# 使用方式：直接放入 [Rule] 或 DOMAIN-SET，視工具而定
+# === 香港金融相關規則 (合併版 + PROCESS-NAME + IP-CIDR) - 2026年4月 ===
+# Shadowrocket / Surge / Quantumult X
+
+# === PROCESS-NAME (銀行及支付 App) ===
+PROCESS-NAME,HSBC HK
+PROCESS-NAME,HSBC
+PROCESS-NAME,BOCHK
+PROCESS-NAME,Hang Seng
+PROCESS-NAME,SC Mobile
+PROCESS-NAME,Citibank HK
+PROCESS-NAME,DBS digibank
+PROCESS-NAME,ZA Bank
+PROCESS-NAME,MOX
+PROCESS-NAME,Livi
+PROCESS-NAME,WeLab Bank
+PROCESS-NAME,Airstar Bank
+PROCESS-NAME,Fusion Bank
+PROCESS-NAME,AlipayHK
+PROCESS-NAME,Alipay
+PROCESS-NAME,WeChat
+PROCESS-NAME,Weixin
+PROCESS-NAME,Octopus
+PROCESS-NAME,PayMe
+PROCESS-NAME,UnionPay
+PROCESS-NAME,PayPal
+
+# === IP-CIDR (有限但有用，主要大銀行) ===
+IP-CIDR,27.110.72.0/21,no-resolve
+IP-CIDR,103.74.166.0/23,no-resolve
+IP-CIDR,180.233.158.0/23,no-resolve
+IP-CIDR,202.127.168.0/21,no-resolve
+IP-CIDR,166.81.6.0/24,no-resolve
 
 # === 香港實體銀行 ===
-# 滙豐銀行 HSBC
 DOMAIN-SUFFIX,hsbc.com.hk
 DOMAIN-SUFFIX,hsbc.com
 DOMAIN-SUFFIX,hsbcnet.com
 DOMAIN-SUFFIX,about-hsbc.com.hk
 DOMAIN-SUFFIX,hsbcprivatebank.com
 DOMAIN-SUFFIX,hsbc-am.com
-
-# 中國銀行香港 BOCHK
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,bochk.com.hk
 DOMAIN-SUFFIX,bocgroup.com
 DOMAIN-SUFFIX,boc.cn
 DOMAIN-SUFFIX,bocnet.com.hk
-
-# 恒生銀行 Hang Seng
 DOMAIN-SUFFIX,hangseng.com
 DOMAIN-SUFFIX,hangseng.com.hk
 DOMAIN-SUFFIX,hangsengbank.com
-
-# 渣打銀行 Standard Chartered
 DOMAIN-SUFFIX,sc.com
 DOMAIN-SUFFIX,standardchartered.com.hk
 DOMAIN-SUFFIX,standardchartered.com
 DOMAIN-SUFFIX,scb.com.hk
-
-# 花旗銀行 Citibank
 DOMAIN-SUFFIX,citibank.com.hk
 DOMAIN-SUFFIX,citi.com
 DOMAIN-SUFFIX,citigroup.com
 DOMAIN-SUFFIX,online.citibank.com.hk
-
-# 東亞銀行 Bank of East Asia
 DOMAIN-SUFFIX,hkbea.com
 DOMAIN-SUFFIX,hkbea.com.hk
 DOMAIN-SUFFIX,bea.com.hk
-
-# 交通銀行 Bank of Communications
 DOMAIN-SUFFIX,bankcomm.com.hk
 DOMAIN-SUFFIX,bankcomm.com
 DOMAIN-SUFFIX,bocom.com.hk
-
-# 建設銀行亞洲 CCB Asia
 DOMAIN-SUFFIX,asia.ccb.com
 DOMAIN-SUFFIX,ccbasia.com
 DOMAIN-SUFFIX,ccb.com
-
-# 招商銀行香港 CMB Wing Lung
 DOMAIN-SUFFIX,cmbwinglungbank.com
 DOMAIN-SUFFIX,cmbchina.com
 DOMAIN-SUFFIX,winglungbank.com
 DOMAIN-SUFFIX,cmbwlb.com
-
-# 工商銀行亞洲 ICBC Asia
 DOMAIN-SUFFIX,icbcasia.com
 DOMAIN-SUFFIX,icbc.com.cn
 DOMAIN-SUFFIX,icbc-ltd.com
-
-# 大新銀行 Dah Sing Bank
 DOMAIN-SUFFIX,dahsing.com
 DOMAIN-SUFFIX,dahsingbank.com
 DOMAIN-SUFFIX,dahsingbank.com.hk
-
-# 創興銀行 Chong Hing Bank
 DOMAIN-SUFFIX,chbank.com
 DOMAIN-SUFFIX,chonghing.com
 DOMAIN-SUFFIX,chonghingbank.com
-
-# 上海商業銀行 Shanghai Commercial Bank
 DOMAIN-SUFFIX,shacombank.com.hk
 DOMAIN-SUFFIX,scbank.com.hk
-
-# 南洋商業銀行 Nanyang Commercial Bank
 DOMAIN-SUFFIX,ncb.com.hk
 DOMAIN-SUFFIX,ncbank.com.hk
-
-# 星展銀行 DBS Bank
 DOMAIN-SUFFIX,dbs.com.hk
 DOMAIN-SUFFIX,dbs.com
 DOMAIN-SUFFIX,dbsbank.com
 DOMAIN-SUFFIX,posb.com.sg
-
-# 華僑永亨銀行 OCBC Wing Hang
 DOMAIN-SUFFIX,ocbcwhhk.com
 DOMAIN-SUFFIX,ocbc.com
 DOMAIN-SUFFIX,winghanghk.com
-
-# 中信銀行國際 CITIC Bank International
 DOMAIN-SUFFIX,cncbinternational.com
 DOMAIN-SUFFIX,citicbank.com
 DOMAIN-SUFFIX,citic.com
-
-# 富邦銀行 Fubon Bank
 DOMAIN-SUFFIX,fubonbank.com.hk
 DOMAIN-SUFFIX,fubon.com
 
-# === 香港虛擬銀行 (8間持牌) ===
-# 眾安銀行 ZA Bank
+# === 香港虛擬銀行 ===
 DOMAIN-SUFFIX,za.group
 DOMAIN-SUFFIX,bank.za.group
 DOMAIN-SUFFIX,zabank.asia
 DOMAIN-SUFFIX,za-tech.com
-
-# MOX Bank
 DOMAIN-SUFFIX,mox.com
 DOMAIN-SUFFIX,moxbank.com.hk
 DOMAIN-SUFFIX,moxbank.com
 DOMAIN-SUFFIX,mox.com.hk
-
-# Livi Bank
 DOMAIN-SUFFIX,livi.com.hk
 DOMAIN-SUFFIX,livibank.com
 DOMAIN-SUFFIX,livi-bank.com
-
-# 匯立銀行 WeLab Bank
 DOMAIN-SUFFIX,welab.bank
 DOMAIN-SUFFIX,welab.co
 DOMAIN-SUFFIX,welabbank.com
 DOMAIN-SUFFIX,welab.com
-
-# 天星銀行 Airstar Bank
 DOMAIN-SUFFIX,airstarbank.com
 DOMAIN-SUFFIX,airstar.com.hk
 DOMAIN-SUFFIX,airstarbank.com.hk
-
-# 螞蟻銀行 Ant Bank
 DOMAIN-SUFFIX,antbank.hk
 DOMAIN-SUFFIX,antbank.com
 DOMAIN-SUFFIX,antfin.com
-
-# 平安壹賬通銀行 PAO Bank
 DOMAIN-SUFFIX,paob.com.hk
 DOMAIN-SUFFIX,paobhk.com
 DOMAIN-SUFFIX,pabank.hk
 DOMAIN-SUFFIX,oneconnectft.com
-
-# 富融銀行 Fusion Bank
 DOMAIN-SUFFIX,fusionbank.com.hk
 DOMAIN-SUFFIX,fusionbank.com
 DOMAIN-SUFFIX,fusion-bank.com
 
-# === 香港儲值支付工具 (SVF) 及電子支付 ===
-# 支付寶香港 AlipayHK
+# === 支付工具 & 電子錢包 ===
 DOMAIN-SUFFIX,alipayhk.com
 DOMAIN-SUFFIX,alipay.com.hk
 DOMAIN-SUFFIX,alipay.hk
 DOMAIN-SUFFIX,alipay.com
-
-# 微信支付香港 WeChat Pay HK
 DOMAIN-SUFFIX,wechatpay.com.hk
 DOMAIN-SUFFIX,wechat.com
 DOMAIN-SUFFIX,weixin.qq.com
 DOMAIN-SUFFIX,tenpay.com
 DOMAIN-SUFFIX,wechatpay.com
-
-# PayMe (滙豐)
 DOMAIN-SUFFIX,payme.hsbc.com.hk
 DOMAIN-SUFFIX,payme.com.hk
 DOMAIN-SUFFIX,payme.hk
 DOMAIN,payme.hsbc.com.hk
-
-# 八達通 Octopus
 DOMAIN-SUFFIX,octopus.com.hk
 DOMAIN-SUFFIX,octopuscards.com
 DOMAIN-SUFFIX,octopus.hk
 DOMAIN-SUFFIX,oepay.com.hk
 DOMAIN-SUFFIX,oepay.octopus.com.hk
 DOMAIN,oepay.octopus.com.hk
-
-# Tap & Go 拍住賞
 DOMAIN-SUFFIX,tapngo.com.hk
 DOMAIN-SUFFIX,tapandgo.com.hk
 DOMAIN-SUFFIX,mastercard.com.hk
-
-# BoC Pay 中銀支付
 DOMAIN-SUFFIX,bocpay.com
 DOMAIN-SUFFIX,bocpay.com.hk
 DOMAIN,bocpay.bochk.com
-
-# 雲閃付 UnionPay
 DOMAIN-SUFFIX,unionpay.com
 DOMAIN-SUFFIX,unionpay.com.hk
 DOMAIN-SUFFIX,95516.com
 DOMAIN-SUFFIX,unionpayintl.com
-
-# FPS 轉數快
 DOMAIN-SUFFIX,fps.hk
 DOMAIN-SUFFIX,fps.com.hk
 DOMAIN-SUFFIX,hkicl.com.hk
-
-# TNG Wallet
 DOMAIN-SUFFIX,tngjd.com
 DOMAIN-SUFFIX,tng.asia
 DOMAIN-SUFFIX,tngwallet.hk
 DOMAIN-SUFFIX,tngfintech.com
-
-# GoPayz (東亞銀行)
 DOMAIN-SUFFIX,gopayz.com.hk
 DOMAIN-SUFFIX,gopayz.hk
 DOMAIN,gopayz.hkbea.com
-
-# JETCO Pay
 DOMAIN-SUFFIX,jetcopay.com
 DOMAIN-SUFFIX,jetco.com.hk
 DOMAIN-SUFFIX,jetcopay.com.hk
-
-# Paypal（精簡核心 + 關鍵變體，太多會慢）
 DOMAIN-SUFFIX,paypal.com
 DOMAIN-SUFFIX,paypal.com.hk
 DOMAIN-SUFFIX,paypalobjects.com
@@ -231,7 +187,7 @@ DOMAIN-SUFFIX,rtgs.hk
 DOMAIN-SUFFIX,chats.hk
 DOMAIN-SUFFIX,cmes.hk
 
-# === 證券交易商及經紀 ===
+# === 證券、基金、投資平台 ===
 DOMAIN-SUFFIX,bsgroup.com.hk
 DOMAIN-SUFFIX,futuhk.com
 DOMAIN-SUFFIX,futunn.com
@@ -246,8 +202,6 @@ DOMAIN-SUFFIX,etnet.com.hk
 DOMAIN-SUFFIX,aastocks.com
 DOMAIN-SUFFIX,money18.com.hk
 DOMAIN-SUFFIX,quamnet.com
-
-# === 基金及資產管理公司 ===
 DOMAIN-SUFFIX,blackrock.com
 DOMAIN-SUFFIX,vanguard.com.hk
 DOMAIN-SUFFIX,fidelity.com.hk
@@ -258,7 +212,7 @@ DOMAIN-SUFFIX,valuepartners.com.hk
 DOMAIN-SUFFIX,hsbcam.com.hk
 DOMAIN-SUFFIX,hangsengfund.com
 
-# === 匯款及外匯服務 ===
+# === 匯款及外匯 ===
 DOMAIN-SUFFIX,westernunion.com.hk
 DOMAIN-SUFFIX,moneygram.com.hk
 DOMAIN-SUFFIX,remitly.com
@@ -267,19 +221,15 @@ DOMAIN-SUFFIX,transferwise.com
 DOMAIN-SUFFIX,xoom.com
 DOMAIN-SUFFIX,worldremit.com
 
-# === 主要投資交易平台 ===
-# 幣安 Binance
+# === 加密貨幣及主要投資平台 ===
 DOMAIN-SUFFIX,binance.com
 DOMAIN-SUFFIX,binance.us
-DOMAIN-SUFFIX,futunn.com
 DOMAIN-SUFFIX,moomoo.com
 DOMAIN-SUFFIX,tigerbrokers.com
 DOMAIN-SUFFIX,webull.com
 DOMAIN-SUFFIX,interactivebrokers.com
 DOMAIN-SUFFIX,etoro.com
 DOMAIN-SUFFIX,plus500.com
-
-# === 加密貨幣交易所 ===
 DOMAIN-SUFFIX,coinbase.com
 DOMAIN-SUFFIX,kraken.com
 DOMAIN-SUFFIX,bitfinex.com
@@ -293,7 +243,7 @@ DOMAIN-SUFFIX,hashkey.com
 DOMAIN-SUFFIX,hashkey.pro
 DOMAIN-SUFFIX,osl.com
 
-# === 保險及退休金管理 ===
+# === 保險及退休金 ===
 DOMAIN-SUFFIX,mpfa.org.hk
 DOMAIN-SUFFIX,manulife.com.hk
 DOMAIN-SUFFIX,aia.com.hk
