@@ -1,4 +1,8 @@
+# 港跑 (全部都屬於台灣[新台北]IP)
 DOMAIN-SUFFIX,talesrunner.com.hk
 DOMAIN-SUFFIX,funtown.com.hk
 DOMAIN-SUFFIX,runonline.hk
+IP-CIDR,18.178.95.0/24,no-resolve
+IP-CIDR,198.18.0.0/24,no-resolve
 IP-CIDR,210.242.202.0/24,no-resolve
+PROCESS-NAME,xldr_TalesRunner_HK_loader_x64.exe
