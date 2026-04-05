@@ -228,14 +228,14 @@ IP-CIDR,115.182.0.0/16,no-resolve
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Wish-Runner
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  - DOMAIN-SUFFIX,wish-runner.com
-  - DOMAIN-SUFFIX,wishrunner.com
-  - IP-CIDR,202.189.10.0/24,no-resolve
-  - PROCESS-NAME,start_protected_game.exe
-  - IP-CIDR,104.18.124.108/32,no-resolve
-  - IP-CIDR,104.18.125.108/32,no-resolve
-  - IP-CIDR,172.67.141.182/32,no-resolve
-  - IP-CIDR,52.20.32.214/32,no-resolve
+DOMAIN-SUFFIX,wish-runner.com
+DOMAIN-SUFFIX,wishrunner.com
+IP-CIDR,202.189.10.0/24,no-resolve
+PROCESS-NAME,start_protected_game.exe
+IP-CIDR,104.18.124.108/32,no-resolve
+IP-CIDR,104.18.125.108/32,no-resolve
+IP-CIDR,172.67.141.182/32,no-resolve
+IP-CIDR,52.20.32.214/32,no-resolve
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 新增：短視頻 / 直播 / 社交類大陸 App（2026 常見）
